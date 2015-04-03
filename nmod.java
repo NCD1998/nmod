@@ -3,6 +3,9 @@ package com.ncd1998.nmod;
 import com.ncd1998.nmod.Blocks.BlockSkyCobaltBlock;
 import com.ncd1998.nmod.Items.ItemSkyCobalt;
 import com.ncd1998.nmod.Items.SkyCobaltCrystal;
+import com.ncd1998.nmod.Blocks.SkyCobaltOre;
+import com.ncd1998.nmod.Items.*;
+import com.ncd1998.nmod.Blocks.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -32,6 +35,7 @@ public class nmod
     //items
     public static Item SkyCobalt;
     public static Item SkyCobaltCrystal;
+    public static Item SpellPaperNetherRift;
     //blocks
     public static Block SkyCobaltBlock;
     public static Block SkyCobaltOre;
@@ -42,10 +46,12 @@ public class nmod
     {
     	//Blocks
     	SkyCobaltBlock = new BlockSkyCobaltBlock();
-    	SkyCobaltOre = new com.ncd1998.nmod.Blocks.SkyCobaltOre();
+    	SkyCobaltOre = new SkyCobaltOre();
     	//Items
     	SkyCobalt = new ItemSkyCobalt();
     	SkyCobaltCrystal = new SkyCobaltCrystal();
+    	SpellPaperNetherRift = new SpellPaperNetherRift();
+    	
     	//WorldGen
     	NWorldGen = new NWorldGen();
     	
@@ -65,7 +71,7 @@ public class nmod
     		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     		//Blocks
     		renderItem.getItemModelMesher().register(Item.getItemFromBlock(SkyCobaltBlock), 0, new ModelResourceLocation(MODID + ":" + ((BlockSkyCobaltBlock) SkyCobaltBlock).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(Item.getItemFromBlock(SkyCobaltOre), 0, new ModelResourceLocation(MODID + ":" + ((com.ncd1998.nmod.Blocks.SkyCobaltOre) SkyCobaltOre).getName(), "inventory"));
+    		renderItem.getItemModelMesher().register(Item.getItemFromBlock(SkyCobaltOre), 0, new ModelResourceLocation(MODID + ":" + ((SkyCobaltOre) SkyCobaltOre).getName(), "inventory"));
     		//Items
     		renderItem.getItemModelMesher().register(SkyCobalt, 0, new ModelResourceLocation(MODID + ":" + ((ItemSkyCobalt) SkyCobalt).getName(), "inventory"));
     		renderItem.getItemModelMesher().register(SkyCobaltCrystal, 0, new ModelResourceLocation(MODID + ":" + ((SkyCobaltCrystal) SkyCobaltCrystal).getName(), "inventory"));
