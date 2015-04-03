@@ -14,6 +14,7 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
@@ -24,10 +25,16 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.common.SidedProxy;
 
 @Mod(modid = nmod.MODID, version = nmod.VERSION, name = nmod.NAME)
+
 public class nmod
 {
+	@Mod.Instance("nmod")
+	public static nmod instance;
+	//@SidedProxy(clientSide = "com.ncd1998.nmod.Proxy", serverSide = "com.ncd1998.nmod.Proxy")
+	
     public static final String MODID = "nmod";
     public static final String VERSION = "0.0";
     public static final String NAME = "N's Mod";
@@ -36,12 +43,13 @@ public class nmod
     public static Item SkyCobalt;
     public static Item SkyCobaltCrystal;
     public static Item SpellPaperNetherRift;
+    public static Item SpellPaperDeathBeam;
     //blocks
     public static Block SkyCobaltBlock;
     public static Block SkyCobaltOre;
     
     public static IWorldGenerator NWorldGen;
-    @EventHandler
+    @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event)
     {
     	//Blocks
@@ -51,13 +59,14 @@ public class nmod
     	SkyCobalt = new ItemSkyCobalt();
     	SkyCobaltCrystal = new SkyCobaltCrystal();
     	SpellPaperNetherRift = new SpellPaperNetherRift();
+    	SpellPaperDeathBeam = new SpellPaperDeathBeam();
     	
     	//WorldGen
     	NWorldGen = new NWorldGen();
     	
     }
     
-    @EventHandler
+    @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
     	//Adding recipies
@@ -75,10 +84,12 @@ public class nmod
     		//Items
     		renderItem.getItemModelMesher().register(SkyCobalt, 0, new ModelResourceLocation(MODID + ":" + ((ItemSkyCobalt) SkyCobalt).getName(), "inventory"));
     		renderItem.getItemModelMesher().register(SkyCobaltCrystal, 0, new ModelResourceLocation(MODID + ":" + ((SkyCobaltCrystal) SkyCobaltCrystal).getName(), "inventory"));
+    		renderItem.getItemModelMesher().register(SpellPaperNetherRift, 0, new ModelResourceLocation(MODID + ":" + ((SpellPaperNetherRift) SpellPaperNetherRift).getName(), "inventory"));
+    		renderItem.getItemModelMesher().register(SpellPaperDeathBeam, 0, new ModelResourceLocation(MODID + ":" + ((SpellPaperDeathBeam) SpellPaperDeathBeam).getName(), "inventory"));
     	}
     }
     
-    @EventHandler
+    @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event)
     {
     	

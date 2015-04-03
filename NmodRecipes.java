@@ -13,7 +13,7 @@ public class NmodRecipes {
 				"SSS",
 				'S', new ItemStack(nmod.SkyCobalt));
 		//SkyCobalt from block
-		GameRegistry.addShapelessRecipe(new ItemStack(nmod.SkyCobaltBlock, 1), new ItemStack(nmod.SkyCobalt));
+		GameRegistry.addShapelessRecipe(new ItemStack(nmod.SkyCobaltBlock, 1), new ItemStack(nmod.SkyCobalt, 9));
 		
 		
 	}
