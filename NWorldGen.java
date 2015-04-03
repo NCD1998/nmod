@@ -36,7 +36,7 @@ public class NWorldGen implements IWorldGenerator {
    }
    
    public void generateOverworld(World world, Random random, int x, int z){
-	   generateRAREOre(nmod.SkyCobaltBlock, world, random, x, z, 1, 4, 1, 249, 250, Blocks.air);
+	   generateRAREOre(nmod.SkyCobaltOre, world, random, x, z, 1, 4, 1, 249, 250, Blocks.air);
    }
    
    public void generateNether(World world, Random random, int x, int z){

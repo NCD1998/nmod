@@ -1,5 +1,7 @@
 package com.ncd1998.nmod.Blocks;
  
+import java.util.Random;
+
 import com.ncd1998.nmod.nmod;
 
 import net.minecraft.block.Block;
@@ -8,6 +10,7 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,11 +18,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockSkyCobaltBlock extends Block
+public class SkyCobaltOre extends Block
 {
-	private final String name = "SkyCobaltBlock";
+	private final String name = "SkyCobaltOre";
 	protected boolean translucent = true;
-	public BlockSkyCobaltBlock()
+	public SkyCobaltOre()
 	{
 		super(Material.glass);
 		GameRegistry.registerBlock(this, name);
@@ -50,7 +53,8 @@ public class BlockSkyCobaltBlock extends Block
 	    {
 	        return EnumWorldBlockLayer.TRANSLUCENT;
 	    }
-	 public boolean isBeaconBase(){
-		 return true;
+	 public Item getItemDropped(IBlockState state, Random rand, int fortune){
+		 return nmod.SkyCobalt;
 	 }
+	 
 }

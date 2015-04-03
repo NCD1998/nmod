@@ -29,15 +29,20 @@ public class nmod
     public static final String VERSION = "0.0";
     public static final String NAME = "N's Mod";
     
+    //items
     public static Item SkyCobalt;
-    public static Block SkyCobaltBlock;
     public static Item SkyCobaltCrystal;
+    //blocks
+    public static Block SkyCobaltBlock;
+    public static Block SkyCobaltOre;
+    
     public static IWorldGenerator NWorldGen;
     @EventHandler
     public void preinit(FMLPreInitializationEvent event)
     {
     	//Blocks
     	SkyCobaltBlock = new BlockSkyCobaltBlock();
+    	SkyCobaltOre = new com.ncd1998.nmod.Blocks.SkyCobaltOre();
     	//Items
     	SkyCobalt = new ItemSkyCobalt();
     	SkyCobaltCrystal = new SkyCobaltCrystal();
@@ -60,6 +65,7 @@ public class nmod
     		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     		//Blocks
     		renderItem.getItemModelMesher().register(Item.getItemFromBlock(SkyCobaltBlock), 0, new ModelResourceLocation(MODID + ":" + ((BlockSkyCobaltBlock) SkyCobaltBlock).getName(), "inventory"));
+    		renderItem.getItemModelMesher().register(Item.getItemFromBlock(SkyCobaltOre), 0, new ModelResourceLocation(MODID + ":" + ((com.ncd1998.nmod.Blocks.SkyCobaltOre) SkyCobaltOre).getName(), "inventory"));
     		//Items
     		renderItem.getItemModelMesher().register(SkyCobalt, 0, new ModelResourceLocation(MODID + ":" + ((ItemSkyCobalt) SkyCobalt).getName(), "inventory"));
     		renderItem.getItemModelMesher().register(SkyCobaltCrystal, 0, new ModelResourceLocation(MODID + ":" + ((SkyCobaltCrystal) SkyCobaltCrystal).getName(), "inventory"));
