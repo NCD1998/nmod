@@ -14,9 +14,11 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -33,7 +35,7 @@ public class nmod
 {
 	@Mod.Instance("nmod")
 	public static nmod instance;
-	//@SidedProxy(clientSide = "com.ncd1998.nmod.Proxy", serverSide = "com.ncd1998.nmod.Proxy")
+	//@SidedProxy(clientSide = "com.ncd1998.nmod.Proxy.ClientProxy", serverSide = "com.ncd1998.nmod.Proxy.ServerProxy")
 	
     public static final String MODID = "nmod";
     public static final String VERSION = "0.0";
@@ -51,6 +53,7 @@ public class nmod
     public static Item VolitiliumDust;
     public static Item VoiditeIngot;
     public static Item ChargedNetherQuartz;
+    public static Item CobaltDrainingSword;
     //blocks
     public static Block SkyCobaltBlock;
     public static Block SkyCobaltOre;
@@ -58,11 +61,15 @@ public class nmod
     public static Block VolitiliumOre;
     public static Block VoiditeOre;
     public static Block ChargedNetherQuartzOre;
+    //Materials
+    public static ToolMaterial CobaltMaterial;
     
     public static IWorldGenerator NWorldGen;
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event)
     {
+    	//Tool Material
+    	CobaltMaterial = new EnumHelper().addToolMaterial("Cobalt", 4, 1700, 9.0F, 4.0F, 11);
     	//Blocks
     	SkyCobaltBlock = new BlockSkyCobaltBlock();
     	SkyCobaltOre = new SkyCobaltOre();
@@ -82,6 +89,7 @@ public class nmod
     	VolitiliumDust = new VolitiliumDust();
     	VoiditeIngot = new VoiditeIngot();
     	ChargedNetherQuartz = new ChargedNetherQuartz();
+    	CobaltDrainingSword = new CobaltDrainingSword(CobaltMaterial);
     	//WorldGen
     	NWorldGen = new NWorldGen();
     	
