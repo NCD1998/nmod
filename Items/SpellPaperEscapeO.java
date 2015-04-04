@@ -30,10 +30,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.util.DamageSource;
 import net.minecraft.block.BlockPortal;
-public class SpellPaperNetherRift extends Item{
-	private final String name = "SpellPaperNetherRift";
+public class SpellPaperEscapeO extends Item{
+	private final String name = "SpellPaperEscapeO";
 	
-	public SpellPaperNetherRift(){
+	public SpellPaperEscapeO(){
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
 		setCreativeTab(CreativeTabs.tabMisc);
@@ -43,23 +43,24 @@ public class SpellPaperNetherRift extends Item{
 		return name;
 	}
 	//add Info
-		@Override
-		public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
-		{
-		par3List.add("Spell Class: Reality Warping");
-		par3List.add("Spell Danger: Dangerous");
-		}
+	@Override
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	{
+	par3List.add("Spell Class: Teleportation");
+	par3List.add("Spell Danger: Perilous");
+	}
 	//On finish Use
 
+	@SideOnly(Side.CLIENT)
 	 public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityPlayer playerIn)
 	    {
 		playerIn.stopUsingItem();
-		if(worldIn.provider.getDimensionId() != -1){
-		 //Use Paper
-		 stack.stackSize--;
-		 SpellHandler.netherRift(stack, worldIn, playerIn);
+		
+		if(worldIn.provider.getDimensionId() != 0){
+			stack.stackSize--;
+			SpellHandler.escapeToOverworld(playerIn);
 		}else{
-			playerIn.addChatMessage(new ChatComponentTranslation("You can't open a rift to a dimension you are already in...."));
+			playerIn.addChatMessage(new ChatComponentTranslation("You can't escape into the overworld from the overworld..."));
 		}
 			return stack;
 	    }
@@ -69,17 +70,16 @@ public class SpellPaperNetherRift extends Item{
     }
 	 public int getMaxItemUseDuration(ItemStack stack)
 	    {
-	        return 64;
+	        return 10;
 	    }
 	 public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
 	    {
-		 Random rand = new Random();
 	        playerIn.setItemInUse(itemStackIn, this.getMaxItemUseDuration(itemStackIn));
 	        return itemStackIn;
 	    }
 	 
 	 public void onUsingTick(ItemStack stack, EntityPlayer player, int count)
 	    {
-		ParticleHelper.portalAndFlame(stack, player, count);
+		 ParticleHelper.portalOnly(stack, player, count);
 	    }
 }
