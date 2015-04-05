@@ -54,6 +54,7 @@ public class nmod
     public static Item VoiditeIngot;
     public static Item ChargedNetherQuartz;
     public static Item CobaltDrainingSword;
+    public static Item EnderCrystal;
     //blocks
     public static Block SkyCobaltBlock;
     public static Block SkyCobaltOre;
@@ -90,6 +91,7 @@ public class nmod
     	VoiditeIngot = new VoiditeIngot();
     	ChargedNetherQuartz = new ChargedNetherQuartz();
     	CobaltDrainingSword = new CobaltDrainingSword(CobaltMaterial);
+    	EnderCrystal = new EnderCrystal();
     	//WorldGen
     	NWorldGen = new NWorldGen();
     	
@@ -127,6 +129,8 @@ public class nmod
     		renderItem.getItemModelMesher().register(VolitiliumDust, 0, new ModelResourceLocation(MODID + ":" + ((VolitiliumDust) VolitiliumDust).getName(), "inventory"));
     		renderItem.getItemModelMesher().register(VoiditeIngot, 0, new ModelResourceLocation(MODID + ":" + ((VoiditeIngot) VoiditeIngot).getName(), "inventory"));
     		renderItem.getItemModelMesher().register(ChargedNetherQuartz, 0, new ModelResourceLocation(MODID + ":" + ((ChargedNetherQuartz) ChargedNetherQuartz).getName(), "inventory"));
+    		renderItem.getItemModelMesher().register(CobaltDrainingSword, 0, new ModelResourceLocation(MODID + ":" + ((CobaltDrainingSword) CobaltDrainingSword).getName(), "inventory"));
+    		renderItem.getItemModelMesher().register(EnderCrystal, 0, new ModelResourceLocation(MODID + ":" + ((EnderCrystal) EnderCrystal).getName(), "inventory"));
     	}
     }
     
