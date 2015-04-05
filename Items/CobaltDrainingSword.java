@@ -47,42 +47,58 @@ public class CobaltDrainingSword extends ItemSword{
 		return name;
 	}
 	@SideOnly(Side.CLIENT)
-	 public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
-	    {
-		 playerIn.setItemInUse(itemStackIn, this.getMaxItemUseDuration(itemStackIn));
-		 if(playerIn.isSneaking()){
-			 if(itemStackIn.hasTagCompound()){
-				 if(itemStackIn.getTagCompound().getString("Crystal") != "NONE"){
-					 if(itemStackIn.getTagCompound().getInteger("PowerLevel") == 10){
-						 if(itemStackIn.getTagCompound().getString("Crystal") == "ENDER"){
-						 		playerIn.inventory.addItemStackToInventory(new ItemStack(nmod.EnderCrystal, 1, 0));
-						 		itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
-						 		itemStackIn.getTagCompound().setString("Crystal", "NONE");
-						 	}
-					 }else{
-						 if(itemStackIn.getTagCompound().getString("Crystal") == "ENDER"){
-							 	EntityItem item = new EntityItem(worldIn, playerIn.getPosition().getX(), playerIn.getPosition().getY(), playerIn.getPosition().getZ(), new ItemStack(nmod.EnderCrystal));
-						 		itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
-						 		itemStackIn.getTagCompound().setString("Crystal", "NONE");
-						 	}
+	 public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn){
+		playerIn.setItemInUse(itemStackIn, this.getMaxItemUseDuration(itemStackIn));
+		if(playerIn.isSneaking()){
+			if(itemStackIn.hasTagCompound()){
+				if(itemStackIn.getTagCompound().getString("Crystal") != "NONE"){
+					if(itemStackIn.getTagCompound().getInteger("PowerLevel") == 10){
+						if(itemStackIn.getTagCompound().getString("Crystal") == "ENDER"){
+							playerIn.inventory.addItemStackToInventory(new ItemStack(nmod.EnderCrystal, 1, 0));
+					 		itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
+					 		itemStackIn.getTagCompound().setString("Crystal", "NONE");
+						}else if(itemStackIn.getTagCompound().getString("Crystal") == "NETHER"){
+							playerIn.inventory.addItemStackToInventory(new ItemStack(nmod.NetherCrystal, 1, 0));
+					 		itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
+					 		itemStackIn.getTagCompound().setString("Crystal", "NONE");
+						}else{//Is not one of the above
+							
+						}
+					}else{ //If power is less than 10
+						if(itemStackIn.getTagCompound().getString("Crystal") == "ENDER"){
+							playerIn.inventory.addItemStackToInventory(new ItemStack(nmod.EnderCrystal, 1, 1));
+							itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
+					 		itemStackIn.getTagCompound().setString("Crystal", "NONE");
+						}else if(itemStackIn.getTagCompound().getString("Crystal") == "NETHER"){
+							playerIn.inventory.addItemStackToInventory(new ItemStack(nmod.NetherCrystal, 1, 1));
+							itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
+					 		itemStackIn.getTagCompound().setString("Crystal", "NONE");
+						}else{ //Is Not one of the above
+							
+						}
+					}
+				}else{// If Crystal tag == NONE
+					if(playerIn.inventory.hasItemStack(new ItemStack(nmod.EnderCrystal, 1, 1))){
+						 playerIn.inventory.consumeInventoryItem(nmod.EnderCrystal);
+						 itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
+						 itemStackIn.getTagCompound().setString("Crystal", "ENDER");
+					 }else if(playerIn.inventory.hasItemStack(new ItemStack(nmod.NetherCrystal, 1, 1))){
+						 playerIn.inventory.consumeInventoryItem(nmod.NetherCrystal);
+						 itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
+						 itemStackIn.getTagCompound().setString("Crystal", "NETHER");
+					 }else{//Does not have Crystal
+						 
 					 }
-				 }else{
-					 if(playerIn.inventory.hasItem(nmod.EnderCrystal)){
-							 playerIn.inventory.consumeInventoryItem(nmod.EnderCrystal);
-							 itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
-							 itemStackIn.getTagCompound().setString("Crystal", "Ender");
-						 }
-					 
-			 }
-		 }else{
-			 this.onCreated(itemStackIn, worldIn, playerIn);
-			 
-		 }
-		 }else{
-			 printInfo(playerIn,itemStackIn);
-		 }
-	        return itemStackIn;
-	    }
+				}
+			}else{//Does Not have tag compound
+				this.onCreated(itemStackIn, worldIn, playerIn);
+			}
+			
+		}else{ //If player is not sneaking
+			printInfo(playerIn,itemStackIn);
+		}
+		return itemStackIn;
+	}//End Function
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
 		if(stack.getTagCompound().getString("Crystal") != "NONE"){
@@ -97,8 +113,16 @@ public class CobaltDrainingSword extends ItemSword{
 					stack.getTagCompound().setInteger("PowerLevel", pow);
 					attacker.addChatMessage(new ChatComponentTranslation("Power Level: " + stack.getTagCompound().getInteger("PowerLevel")));
 				}
+			}else if(stack.getTagCompound().getString("Crystal") == "NETHER" && target.worldObj.provider.getDimensionId() == -1){
+				if(stack.getTagCompound().getInteger("PowerLevel") == 10){
+					attacker.addChatMessage(new ChatComponentTranslation("The Crystal is fully charged!"));
+				}else{
+					int pow = stack.getTagCompound().getInteger("PowerLevel");
+					pow++;
+					stack.getTagCompound().setInteger("PowerLevel", pow);
+					attacker.addChatMessage(new ChatComponentTranslation("Power Level: " + stack.getTagCompound().getInteger("PowerLevel")));
 			}
-		}
+			}}
         stack.damageItem(1, attacker);
         return true;
     }
@@ -107,6 +131,7 @@ public class CobaltDrainingSword extends ItemSword{
 		if(itemStackIn.hasTagCompound()){
 		 playerIn.addChatMessage(new ChatComponentTranslation("Crystal: : " + itemStackIn.getTagCompound().getString("Crystal")));
 		 playerIn.addChatMessage(new ChatComponentTranslation("Power Level: " + itemStackIn.getTagCompound().getInteger("PowerLevel")));
+		 itemStackIn.getItem().addInformation(itemStackIn, playerIn, itemStackIn.getTooltip(playerIn, true), true);
 		}
 		
 	}

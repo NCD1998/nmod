@@ -2,6 +2,7 @@ package com.ncd1998.nmod;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -15,7 +16,26 @@ public class NmodRecipes {
 				'S', new ItemStack(nmod.SkyCobalt));
 		//SkyCobalt from block
 		GameRegistry.addShapelessRecipe(new ItemStack(nmod.SkyCobaltBlock, 1), new ItemStack(nmod.SkyCobalt, 9));
+		//Absorption Crystal
+		GameRegistry.addRecipe(new ItemStack(nmod.AbsorptionCrystal),
+				"AAA",
+				"ASA",
+				"AAA",
+				'A', new ItemStack(nmod.AbsorbiumDust),
+				'S', new ItemStack(nmod.SkyCobaltCrystal));
+		//Nether Crystal
+		GameRegistry.addRecipe(new ItemStack(nmod.NetherCrystal, 1, 1),
+				"CBC",
+				"GAG",
+				"CBC",
+				'C', new ItemStack(nmod.ChargedNetherQuartz),
+				'B', new ItemStack(Items.blaze_rod),
+				'G', new ItemStack(Items.ghast_tear),
+				'A', new ItemStack(nmod.AbsorptionCrystal));
 		
+		
+		
+		//Temporary Testing Recipes
 		GameRegistry.addRecipe(new ItemStack(nmod.CobaltDrainingSword),
 				" D ",
 				" S ",

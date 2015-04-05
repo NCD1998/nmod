@@ -55,6 +55,8 @@ public class nmod
     public static Item ChargedNetherQuartz;
     public static Item CobaltDrainingSword;
     public static Item EnderCrystal;
+    public static Item NetherCrystal;
+    public static Item AbsorptionCrystal;
     //blocks
     public static Block SkyCobaltBlock;
     public static Block SkyCobaltOre;
@@ -92,6 +94,8 @@ public class nmod
     	ChargedNetherQuartz = new ChargedNetherQuartz();
     	CobaltDrainingSword = new CobaltDrainingSword(CobaltMaterial);
     	EnderCrystal = new EnderCrystal();
+    	NetherCrystal = new NetherCrystal();
+    	AbsorptionCrystal = new AbsorptionCrystal();
     	//WorldGen
     	NWorldGen = new NWorldGen();
     	
@@ -131,6 +135,8 @@ public class nmod
     		renderItem.getItemModelMesher().register(ChargedNetherQuartz, 0, new ModelResourceLocation(MODID + ":" + ((ChargedNetherQuartz) ChargedNetherQuartz).getName(), "inventory"));
     		renderItem.getItemModelMesher().register(CobaltDrainingSword, 0, new ModelResourceLocation(MODID + ":" + ((CobaltDrainingSword) CobaltDrainingSword).getName(), "inventory"));
     		renderItem.getItemModelMesher().register(EnderCrystal, 0, new ModelResourceLocation(MODID + ":" + ((EnderCrystal) EnderCrystal).getName(), "inventory"));
+    		renderItem.getItemModelMesher().register(NetherCrystal, 0, new ModelResourceLocation(MODID + ":" + ((NetherCrystal) NetherCrystal).getName(), "inventory"));
+    		renderItem.getItemModelMesher().register(AbsorptionCrystal, 0, new ModelResourceLocation(MODID + ":" + ((AbsorptionCrystal) AbsorptionCrystal).getName(), "inventory"));
     	}
     }
     
