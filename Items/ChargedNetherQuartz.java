@@ -7,13 +7,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ChargedNetherQuartz extends Item{
+public class ChargedNetherQuartz extends NItem{
 	private final String name = "ChargedNetherQuartz";
 	
 	public ChargedNetherQuartz(){
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setCreativeTab(CreativeTabs.tabMisc);
 	}
 	
 	public String getName(){

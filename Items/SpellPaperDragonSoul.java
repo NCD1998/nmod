@@ -18,13 +18,12 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class SpellPaperDragonSoul extends Item{
+public class SpellPaperDragonSoul extends NItem{
 	private final String name = "SpellPaperDragonSoul";
 	
 	public SpellPaperDragonSoul(){
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setCreativeTab(CreativeTabs.tabMisc);
 	}
 	
 	public String getName(){
@@ -37,15 +36,17 @@ public class SpellPaperDragonSoul extends Item{
 		par3List.add("Spell Class: Buff");
 		par3List.add("Spell Danger: Harmless");
 		}
-	
+	@Override
 	public EnumAction getItemUseAction(ItemStack stack)
     {
         return EnumAction.BOW;
     }
+	@Override
 	public int getMaxItemUseDuration(ItemStack stack)
     {
         return 64;
     }
+	@Override
 	 public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
 	    {playerIn.setItemInUse(itemStackIn, this.getMaxItemUseDuration(itemStackIn));
 		return itemStackIn;}

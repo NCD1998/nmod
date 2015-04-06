@@ -12,21 +12,20 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class NetherCrystal extends Item{
+public class NetherCrystal extends NItem{
 	private final String name = "NetherCrystal";
 	
 	public NetherCrystal(){
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setCreativeTab(CreativeTabs.tabMisc);
 		setMaxStackSize(1);
 		setMaxDamage(1);
-		setNoRepair();
 	}
 	
 	public String getName(){
 		return name;
 	}
+	@Override
 	@SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
     {

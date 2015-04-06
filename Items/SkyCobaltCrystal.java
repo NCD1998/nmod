@@ -7,13 +7,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class SkyCobaltCrystal extends Item{
+public class SkyCobaltCrystal extends NItem{
 	private final String name = "SkyCobaltCrystal";
 	
 	public SkyCobaltCrystal(){
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setCreativeTab(CreativeTabs.tabMisc);
 	}
 	
 	public String getName(){

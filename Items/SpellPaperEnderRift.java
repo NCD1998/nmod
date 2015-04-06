@@ -32,13 +32,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.util.DamageSource;
 import net.minecraft.block.BlockPortal;
-public class SpellPaperEnderRift extends Item{
+public class SpellPaperEnderRift extends NItem{
 	private final String name = "SpellPaperEnderRift";
 	
 	public SpellPaperEnderRift(){
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setCreativeTab(CreativeTabs.tabMisc);
 	}
 	
 	public String getName(){
@@ -52,6 +51,7 @@ public class SpellPaperEnderRift extends Item{
 		par3List.add("Spell Danger: High");
 		}
 	//On finish Use
+	@Override
 	@SideOnly(Side.CLIENT)
 	 public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityPlayer playerIn)
 	    {
@@ -64,20 +64,23 @@ public class SpellPaperEnderRift extends Item{
 		}
 			return stack;
 	    }
+	@Override
 	public EnumAction getItemUseAction(ItemStack stack)
     {
         return EnumAction.BOW;
     }
+	@Override
 	 public int getMaxItemUseDuration(ItemStack stack)
 	    {
 	        return 64;
 	    }
+	@Override
 	 public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
 	    {
 	        playerIn.setItemInUse(itemStackIn, this.getMaxItemUseDuration(itemStackIn));
 	        return itemStackIn;
 	    }
-	 
+	 @Override
 	 public void onUsingTick(ItemStack stack, EntityPlayer player, int count)
 	    {
 		ParticleHelper.portalAndSuspendedDepth(stack, player, count);

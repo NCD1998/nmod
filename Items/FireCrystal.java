@@ -4,22 +4,20 @@ package com.ncd1998.nmod.Items;
 import com.ncd1998.nmod.nmod;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EnderCrystal extends NItem{
-	private final String name = "EnderCrystal";
+public class FireCrystal extends NItem{
+	private final String name = "FireCrystal";
 	
-	public EnderCrystal(){
+	public FireCrystal(){
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setMaxStackSize(1);
-		setMaxDamage(1);
+		this.setMaxDamage(1000);
+		this.setMaxStackSize(1);
 	}
 	
 	public String getName(){
@@ -34,5 +32,6 @@ public class EnderCrystal extends NItem{
         }
         return false;
     }
+	
 	
 }

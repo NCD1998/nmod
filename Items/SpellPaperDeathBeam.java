@@ -24,12 +24,11 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class SpellPaperDeathBeam extends Item{
+public class SpellPaperDeathBeam extends NItem{
 	private final String name = "SpellPaperDeathBeam";
 	public SpellPaperDeathBeam(){
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setCreativeTab(CreativeTabs.tabMisc);
 	}
 	
 	public String getName(){
@@ -42,19 +41,17 @@ public class SpellPaperDeathBeam extends Item{
 		par3List.add("Spell Class: Beam");
 		par3List.add("Spell Danger: Deadly");
 		}
+	@Override
 	public EnumAction getItemUseAction(ItemStack stack)
     {
         return EnumAction.BOW;
     }
+	@Override
 	public int getMaxItemUseDuration(ItemStack stack)
     {
         return 32;
     }
-	/*public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
-	   {
-		playerIn.setItemInUse(itemStackIn, this.getMaxItemUseDuration(itemStackIn));
-		 return itemStackIn;
-	    }*/
+	@Override
 	 public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
 	    {playerIn.setItemInUse(itemStackIn, this.getMaxItemUseDuration(itemStackIn));
 		return itemStackIn;}
@@ -67,6 +64,7 @@ public class SpellPaperDeathBeam extends Item{
 	        }
 	        return stack;
 	    }
+	@Override
 	public void onUsingTick(ItemStack stack, EntityPlayer player, int count)
     {
 		ParticleHelper.flameAndSuspendedDepth(stack, player, count);

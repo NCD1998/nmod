@@ -3,6 +3,7 @@ package com.ncd1998.nmod.Blocks;
 import java.util.Random;
 
 import com.ncd1998.nmod.nmod;
+import com.ncd1998.nmod.Init.NItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -38,7 +39,7 @@ public class AbsorbiumOre extends Block
 		return name;
 	}
 	 public Item getItemDropped(IBlockState state, Random rand, int fortune){
-		 return nmod.AbsorbiumDust;
+		 return NItems.AbsorbiumDust;
 	 }
 	 /**
 	     * Get the quantity dropped based on the given fortune level

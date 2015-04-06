@@ -30,13 +30,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.util.DamageSource;
 import net.minecraft.block.BlockPortal;
-public class SpellPaperEscapeO extends Item{
+public class SpellPaperEscapeO extends NItem{
 	private final String name = "SpellPaperEscapeO";
 	
 	public SpellPaperEscapeO(){
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setCreativeTab(CreativeTabs.tabMisc);
 	}
 	
 	public String getName(){
@@ -50,7 +49,7 @@ public class SpellPaperEscapeO extends Item{
 	par3List.add("Spell Danger: Perilous");
 	}
 	//On finish Use
-
+	@Override
 	@SideOnly(Side.CLIENT)
 	 public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityPlayer playerIn)
 	    {
@@ -64,20 +63,23 @@ public class SpellPaperEscapeO extends Item{
 		}
 			return stack;
 	    }
+	@Override
 	public EnumAction getItemUseAction(ItemStack stack)
     {
         return EnumAction.BOW;
     }
+	@Override
 	 public int getMaxItemUseDuration(ItemStack stack)
 	    {
 	        return 10;
 	    }
+	@Override
 	 public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
 	    {
 	        playerIn.setItemInUse(itemStackIn, this.getMaxItemUseDuration(itemStackIn));
 	        return itemStackIn;
 	    }
-	 
+	 @Override
 	 public void onUsingTick(ItemStack stack, EntityPlayer player, int count)
 	    {
 		 ParticleHelper.portalOnly(stack, player, count);

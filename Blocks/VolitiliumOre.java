@@ -3,6 +3,7 @@ package com.ncd1998.nmod.Blocks;
 import java.util.Random;
 
 import com.ncd1998.nmod.nmod;
+import com.ncd1998.nmod.Init.NItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -40,7 +41,7 @@ public class VolitiliumOre extends Block
 		return name;
 	}
 	 public Item getItemDropped(IBlockState state, Random rand, int fortune){
-		 return nmod.VolitiliumDust;
+		 return NItems.VolitiliumDust;
 	 }
 	 /**
 	     * Get the quantity dropped based on the given fortune level

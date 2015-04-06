@@ -1,10 +1,12 @@
-package com.ncd1998.nmod;
+package com.ncd1998.nmod.World;
 
 import java.util.Random;
 
 import akka.japi.Predicate;
 
+import com.ncd1998.nmod.nmod;
 import com.ncd1998.nmod.Blocks.*;
+import com.ncd1998.nmod.Init.NBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.pattern.BlockHelper;
@@ -36,15 +38,16 @@ public class NWorldGen implements IWorldGenerator {
    }
    
    public void generateOverworld(World world, Random random, int x, int z){
-	   generateRAREOre(nmod.SkyCobaltOre, world, random, x, z, 1, 4, 1, 249, 250, Blocks.air);
-	   generateOre(nmod.AbsorbiumOre, world, random, x, z, 2, 8, 5, 1, 30, Blocks.stone);
-	   generateOre(nmod.VolitiliumOre, world, random, x, z, 3, 7, 3, 1, 20, Blocks.stone);
-	   generateOre(nmod.VoiditeOre, world, random, x, z, 3, 7, 5, 2, 8, Blocks.bedrock);
+	   generateRAREOre(NBlocks.SkyCobaltOre, world, random, x, z, 1, 4, 1, 249, 250, Blocks.air);
+	   generateOre(NBlocks.AbsorbiumOre, world, random, x, z, 2, 8, 5, 1, 30, Blocks.stone);
+	   generateOre(NBlocks.VolitiliumOre, world, random, x, z, 3, 7, 3, 1, 20, Blocks.stone);
+	   generateOre(NBlocks.VoiditeOre, world, random, x, z, 3, 7, 5, 2, 8, Blocks.bedrock);
    }
    
    public void generateNether(World world, Random random, int x, int z){
-      generateOre(nmod.ChargedNetherQuartzOre, world, random, x, z, 4, 8, 10, 1, 200, Blocks.netherrack);
-   }
+      generateOre(NBlocks.ChargedNetherQuartzOre, world, random, x, z, 4, 8, 10, 1, 200, Blocks.netherrack);
+      generateOre(NBlocks.GlimmerStone, world, random, x, z, 10,20, 100, 1, 200, Blocks.glowstone);
+      }
 
    public void generateOre(Block block, World world, Random random, int chunkX, int chunkZ, int minVienSize, int maxVienSize, int chance , int minY, int maxY, Block generateIn){
       

@@ -4,6 +4,9 @@ package com.ncd1998.nmod.Items;
 import java.util.List;
 
 import com.ncd1998.nmod.nmod;
+import com.ncd1998.nmod.Init.NItems;
+import com.ncd1998.nmod.Reference.MCEntityPaths;
+import com.ncd1998.nmod.Util.EntityIdentifier;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -24,18 +27,19 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class CobaltDrainingSword extends ItemSword{
+public class CobaltDrainingSword extends NItemSword{
 	private final String name = "CobaltDrainingSword";
+	private final int MaxChargeLevel = 10;
 	
 	public CobaltDrainingSword(ToolMaterial Mat){
 		super(Mat);
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setCreativeTab(CreativeTabs.tabCombat);
 		
 		
 		
 	}
+	@Override
 	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
 	    if( par1ItemStack.hasTagCompound() == false ){
 	        par1ItemStack.setTagCompound(new NBTTagCompound());
@@ -46,19 +50,20 @@ public class CobaltDrainingSword extends ItemSword{
 	public String getName(){
 		return name;
 	}
+	@Override
 	@SideOnly(Side.CLIENT)
 	 public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn){
 		playerIn.setItemInUse(itemStackIn, this.getMaxItemUseDuration(itemStackIn));
 		if(playerIn.isSneaking()){
 			if(itemStackIn.hasTagCompound()){
 				if(itemStackIn.getTagCompound().getString("Crystal") != "NONE"){
-					if(itemStackIn.getTagCompound().getInteger("PowerLevel") == 10){
+					if(itemStackIn.getTagCompound().getInteger("PowerLevel") == MaxChargeLevel){
 						if(itemStackIn.getTagCompound().getString("Crystal") == "ENDER"){
-							playerIn.inventory.addItemStackToInventory(new ItemStack(nmod.EnderCrystal, 1, 0));
+							playerIn.inventory.addItemStackToInventory(new ItemStack(NItems.EnderCrystal, 1, 0));
 					 		itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
 					 		itemStackIn.getTagCompound().setString("Crystal", "NONE");
 						}else if(itemStackIn.getTagCompound().getString("Crystal") == "NETHER"){
-							playerIn.inventory.addItemStackToInventory(new ItemStack(nmod.NetherCrystal, 1, 0));
+							playerIn.inventory.addItemStackToInventory(new ItemStack(NItems.NetherCrystal, 1, 0));
 					 		itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
 					 		itemStackIn.getTagCompound().setString("Crystal", "NONE");
 						}else{//Is not one of the above
@@ -66,11 +71,11 @@ public class CobaltDrainingSword extends ItemSword{
 						}
 					}else{ //If power is less than 10
 						if(itemStackIn.getTagCompound().getString("Crystal") == "ENDER"){
-							playerIn.inventory.addItemStackToInventory(new ItemStack(nmod.EnderCrystal, 1, 1));
+							playerIn.inventory.addItemStackToInventory(new ItemStack(NItems.EnderCrystal, 1, 1));
 							itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
 					 		itemStackIn.getTagCompound().setString("Crystal", "NONE");
 						}else if(itemStackIn.getTagCompound().getString("Crystal") == "NETHER"){
-							playerIn.inventory.addItemStackToInventory(new ItemStack(nmod.NetherCrystal, 1, 1));
+							playerIn.inventory.addItemStackToInventory(new ItemStack(NItems.NetherCrystal, 1, 1));
 							itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
 					 		itemStackIn.getTagCompound().setString("Crystal", "NONE");
 						}else{ //Is Not one of the above
@@ -78,12 +83,12 @@ public class CobaltDrainingSword extends ItemSword{
 						}
 					}
 				}else{// If Crystal tag == NONE
-					if(playerIn.inventory.hasItemStack(new ItemStack(nmod.EnderCrystal, 1, 1))){
-						 playerIn.inventory.consumeInventoryItem(nmod.EnderCrystal);
+					if(playerIn.inventory.hasItemStack(new ItemStack(NItems.EnderCrystal, 1, 1))){
+						 playerIn.inventory.consumeInventoryItem(NItems.EnderCrystal);
 						 itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
 						 itemStackIn.getTagCompound().setString("Crystal", "ENDER");
-					 }else if(playerIn.inventory.hasItemStack(new ItemStack(nmod.NetherCrystal, 1, 1))){
-						 playerIn.inventory.consumeInventoryItem(nmod.NetherCrystal);
+					 }else if(playerIn.inventory.hasItemStack(new ItemStack(NItems.NetherCrystal, 1, 1))){
+						 playerIn.inventory.consumeInventoryItem(NItems.NetherCrystal);
 						 itemStackIn.getTagCompound().setInteger("PowerLevel", 0);
 						 itemStackIn.getTagCompound().setString("Crystal", "NETHER");
 					 }else{//Does not have Crystal
@@ -99,13 +104,15 @@ public class CobaltDrainingSword extends ItemSword{
 		}
 		return itemStackIn;
 	}//End Function
+	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
+		System.out.println(target.getClass().getName());
 		if(stack.getTagCompound().getString("Crystal") != "NONE"){
-			if(stack.getTagCompound().getString("Crystal") == "ENDER" && (target.worldObj.provider.getDimensionId() == 1 || ((Entity)target instanceof EntityEnderman))) {
+			if(stack.getTagCompound().getString("Crystal") == "ENDER" && EntityIdentifier.isEntityEnderMob(target.getClass().getName())) {
 				
 			
-				if(stack.getTagCompound().getInteger("PowerLevel") == 10){
+				if(stack.getTagCompound().getInteger("PowerLevel") == MaxChargeLevel){
 					attacker.addChatMessage(new ChatComponentTranslation("The Crystal is fully charged!"));
 				}else{
 					int pow = stack.getTagCompound().getInteger("PowerLevel");
@@ -113,7 +120,7 @@ public class CobaltDrainingSword extends ItemSword{
 					stack.getTagCompound().setInteger("PowerLevel", pow);
 					attacker.addChatMessage(new ChatComponentTranslation("Power Level: " + stack.getTagCompound().getInteger("PowerLevel")));
 				}
-			}else if(stack.getTagCompound().getString("Crystal") == "NETHER" && target.worldObj.provider.getDimensionId() == -1){
+			}else if(stack.getTagCompound().getString("Crystal") == "NETHER" && EntityIdentifier.isEntityNetherMob(target.getClass().getName())){
 				if(stack.getTagCompound().getInteger("PowerLevel") == 10){
 					attacker.addChatMessage(new ChatComponentTranslation("The Crystal is fully charged!"));
 				}else{

@@ -5,7 +5,11 @@ import com.ncd1998.nmod.Items.ItemSkyCobalt;
 import com.ncd1998.nmod.Items.SkyCobaltCrystal;
 import com.ncd1998.nmod.Blocks.SkyCobaltOre;
 import com.ncd1998.nmod.Items.*;
+import com.ncd1998.nmod.Proxy.IProxy;
+import com.ncd1998.nmod.Reference.Reference;
+import com.ncd1998.nmod.World.NWorldGen;
 import com.ncd1998.nmod.Blocks.*;
+import com.ncd1998.nmod.Init.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -33,69 +37,25 @@ import net.minecraftforge.fml.common.SidedProxy;
 
 public class nmod
 {
-	@Mod.Instance("nmod")
+	@Mod.Instance(nmod.MODID)
 	public static nmod instance;
-	//@SidedProxy(clientSide = "com.ncd1998.nmod.Proxy.ClientProxy", serverSide = "com.ncd1998.nmod.Proxy.ServerProxy")
+	@SidedProxy(clientSide = Reference.CLIENT_PROXY_PATH, serverSide = Reference.SERVER_PROXY_PATH)
+	public static IProxy Proxy;
 	
-    public static final String MODID = "nmod";
-    public static final String VERSION = "0.0";
-    public static final String NAME = "N's Mod";
-    
-    //items
-    public static Item SkyCobalt;
-    public static Item SkyCobaltCrystal;
-    public static Item SpellPaperNetherRift;
-    public static Item SpellPaperDeathBeam;
-    public static Item SpellPaperDragonSoul;
-    public static Item SpellPaperEnderRift;
-    public static Item SpellPaperEscapeO;
-    public static Item AbsorbiumDust;
-    public static Item VolitiliumDust;
-    public static Item VoiditeIngot;
-    public static Item ChargedNetherQuartz;
-    public static Item CobaltDrainingSword;
-    public static Item EnderCrystal;
-    public static Item NetherCrystal;
-    public static Item AbsorptionCrystal;
-    //blocks
-    public static Block SkyCobaltBlock;
-    public static Block SkyCobaltOre;
-    public static Block AbsorbiumOre;
-    public static Block VolitiliumOre;
-    public static Block VoiditeOre;
-    public static Block ChargedNetherQuartzOre;
-    //Materials
-    public static ToolMaterial CobaltMaterial;
+    public static final String MODID = Reference.MOD_ID;
+    public static final String VERSION = Reference.MOD_VERSION;
+    public static final String NAME = Reference.MOD_NAME;
     
     public static IWorldGenerator NWorldGen;
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event)
     {
-    	//Tool Material
-    	CobaltMaterial = new EnumHelper().addToolMaterial("Cobalt", 4, 1700, 9.0F, 4.0F, 11);
-    	//Blocks
-    	SkyCobaltBlock = new BlockSkyCobaltBlock();
-    	SkyCobaltOre = new SkyCobaltOre();
-    	AbsorbiumOre = new AbsorbiumOre();
-    	VolitiliumOre = new VolitiliumOre();
-    	VoiditeOre = new VoiditeOre();
-    	ChargedNetherQuartzOre = new ChargedNetherQuartzOre();
+    	//Tool Materials
+    	NMaterials.init();
     	//Items
-    	SkyCobalt = new ItemSkyCobalt();
-    	SkyCobaltCrystal = new SkyCobaltCrystal();
-    	SpellPaperNetherRift = new SpellPaperNetherRift();
-    	SpellPaperDeathBeam = new SpellPaperDeathBeam();
-    	SpellPaperDragonSoul = new SpellPaperDragonSoul();
-    	SpellPaperEnderRift = new SpellPaperEnderRift();
-    	SpellPaperEscapeO = new SpellPaperEscapeO();
-    	AbsorbiumDust = new AbsorbiumDust();
-    	VolitiliumDust = new VolitiliumDust();
-    	VoiditeIngot = new VoiditeIngot();
-    	ChargedNetherQuartz = new ChargedNetherQuartz();
-    	CobaltDrainingSword = new CobaltDrainingSword(CobaltMaterial);
-    	EnderCrystal = new EnderCrystal();
-    	NetherCrystal = new NetherCrystal();
-    	AbsorptionCrystal = new AbsorptionCrystal();
+    	NItems.init();
+    	//Blocks
+    	NBlocks.init();
     	//WorldGen
     	NWorldGen = new NWorldGen();
     	
@@ -112,31 +72,9 @@ public class nmod
     	//render
     	if(event.getSide() == Side.CLIENT)
     	{
-    		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     		//Blocks
-    		renderItem.getItemModelMesher().register(Item.getItemFromBlock(SkyCobaltBlock), 0, new ModelResourceLocation(MODID + ":" + ((BlockSkyCobaltBlock) SkyCobaltBlock).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(Item.getItemFromBlock(SkyCobaltOre), 0, new ModelResourceLocation(MODID + ":" + ((SkyCobaltOre) SkyCobaltOre).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(Item.getItemFromBlock(AbsorbiumOre), 0, new ModelResourceLocation(MODID + ":" + ((AbsorbiumOre) AbsorbiumOre).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(Item.getItemFromBlock(VolitiliumOre), 0, new ModelResourceLocation(MODID + ":" + ((VolitiliumOre) VolitiliumOre).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(Item.getItemFromBlock(VoiditeOre), 0, new ModelResourceLocation(MODID + ":" + ((VoiditeOre) VoiditeOre).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(Item.getItemFromBlock(ChargedNetherQuartzOre), 0, new ModelResourceLocation(MODID + ":" + ((ChargedNetherQuartzOre) ChargedNetherQuartzOre).getName(), "inventory"));
-    		
-    		//Items
-    		renderItem.getItemModelMesher().register(SkyCobalt, 0, new ModelResourceLocation(MODID + ":" + ((ItemSkyCobalt) SkyCobalt).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(SkyCobaltCrystal, 0, new ModelResourceLocation(MODID + ":" + ((SkyCobaltCrystal) SkyCobaltCrystal).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(SpellPaperNetherRift, 0, new ModelResourceLocation(MODID + ":" + ((SpellPaperNetherRift) SpellPaperNetherRift).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(SpellPaperDeathBeam, 0, new ModelResourceLocation(MODID + ":" + ((SpellPaperDeathBeam) SpellPaperDeathBeam).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(SpellPaperDragonSoul, 0, new ModelResourceLocation(MODID + ":" + ((SpellPaperDragonSoul) SpellPaperDragonSoul).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(SpellPaperEnderRift, 0, new ModelResourceLocation(MODID + ":" + ((SpellPaperEnderRift) SpellPaperEnderRift).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(SpellPaperEscapeO, 0, new ModelResourceLocation(MODID + ":" + ((SpellPaperEscapeO) SpellPaperEscapeO).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(AbsorbiumDust, 0, new ModelResourceLocation(MODID + ":" + ((AbsorbiumDust) AbsorbiumDust).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(VolitiliumDust, 0, new ModelResourceLocation(MODID + ":" + ((VolitiliumDust) VolitiliumDust).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(VoiditeIngot, 0, new ModelResourceLocation(MODID + ":" + ((VoiditeIngot) VoiditeIngot).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(ChargedNetherQuartz, 0, new ModelResourceLocation(MODID + ":" + ((ChargedNetherQuartz) ChargedNetherQuartz).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(CobaltDrainingSword, 0, new ModelResourceLocation(MODID + ":" + ((CobaltDrainingSword) CobaltDrainingSword).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(EnderCrystal, 0, new ModelResourceLocation(MODID + ":" + ((EnderCrystal) EnderCrystal).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(NetherCrystal, 0, new ModelResourceLocation(MODID + ":" + ((NetherCrystal) NetherCrystal).getName(), "inventory"));
-    		renderItem.getItemModelMesher().register(AbsorptionCrystal, 0, new ModelResourceLocation(MODID + ":" + ((AbsorptionCrystal) AbsorptionCrystal).getName(), "inventory"));
+    		NBlocks.render();
+    		NItems.render();
     	}
     }
     

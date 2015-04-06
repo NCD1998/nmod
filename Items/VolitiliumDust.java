@@ -12,24 +12,25 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class VolitiliumDust extends Item{
+public class VolitiliumDust extends NItem{
 	private final String name = "VolitiliumDust";
 	
 	public VolitiliumDust(){
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setCreativeTab(CreativeTabs.tabMisc);
 	}
 	
 	public String getName(){
 		return name;
 	}
+	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
 		stack.stackSize--;
 		target.worldObj.createExplosion(target, target.getPosition().getX(), target.getPosition().getY(), target.getPosition().getZ(), 2, true);
         return false;
     }
+	@Override
 	public boolean onDroppedByPlayer(ItemStack item, EntityPlayer player)
     {
 		Random rand = new Random();

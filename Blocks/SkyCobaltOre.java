@@ -3,6 +3,7 @@ package com.ncd1998.nmod.Blocks;
 import java.util.Random;
 
 import com.ncd1998.nmod.nmod;
+import com.ncd1998.nmod.Init.NItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -54,7 +55,7 @@ public class SkyCobaltOre extends Block
 	        return EnumWorldBlockLayer.TRANSLUCENT;
 	    }
 	 public Item getItemDropped(IBlockState state, Random rand, int fortune){
-		 return nmod.SkyCobalt;
+		 return NItems.SkyCobalt;
 	 }
 	 
 }
