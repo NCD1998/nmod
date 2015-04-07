@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class SkyCobaltOre extends Block
+public class SkyCobaltOre extends NBlock
 {
 	private final String name = "SkyCobaltOre";
 	protected boolean translucent = true;
@@ -28,7 +28,6 @@ public class SkyCobaltOre extends Block
 		super(Material.glass);
 		GameRegistry.registerBlock(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setCreativeTab(CreativeTabs.tabBlock);
 		setHardness(10F);
 		setStepSound(Block.soundTypeGlass);
 		setLightLevel(0.0F);

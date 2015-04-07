@@ -20,6 +20,7 @@ public class NetherCrystal extends NItem{
 		setUnlocalizedName(nmod.MODID + "_" + name);
 		setMaxStackSize(1);
 		setMaxDamage(1);
+		setNoRepair();
 	}
 	
 	public String getName(){

@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ChargedNetherQuartzOre extends Block
+public class ChargedNetherQuartzOre extends NBlock
 {
 	private final String name = "ChargedNetherQuartzOre";
 	protected boolean translucent = false;
@@ -28,7 +28,6 @@ public class ChargedNetherQuartzOre extends Block
 		super(Material.rock);
 		GameRegistry.registerBlock(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setCreativeTab(CreativeTabs.tabBlock);
 		setHardness(5F);
 		setStepSound(Block.soundTypeStone);
 		setHarvestLevel("pickaxe", 2);

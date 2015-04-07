@@ -1,24 +1,7 @@
 package com.ncd1998.nmod.Init;
 
 import com.ncd1998.nmod.nmod;
-import com.ncd1998.nmod.Blocks.GlimmerStone;
-import com.ncd1998.nmod.Items.AbsorbiumDust;
-import com.ncd1998.nmod.Items.AbsorptionCrystal;
-import com.ncd1998.nmod.Items.ChargedNetherQuartz;
-import com.ncd1998.nmod.Items.CobaltDrainingSword;
-import com.ncd1998.nmod.Items.EnderCrystal;
-import com.ncd1998.nmod.Items.ItemSkyCobalt;
-import com.ncd1998.nmod.Items.NItem;
-import com.ncd1998.nmod.Items.NItemSword;
-import com.ncd1998.nmod.Items.NetherCrystal;
-import com.ncd1998.nmod.Items.SkyCobaltCrystal;
-import com.ncd1998.nmod.Items.SpellPaperDeathBeam;
-import com.ncd1998.nmod.Items.SpellPaperDragonSoul;
-import com.ncd1998.nmod.Items.SpellPaperEnderRift;
-import com.ncd1998.nmod.Items.SpellPaperEscapeO;
-import com.ncd1998.nmod.Items.SpellPaperNetherRift;
-import com.ncd1998.nmod.Items.VoiditeIngot;
-import com.ncd1998.nmod.Items.VolitiliumDust;
+import com.ncd1998.nmod.Items.*;
 import com.ncd1998.nmod.Reference.*;
 
 import net.minecraft.block.Block;
@@ -33,6 +16,7 @@ public class NItems {
 	public static NItem EnderCrystal;
     public static NItem NetherCrystal;
     public static NItem AbsorptionCrystal;
+    public static NItem FireCrystal;
 	//Dusts/ Ingots/ Resource Crystals
     public static NItem SkyCobalt;    
     public static NItem SkyCobaltCrystal;
@@ -55,6 +39,7 @@ public class NItems {
     	EnderCrystal = new EnderCrystal();
 		NetherCrystal = new NetherCrystal();
 		AbsorptionCrystal = new AbsorptionCrystal();
+		FireCrystal = new FireCrystal();
     	//Dusts/ Ingots/ Resource Crystals
 		SkyCobalt = new ItemSkyCobalt();
     	SkyCobaltCrystal = new SkyCobaltCrystal();
@@ -78,6 +63,7 @@ public class NItems {
     	renderItem.getItemModelMesher().register(EnderCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((EnderCrystal) EnderCrystal).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(NetherCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((NetherCrystal) NetherCrystal).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(AbsorptionCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((AbsorptionCrystal) AbsorptionCrystal).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(FireCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((FireCrystal) FireCrystal).getName(), "inventory"));
     	
     	//Dusts/ Ingots/ Resource Crystals
 		renderItem.getItemModelMesher().register(SkyCobalt, 0, new ModelResourceLocation(nmod.MODID + ":" + ((ItemSkyCobalt) SkyCobalt).getName(), "inventory"));

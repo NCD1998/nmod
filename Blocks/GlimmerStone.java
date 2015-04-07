@@ -22,7 +22,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class GlimmerStone extends BlockGlowstone
+public class GlimmerStone extends NBlock
 {
 	private final String name = "GlimmerStone";
 	protected boolean translucent = false;
@@ -31,7 +31,6 @@ public class GlimmerStone extends BlockGlowstone
 		super(Material.glass);
 		GameRegistry.registerBlock(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setCreativeTab(CreativeTabs.tabBlock);
 		setHardness(5F);
 		setStepSound(Block.soundTypeGlass);
 		setHarvestLevel("pickaxe", 0);

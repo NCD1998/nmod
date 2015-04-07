@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockSkyCobaltBlock extends Block
+public class BlockSkyCobaltBlock extends NBlock
 {
 	private final String name = "SkyCobaltBlock";
 	protected boolean translucent = true;
@@ -24,7 +24,6 @@ public class BlockSkyCobaltBlock extends Block
 		super(Material.glass);
 		GameRegistry.registerBlock(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setCreativeTab(CreativeTabs.tabBlock);
 		setHardness(10F);
 		setStepSound(Block.soundTypeGlass);
 		setLightLevel(0.0F);

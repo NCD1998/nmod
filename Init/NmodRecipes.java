@@ -49,6 +49,7 @@ public class NmodRecipes {
 				" S ",
 				"   ",
 				'D', new ItemStack(Items.diamond_sword), 'S', new ItemStack(NItems.SkyCobaltCrystal));
+		GameRegistry.addShapelessRecipe(new ItemStack(NItems.FireCrystal, 1, 100), new ItemStack(NItems.VolitiliumDust, 1));
 		
 	}
 }
