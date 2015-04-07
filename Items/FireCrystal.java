@@ -21,7 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class FireCrystal extends NItem{
 	private final String name = "FireCrystal";
 	private final Random rand = new Random();
-	private final int MaxDamage = 100;
+	private final int MaxDamage = 200;
 	public FireCrystal(){
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
@@ -74,8 +74,16 @@ public class FireCrystal extends NItem{
     }
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if(stack.isItemDamaged() && entityIn.isBurning()){
+		if(stack.isItemDamaged() && entityIn.isBurning() && !entityIn.isImmuneToFire()){
 			if(rand.nextInt(100) == 0){
+				stack.setItemDamage(stack.getItemDamage() - 1);
+			}
+		}
+		if(stack.getMetadata() != 200 && entityIn.isInWater() && isSelected){
+			stack.setItemDamage(stack.getItemDamage() + 1);
+		}
+		if(stack.isItemDamaged() && entityIn.worldObj.provider.getDimensionId() == -1){
+			if(rand.nextInt(10000) == 0){
 				stack.setItemDamage(stack.getItemDamage() - 1);
 			}
 		}

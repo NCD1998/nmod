@@ -11,5 +11,6 @@ public class NItem extends Item{
 	public NItem(){
 		super();
 		setCreativeTab(CreativeTabs.tabMisc);
+		setNoRepair();
 		}
 }
