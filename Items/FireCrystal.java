@@ -98,4 +98,23 @@ public class FireCrystal extends NItem{
     {
         return true;
     }
+	@Override
+	public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
+    {
+		//Fire
+		BlockPos pos = null;
+		BlockPos playerPos = playerIn.getPosition();
+		for(int x = -5; x <= 5; x++){
+			for(int y = -3; y <= 3; y++){
+				for(int z = -5; z <= 5; z++){
+					pos = new BlockPos(playerPos.getX() + x,playerPos.getY() + y,playerPos.getZ() + z);
+					if(worldIn.getBlockState(pos) == Blocks.air.getDefaultState()){
+						worldIn.setBlockState(pos, Blocks.fire.getDefaultState());
+					}
+				}
+			}
+		}
+		itemStackIn.setItemDamage(MaxDamage);
+        return itemStackIn;
+    }
 }

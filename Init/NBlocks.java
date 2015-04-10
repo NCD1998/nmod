@@ -3,8 +3,8 @@ package com.ncd1998.nmod.Init;
 import com.ncd1998.nmod.nmod;
 import com.ncd1998.nmod.Blocks.*;
 
-
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLog;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -19,6 +19,9 @@ public class NBlocks {
     public static NBlock VoiditeOre;
     public static NBlock ChargedNetherQuartzOre;
     public static NBlock GlimmerStone;
+    public static NBlock MysticWoodLog;
+    public static Block MysticLeaves;
+    public static Block MysticTreeSapling;
     public static void init(){
     	//Blocks
     	SkyCobaltBlock = new BlockSkyCobaltBlock();
@@ -28,6 +31,9 @@ public class NBlocks {
     	VoiditeOre = new VoiditeOre();
     	ChargedNetherQuartzOre = new ChargedNetherQuartzOre();
     	GlimmerStone = new GlimmerStone();
+    	MysticWoodLog = new MysticWoodLog();
+    	MysticLeaves = new MysticLeaves();
+    	MysticTreeSapling = new MysticTreeSapling();
     }
     public static void render(){
 		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
@@ -38,5 +44,8 @@ public class NBlocks {
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(VoiditeOre), 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoiditeOre) VoiditeOre).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(ChargedNetherQuartzOre), 0, new ModelResourceLocation(nmod.MODID + ":" + ((ChargedNetherQuartzOre) ChargedNetherQuartzOre).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(GlimmerStone), 0, new ModelResourceLocation(nmod.MODID + ":" + ((GlimmerStone) GlimmerStone).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(MysticWoodLog), 0, new ModelResourceLocation(nmod.MODID + ":" + ((MysticWoodLog) MysticWoodLog).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(MysticLeaves), 0, new ModelResourceLocation(nmod.MODID + ":" + ((MysticLeaves) MysticLeaves).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(MysticTreeSapling), 0, new ModelResourceLocation(nmod.MODID + ":" + ((MysticTreeSapling) MysticTreeSapling).getName(), "inventory"));
     }
 }

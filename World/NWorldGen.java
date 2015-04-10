@@ -42,6 +42,7 @@ public class NWorldGen implements IWorldGenerator {
 	   generateOre(NBlocks.AbsorbiumOre, world, random, x, z, 2, 8, 5, 1, 30, Blocks.stone);
 	   generateOre(NBlocks.VolitiliumOre, world, random, x, z, 3, 7, 3, 1, 20, Blocks.stone);
 	   generateOre(NBlocks.VoiditeOre, world, random, x, z, 3, 7, 5, 2, 8, Blocks.bedrock);
+	   generateTree(1, world, random, 180, 50, x, z, false, 7, 0, 0, false, NBlocks.MysticWoodLog, NBlocks.MysticLeaves);
    }
    
    public void generateNether(World world, Random random, int x, int z){
@@ -76,4 +77,14 @@ public class NWorldGen implements IWorldGenerator {
 	        }
 	      }
 	   }
+   public void generateTree(int chance, World world, Random rand,int maxY, int minY,int ChunkX, int ChunkZ, boolean update,int height,int woodMeta,int leafMeta,boolean vinesGrow,Block LeafBlock, Block vineType){
+	   WorldGenMysticTree tree = new WorldGenMysticTree(update, height, woodMeta, leafMeta, vinesGrow, LeafBlock, vineType);
+	   int hightRange = maxY - minY;
+	   for(int i = 0; i < chance; i++){
+		   int xRand = ChunkX * 16 + rand.nextInt(16);
+	         int yRand = rand.nextInt(hightRange) + minY;
+	         int zRand = ChunkZ * 16 + rand.nextInt(16);
+		   tree.generate(world, rand, new BlockPos(xRand, yRand, zRand));
+	   }
+   }
 }
