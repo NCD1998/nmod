@@ -22,6 +22,7 @@ public class NBlocks {
     public static NBlock MysticWoodLog;
     public static Block MysticLeaves;
     public static Block MysticTreeSapling;
+    public static NBlock MysticWoodPlanks;
     public static void init(){
     	//Blocks
     	SkyCobaltBlock = new BlockSkyCobaltBlock();
@@ -34,6 +35,7 @@ public class NBlocks {
     	MysticWoodLog = new MysticWoodLog();
     	MysticLeaves = new MysticLeaves();
     	MysticTreeSapling = new MysticTreeSapling();
+    	MysticWoodPlanks = new MysticWoodPlanks();
     }
     public static void render(){
 		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
@@ -47,5 +49,6 @@ public class NBlocks {
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(MysticWoodLog), 0, new ModelResourceLocation(nmod.MODID + ":" + ((MysticWoodLog) MysticWoodLog).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(MysticLeaves), 0, new ModelResourceLocation(nmod.MODID + ":" + ((MysticLeaves) MysticLeaves).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(MysticTreeSapling), 0, new ModelResourceLocation(nmod.MODID + ":" + ((MysticTreeSapling) MysticTreeSapling).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(MysticWoodPlanks), 0, new ModelResourceLocation(nmod.MODID + ":" + ((MysticWoodPlanks) MysticWoodPlanks).getName(), "inventory"));
     }
 }

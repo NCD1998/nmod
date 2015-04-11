@@ -4,7 +4,11 @@ import java.util.Random;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ParticleHelper {
 	public static void flameAndSuspendedDepth(ItemStack stack, EntityPlayer player, int count){
@@ -78,6 +82,19 @@ public class ParticleHelper {
 	        	player.getEntityWorld().spawnParticle(EnumParticleTypes.PORTAL, player.getPosition().getX() - rand.nextInt(10), player.getPosition().getY() + rand.nextInt(5), player.getPosition().getZ() + rand.nextInt(10), 0, 0, 0);
 	        	player.getEntityWorld().spawnParticle(EnumParticleTypes.FLAME, player.getPosition().getX() - rand.nextInt(10), player.getPosition().getY() + rand.nextInt(5), player.getPosition().getZ() + rand.nextInt(10), 0, 0, 0);
 	        }
+	}
+	public static void growthEffect(ItemStack stack, EntityPlayer player, BlockPos pos){
+		World world = player.getEntityWorld();
+		int xCoord = pos.getX();
+		int yCoord = pos.getY();
+		int zCoord = pos.getZ();
+		world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, xCoord, yCoord + 1, zCoord, 1, 0, 0);
+		world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, xCoord, yCoord + 1, zCoord, -1, 0, 0);
+		world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, xCoord, yCoord + 1, zCoord, 0, 1, 0);
+		world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, xCoord, yCoord + 1, zCoord, 0, -1, 0);
+		world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, xCoord, yCoord + 1, zCoord, 0, 0, 1);
+		world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, xCoord, yCoord + 1, zCoord, 0, 0, -1);
+		
 	}
 }
 

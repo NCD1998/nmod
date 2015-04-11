@@ -41,7 +41,13 @@ public class NmodRecipes {
 				" E ",
 				'E', new ItemStack(Items.ender_pearl),
 				'A', new ItemStack(NItems.AbsorptionCrystal));
-		
+		//Mystic Wood Planks
+		GameRegistry.addShapelessRecipe(new ItemStack(NBlocks.MysticWoodPlanks, 4), new ItemStack(NBlocks.MysticWoodLog));
+		//Mystic Stick
+		GameRegistry.addRecipe(new ItemStack(NItems.MysticStick, 4),
+				"P",
+				"P",
+				'P', new ItemStack(NBlocks.MysticWoodPlanks));
 		
 		//Temporary Testing Recipes
 		GameRegistry.addRecipe(new ItemStack(NItems.CobaltDrainingSword),

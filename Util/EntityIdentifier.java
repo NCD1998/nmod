@@ -36,4 +36,7 @@ public class EntityIdentifier {
 		
 		return flag;
 	}
+	public static boolean isZombie(String entClassName){
+		return(entClassName.equals(MCEntityPaths.ZOMBIE));
+	}
 }

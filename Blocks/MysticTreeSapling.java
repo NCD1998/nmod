@@ -91,10 +91,10 @@ public class MysticTreeSapling extends BlockBush
 		return false;
         
     }
-	@Override
+	/*@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
     {
 			this.generateTree(worldIn, pos, state, rand);
         return false;
-    }
+    }*/
 }

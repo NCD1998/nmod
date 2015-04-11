@@ -10,4 +10,5 @@ public class MCEntityPaths {
 	public static final String GHAST = "net.minecraft.entity.monster.EntityGhast";
 	public static final String MAGMACUBE = "net.minecraft.entity.monster.EntityMagmaCube";
 	public static final String PIGMAN = "net.minecraft.entity.monster.EntityPigZombie";
+	public static final String ZOMBIE = "net.minecraft.entity.monster.EntityZombie";
 }

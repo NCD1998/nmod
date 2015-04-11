@@ -56,8 +56,11 @@ public class nmod
     	NItems.init();
     	//Blocks
     	NBlocks.init();
+    	//Ore Dictionary
+    	NInitOreDic.init();
     	//WorldGen
     	NWorldGen = new NWorldGen();
+    	
     	
     }
     

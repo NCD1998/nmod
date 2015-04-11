@@ -32,6 +32,10 @@ public class NItems {
     public static NItem SpellPaperEscapeO;
     //Swords
     public static NItemSword CobaltDrainingSword;
+    //Wands
+    public static NItem WandOfGrowth;
+    //Crafting Objects(sticks, ...)
+    public static NItem MysticStick;
     
   //Items
     public static void init(){
@@ -55,6 +59,10 @@ public class NItems {
 		SpellPaperEscapeO = new SpellPaperEscapeO();
 		//Swords
 		CobaltDrainingSword = new CobaltDrainingSword(NMaterials.CobaltMaterial);
+		//Wands
+		WandOfGrowth = new WandOfGrowth();
+		//Crafting Objects(Sticks, ....)
+		MysticStick = new MysticStick();
     }
     public static void render(){
     	RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
@@ -80,6 +88,10 @@ public class NItems {
 		renderItem.getItemModelMesher().register(SpellPaperEscapeO, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SpellPaperEscapeO) SpellPaperEscapeO).getName(), "inventory"));
 		//Swords
 		renderItem.getItemModelMesher().register(CobaltDrainingSword, 0, new ModelResourceLocation(nmod.MODID + ":" + ((CobaltDrainingSword) CobaltDrainingSword).getName(), "inventory"));
+		//Wands
+		renderItem.getItemModelMesher().register(WandOfGrowth, 0, new ModelResourceLocation(nmod.MODID + ":" + ((WandOfGrowth) WandOfGrowth).getName(), "inventory"));
+		//Crafting Objects(Sticks, ...)
+		renderItem.getItemModelMesher().register(MysticStick, 0, new ModelResourceLocation(nmod.MODID + ":" + ((MysticStick) MysticStick).getName(), "inventory"));
     }
 	
 	
