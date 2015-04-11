@@ -11,6 +11,7 @@ import net.minecraft.entity.monster.EntityGiantZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -25,10 +26,10 @@ public class MysticStick extends NItem{
 	public String getName(){
 		return name;
 	}
-	/*@Override
+	@Override
 	public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
     {
-		for(int i = 0; i < 10; i++){
+		/*for(int i = 0; i < 10; i++){
 			//if(!playerIn.worldObj.isRemote){
 			int xdir;
 			int zdir;
@@ -46,8 +47,9 @@ public class MysticStick extends NItem{
 			worldIn.spawnEntityInWorld(bolt);
 			//System.out.println(playerIn.getLookVec());
 			//}
-		}
-		
+		}*/
+		System.out.println(worldIn.getBiomeGenForCoords(playerIn.getPosition()).getBiomeClass().getName());
+		System.out.println(worldIn.getBiomeGenForCoords(playerIn.getPosition()).biomeName);
         return itemStackIn;
-    }*/
+    }
 }

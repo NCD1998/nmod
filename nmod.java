@@ -8,6 +8,7 @@ import com.ncd1998.nmod.Items.*;
 import com.ncd1998.nmod.Proxy.IProxy;
 import com.ncd1998.nmod.Reference.Reference;
 import com.ncd1998.nmod.World.NWorldGen;
+import com.ncd1998.nmod.World.Biomes.GlassTreeBiome.GTBiomeGenBase;
 import com.ncd1998.nmod.Blocks.*;
 import com.ncd1998.nmod.Init.*;
 
@@ -22,6 +23,9 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.Mod;
@@ -60,6 +64,8 @@ public class nmod
     	NInitOreDic.init();
     	//WorldGen
     	NWorldGen = new NWorldGen();
+    	//Biome
+    	BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(new GTBiomeGenBase(40, true), 100));
     	
     	
     }

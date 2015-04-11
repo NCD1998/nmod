@@ -7,6 +7,7 @@ import akka.japi.Predicate;
 import com.ncd1998.nmod.nmod;
 import com.ncd1998.nmod.Blocks.*;
 import com.ncd1998.nmod.Init.NBlocks;
+import com.ncd1998.nmod.World.Biomes.GlassTreeBiome.GTBiomeGenBase;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.pattern.BlockHelper;
@@ -43,6 +44,9 @@ public class NWorldGen implements IWorldGenerator {
 	   generateOre(NBlocks.VolitiliumOre, world, random, x, z, 3, 7, 3, 1, 20, Blocks.stone);
 	   generateOre(NBlocks.VoiditeOre, world, random, x, z, 3, 7, 5, 2, 8, Blocks.bedrock);
 	   generateTree(1, world, random, 180, 50, x, z, false, 7, 0, 0, false, NBlocks.MysticWoodLog, NBlocks.MysticLeaves);
+	   if(world.getBiomeGenForCoords(new BlockPos(x*16,5,z*16)).biomeName.equalsIgnoreCase("GlassTreeBiome")){
+		   generateTree(130, world, random, 180, 50, x, z, false, 7, random.nextInt(16), random.nextInt(16), false, Blocks.stained_glass, Blocks.stained_glass);
+	   }
    }
    
    public void generateNether(World world, Random random, int x, int z){
