@@ -43,7 +43,7 @@ public class CobaltDrainingSword extends NItemSword{
 	@Override
 	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
 	    if( par1ItemStack.hasTagCompound() == false ){
-	        par1ItemStack.setTagCompound(tagdata);
+	        par1ItemStack.setTagCompound(new NBTTagCompound());
 	    	par1ItemStack.getTagCompound().setInteger("PowerLevel", 0);
 	    	par1ItemStack.getTagCompound().setString("Crystal", "NONE");
 	    	

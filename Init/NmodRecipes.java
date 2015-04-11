@@ -25,6 +25,13 @@ public class NmodRecipes {
 				"AAA",
 				'A', new ItemStack(NItems.AbsorbiumDust),
 				'S', new ItemStack(NItems.SkyCobaltCrystal));
+		//Absorbium Ingot
+		GameRegistry.addRecipe(new ItemStack(NItems.AbsorbiumIngot, 1),
+				" A ",
+				"AIA",
+				" A ",
+				'A', new ItemStack(NItems.AbsorbiumDust),
+				'I', new ItemStack(Items.iron_ingot));
 		//Nether Crystal
 		GameRegistry.addRecipe(new ItemStack(NItems.NetherCrystal, 1, 1),
 				"CBC",
@@ -48,7 +55,45 @@ public class NmodRecipes {
 				"P",
 				"P",
 				'P', new ItemStack(NBlocks.MysticWoodPlanks));
-		
+		//Cobalt Draining Sword Recipe Tree
+			//Cobalt Draining Sword Handle
+			GameRegistry.addRecipe(new ItemStack(NItems.CobaltDrainingSwordHandle, 1),
+					"V",
+					"S",
+					"V",
+					'V', new ItemStack(NItems.VoiditeIngot),
+					'S', new ItemStack(NItems.MysticStick));
+			//Cobalt Draining Sword Core
+			GameRegistry.addRecipe(new ItemStack(NItems.CobaltDrainingSwordCore, 1),
+					"III",
+					"AEA",
+					"III",
+					'I', new ItemStack(NItems.AbsorbiumIngot),
+					'A', new ItemStack(NItems.AbsorptionCrystal),
+					'E', new ItemStack(Items.ender_eye));
+			//Cobalt Draining Sword Edge
+			GameRegistry.addRecipe(new ItemStack(NItems.CobaltDrainingSwordEdge, 1),
+					"III",
+					" IE",
+					"  I",
+					'I', new ItemStack(NItems.AbsorbiumIngot),
+					'E', new ItemStack(Items.ender_pearl));
+			//Cobalt Draining Sword Blade
+			GameRegistry.addRecipe(new ItemStack(NItems.CobaltDrainingSwordBlade, 1),
+					" I ",
+					"IAI",
+					"IAI",
+					'I', new ItemStack(NItems.VoiditeIngot),
+					'A', new ItemStack(NItems.AbsorbiumIngot));
+			//Cobalt Draining Sword
+			GameRegistry.addRecipe(new ItemStack(NItems.CobaltDrainingSword, 1),
+					" B ",
+					"ECE",
+					" H ",
+					'B', new ItemStack(NItems.CobaltDrainingSwordBlade),
+					'E', new ItemStack(NItems.CobaltDrainingSwordEdge),
+					'C', new ItemStack(NItems.CobaltDrainingSwordCore),
+					'H', new ItemStack(NItems.CobaltDrainingSwordHandle));
 		//Temporary Testing Recipes
 		GameRegistry.addRecipe(new ItemStack(NItems.CobaltDrainingSword),
 				" D ",
