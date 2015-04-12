@@ -17,6 +17,15 @@ public class NItems {
     public static NItem NetherCrystal;
     public static NItem AbsorptionCrystal;
     public static NItem FireCrystal;
+    public static NItem AirCrystal;
+    public static NItem WaterCrystal;
+    public static NItem EarthCrystal;
+    public static NItem VoidCrystal;
+    public static NItem EnergyCrystal;
+    public static NItem OrderCrystal;
+    public static NItem ChaosCrystal;
+    public static NItem SolarCrystal;
+    public static NItem LunarCrystal;
 	//Dusts/ Ingots/ Resource Crystals
     public static NItem SkyCobalt;    
     public static NItem SkyCobaltCrystal;
@@ -50,6 +59,15 @@ public class NItems {
 		NetherCrystal = new NetherCrystal();
 		AbsorptionCrystal = new AbsorptionCrystal();
 		FireCrystal = new FireCrystal();
+		AirCrystal = new AirCrystal();
+		WaterCrystal = new WaterCrystal();
+		EarthCrystal = new EarthCrystal();
+		VoidCrystal = new VoidCrystal();
+		EnergyCrystal = new EnergyCrystal();
+		OrderCrystal = new OrderCrystal();
+		ChaosCrystal = new ChaosCrystal();
+		SolarCrystal = new SolarCrystal();
+		LunarCrystal = new LunarCrystal();
     	//Dusts/ Ingots/ Resource Crystals
 		SkyCobalt = new ItemSkyCobalt();
     	SkyCobaltCrystal = new SkyCobaltCrystal();
@@ -84,7 +102,15 @@ public class NItems {
 		renderItem.getItemModelMesher().register(NetherCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((NetherCrystal) NetherCrystal).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(AbsorptionCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((AbsorptionCrystal) AbsorptionCrystal).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(FireCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((FireCrystal) FireCrystal).getName(), "inventory"));
-    	
+		renderItem.getItemModelMesher().register(AirCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((AirCrystal) AirCrystal).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(WaterCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((WaterCrystal) WaterCrystal).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(EarthCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((EarthCrystal) EarthCrystal).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(VoidCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoidCrystal) VoidCrystal).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(EnergyCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((EnergyCrystal) EnergyCrystal).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(OrderCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((OrderCrystal) OrderCrystal).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(ChaosCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((ChaosCrystal) ChaosCrystal).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(SolarCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SolarCrystal) SolarCrystal).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(LunarCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((LunarCrystal) LunarCrystal).getName(), "inventory"));
     	//Dusts/ Ingots/ Resource Crystals
 		renderItem.getItemModelMesher().register(SkyCobalt, 0, new ModelResourceLocation(nmod.MODID + ":" + ((ItemSkyCobalt) SkyCobalt).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(SkyCobaltCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SkyCobaltCrystal) SkyCobaltCrystal).getName(), "inventory"));

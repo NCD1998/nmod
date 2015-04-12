@@ -48,8 +48,8 @@ public class MysticStick extends NItem{
 			//System.out.println(playerIn.getLookVec());
 			//}
 		}*/
-		System.out.println(worldIn.getBiomeGenForCoords(playerIn.getPosition()).getBiomeClass().getName());
-		System.out.println(worldIn.getBiomeGenForCoords(playerIn.getPosition()).biomeName);
+		//System.out.println(worldIn.getBiomeGenForCoords(playerIn.getPosition()).getBiomeClass().getName());
+		//System.out.println(worldIn.getBiomeGenForCoords(playerIn.getPosition()).biomeName);
         return itemStackIn;
     }
 }

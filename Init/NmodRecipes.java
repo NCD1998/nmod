@@ -94,6 +94,87 @@ public class NmodRecipes {
 					'E', new ItemStack(NItems.CobaltDrainingSwordEdge),
 					'C', new ItemStack(NItems.CobaltDrainingSwordCore),
 					'H', new ItemStack(NItems.CobaltDrainingSwordHandle));
+		
+		//Fire Crystal
+		GameRegistry.addRecipe(new ItemStack(NItems.FireCrystal, 1, 200),
+				"LFL",
+				"FCF",
+				"LFL",
+				'L', new ItemStack(Items.lava_bucket),
+				'F', new ItemStack(Items.fire_charge),
+				'C', new ItemStack(NItems.AbsorptionCrystal));
+		//Air Crystal
+		GameRegistry.addRecipe(new ItemStack(NItems.AirCrystal, 1, 1000),
+				" F ",
+				"FCF",
+				" F ",
+				'F', new ItemStack(Items.feather),
+				'C', new ItemStack(NItems.AbsorptionCrystal));
+		//Water Crystal
+		GameRegistry.addRecipe(new ItemStack(NItems.WaterCrystal, 1, 1000),
+				"PWP",
+				"WCW",
+				"PWP",
+				'P', new ItemStack(Items.prismarine_crystals),
+				'W', new ItemStack(Items.water_bucket),
+				'C', new ItemStack(NItems.AbsorptionCrystal));
+		//Earth Crystal
+		GameRegistry.addRecipe(new ItemStack(NItems.EarthCrystal, 1, 1000),
+				"DSD",
+				"RCR",
+				"DSD",
+				'D', new ItemStack(Blocks.diamond_ore),
+				'S', new ItemStack(Blocks.stone),
+				'C', new ItemStack(NItems.AbsorptionCrystal),
+				'R', new ItemStack(Blocks.dirt));
+		//Void Crystal
+		GameRegistry.addRecipe(new ItemStack(NItems.VoidCrystal, 1, 1000),
+				"AVA",
+				"VCV",
+				"AVA",
+				'A', new ItemStack(NItems.AbsorbiumDust),
+				'V', new ItemStack(NItems.VoiditeIngot),
+				'C', new ItemStack(NItems.AbsorptionCrystal));
+		//Energy Crystal
+		GameRegistry.addRecipe(new ItemStack(NItems.EnergyCrystal, 1, 64),
+				"RVR",
+				"VCV",
+				"RVR",
+				'R', new ItemStack(Items.redstone),
+				'V', new ItemStack(NItems.VolitiliumDust),
+				'C', new ItemStack(NItems.AbsorptionCrystal));
+		//Order Crystal
+		GameRegistry.addRecipe(new ItemStack(NItems.OrderCrystal, 1, 1000),
+				" I ",
+				"ICI",
+				" I ",
+				'I', new ItemStack(Blocks.iron_block),
+				'C', new ItemStack(NItems.AbsorptionCrystal));
+		//Chaos Crystal
+		GameRegistry.addRecipe(new ItemStack(NItems.ChaosCrystal, 1, 1000),
+				"EVE",
+				"VCV",
+				"EVE",
+				'E', new ItemStack(Items.emerald),
+				'V', new ItemStack(NItems.VolitiliumDust),
+				'C', new ItemStack(NItems.AbsorptionCrystal));
+		//Solar Crystal
+		GameRegistry.addRecipe(new ItemStack(NItems.SolarCrystal,1,1000),
+				"LGL",
+				"ICI",
+				"LGL",
+				'L', new ItemStack(Items.lava_bucket),
+				'G', new ItemStack(Blocks.glowstone),
+				'I', new ItemStack(NBlocks.GlimmerStone),
+				'C', new ItemStack(NItems.AbsorptionCrystal));
+		//Lunar Crystal
+		GameRegistry.addRecipe(new ItemStack(NItems.LunarCrystal,1,1000),
+				"ONO",
+				"NCN",
+				"ONO",
+				'O', new ItemStack(Blocks.obsidian),
+				'N', new ItemStack(Items.quartz),
+				'C', new ItemStack(NItems.AbsorptionCrystal));
 		//Temporary Testing Recipes
 		GameRegistry.addRecipe(new ItemStack(NItems.CobaltDrainingSword),
 				" D ",

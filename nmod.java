@@ -1,5 +1,6 @@
 package com.ncd1998.nmod;
 
+import com.ibm.icu.text.DisplayContext.Type;
 import com.ncd1998.nmod.Blocks.BlockSkyCobaltBlock;
 import com.ncd1998.nmod.Items.ItemSkyCobalt;
 import com.ncd1998.nmod.Items.SkyCobaltCrystal;
@@ -22,7 +23,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
@@ -51,6 +54,9 @@ public class nmod
     public static final String NAME = Reference.MOD_NAME;
     
     public static IWorldGenerator NWorldGen;
+    
+    //Biomes
+    public static BiomeGenBase Glasstreebiome;
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event)
     {
@@ -65,7 +71,9 @@ public class nmod
     	//WorldGen
     	NWorldGen = new NWorldGen();
     	//Biome
-    	BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(new GTBiomeGenBase(40, true), 100));
+    	Glasstreebiome = new GTBiomeGenBase(40, true);
+    	BiomeDictionary.registerBiomeType(Glasstreebiome, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL);
+    	BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Glasstreebiome, 6)); 
     	
     	
     }
