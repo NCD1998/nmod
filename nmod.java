@@ -12,6 +12,7 @@ import com.ncd1998.nmod.World.NWorldGen;
 import com.ncd1998.nmod.World.Biomes.GlassTreeBiome.GTBiomeGenBase;
 import com.ncd1998.nmod.Blocks.*;
 import com.ncd1998.nmod.Init.*;
+import com.ncd1998.nmod.Projectile.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -36,6 +37,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -57,6 +59,8 @@ public class nmod
     
     //Biomes
     public static BiomeGenBase Glasstreebiome;
+    //Entities
+    //public static DeathRayProjectile DeathRayProjectile;
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event)
     {
@@ -70,10 +74,11 @@ public class nmod
     	NInitOreDic.init();
     	//WorldGen
     	NWorldGen = new NWorldGen();
+    	//DeathRayProjectile = new DeathRayProjectile(null, 0, 0, 0, 0, 0, 0);
     	//Biome
     	Glasstreebiome = new GTBiomeGenBase(40, true);
     	BiomeDictionary.registerBiomeType(Glasstreebiome, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL);
-    	BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Glasstreebiome, 6)); 
+    	BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Glasstreebiome, 100)); 
     	
     	
     }
@@ -93,6 +98,8 @@ public class nmod
     		NBlocks.render();
     		NItems.render();
     	}
+    	//Register Entities
+    	EntityRegistry.registerGlobalEntityID(DeathRayProjectile.class, "DeathRayProjectile", EntityRegistry.findGlobalUniqueEntityId());
     }
     
     @Mod.EventHandler

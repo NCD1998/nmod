@@ -36,4 +36,5 @@ public class VoidCrystal extends NItem{
         return false;
     }
 	
+	
 }

@@ -37,7 +37,7 @@ public class GTBiomeGenBase extends BiomeGenBase{
         this.fillerBlockMetadata = 5169201;
         this.minHeight = height_Default.rootHeight;
         this.maxHeight = height_Default.variation;
-        this.temperature = 0.5F;
+        this.temperature = 0.1F;
         this.rainfall = 0.5F;
         this.waterColorMultiplier = 16777215;
         this.spawnableMonsterList = Lists.newArrayList();
@@ -45,7 +45,7 @@ public class GTBiomeGenBase extends BiomeGenBase{
         this.spawnableWaterCreatureList = Lists.newArrayList();
         this.spawnableCaveCreatureList = Lists.newArrayList();
         this.enableRain = false;
-        this.enableSnow = false;
+        this.enableSnow = true;
         this.worldGeneratorTrees = new WorldGenTrees(false);
         this.worldGeneratorBigTree = new WorldGenBigTree(false);
         this.worldGeneratorSwamp = new WorldGenSwamp();

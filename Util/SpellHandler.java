@@ -29,21 +29,25 @@ public class SpellHandler {
         	for(int i = 0; i <= 50; i++){
         	WorldIn.spawnParticle(EnumParticleTypes.FLAME, PlayerIn.getPosition().getX(), PlayerIn.getPosition().getY(), PlayerIn.getPosition().getZ(), 0, 0, 0);
         	}
-        	DeathRayProjectile skull = new DeathRayProjectile(WorldIn, PlayerIn.getPosition().getX(), PlayerIn.getPosition().getY() + 3, PlayerIn.getPosition().getZ(), PlayerIn.getLookVec().xCoord, PlayerIn.getLookVec().yCoord, PlayerIn.getLookVec().zCoord);
-            WorldIn.spawnEntityInWorld(skull);
+        	DeathRayProjectile skull = new DeathRayProjectile(WorldIn);
+            skull.setLocationAndAngles(PlayerIn.getPosition().getX(), PlayerIn.getPosition().getY() + 3, PlayerIn.getPosition().getZ(), 0, 0);
+            skull.addVelocity(PlayerIn.getLookVec().xCoord,PlayerIn.getLookVec().yCoord, PlayerIn.getLookVec().zCoord);
+        	WorldIn.spawnEntityInWorld(skull);
             
         
         }
 	}
 	//Teleport Spells
 	public static void escapeToOverworld(EntityPlayer playerIn){
+		playerIn.setLocationAndAngles(playerIn.worldObj.getSpawnPoint().getX(),playerIn.worldObj.getSpawnPoint().getY(), playerIn.worldObj.getSpawnPoint().getZ(), 0, 0);
 		playerIn.travelToDimension(0);
-		playerIn.respawnPlayer();
 	}
 	
 	//Buff Spells
 	public static void dragonSkin(World WorldIn, EntityPlayer PlayerIn){
-		WorldIn.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, PlayerIn.getPosition().getX(), PlayerIn.getPosition().getY(), PlayerIn.getPosition().getZ(), 0, 0, 0);
+		if(WorldIn.isRemote){
+			WorldIn.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, PlayerIn.getPosition().getX(), PlayerIn.getPosition().getY(), PlayerIn.getPosition().getZ(), 0, 0, 0);
+		}
 		PlayerIn.addPotionEffect(new PotionEffect(Potion.absorption.getId(), 6000, 45));
 	 	PlayerIn.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 6000, 5));
 	 	PlayerIn.addPotionEffect(new PotionEffect(Potion.jump.getId(), 6000, 5));

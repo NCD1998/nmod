@@ -13,11 +13,8 @@ import net.minecraft.world.World;
 
 public class DeathRayProjectile extends EntityWitherSkull{
 
-	public DeathRayProjectile(World worldIn, double xpos,
-			double ypos, double zpos, double xrot,
-			double yrot, double zrot) {
-		super(worldIn, xpos, ypos, zpos, xrot, yrot,
-				zrot);
+	public DeathRayProjectile(World worldIn) {
+		super(worldIn);
 		
 	}
 	@Override
