@@ -34,6 +34,8 @@ public class NItems {
     public static NItem VoiditeIngot;
     public static NItem ChargedNetherQuartz;
     public static NItem AbsorbiumIngot;
+    //Dusts (Not Resources)
+    public static NItem VoidDust;
     //Spell Papers
     public static NItem SpellPaperNetherRift;
     public static NItem SpellPaperDeathBeam;
@@ -51,6 +53,10 @@ public class NItems {
     	public static NItem CobaltDrainingSwordCore;
     	public static NItem CobaltDrainingSwordEdge;
     	public static NItem CobaltDrainingSwordBlade;
+    //Crafting Tools
+    public static NItem Crusher;
+    //Books
+    public static NItem VoidBook;
     
   //Items
     public static void init(){
@@ -76,6 +82,8 @@ public class NItems {
 		VoiditeIngot = new VoiditeIngot();
 		ChargedNetherQuartz = new ChargedNetherQuartz();
 		AbsorbiumIngot = new AbsorbiumIngot();
+		//Dusts (Not Resources)
+		VoidDust = new VoidDust();
 		//Spell Papers
     	SpellPaperNetherRift = new SpellPaperNetherRift();
     	SpellPaperDeathBeam = new SpellPaperDeathBeam();
@@ -93,6 +101,10 @@ public class NItems {
 			CobaltDrainingSwordCore = new CobaltDrainingSwordCore();
 			CobaltDrainingSwordEdge = new CobaltDrainingSwordEdge();
 			CobaltDrainingSwordBlade = new CobaltDrainingSwordBlade();
+		//Crafting Tools
+		Crusher = new Crusher();
+		//Books
+		VoidBook = new VoidBook();
     }
     public static void render(){
     	RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
@@ -119,6 +131,8 @@ public class NItems {
 		renderItem.getItemModelMesher().register(VoiditeIngot, 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoiditeIngot) VoiditeIngot).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(ChargedNetherQuartz, 0, new ModelResourceLocation(nmod.MODID + ":" + ((ChargedNetherQuartz) ChargedNetherQuartz).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(AbsorbiumIngot, 0, new ModelResourceLocation(nmod.MODID + ":" + ((AbsorbiumIngot) AbsorbiumIngot).getName(), "inventory"));
+		//Dusts (Not Resources)
+		renderItem.getItemModelMesher().register(VoidDust, 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoidDust) VoidDust).getName(), "inventory"));
 		//Spell Papers
 		renderItem.getItemModelMesher().register(SpellPaperNetherRift, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SpellPaperNetherRift) SpellPaperNetherRift).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(SpellPaperDeathBeam, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SpellPaperDeathBeam) SpellPaperDeathBeam).getName(), "inventory"));
@@ -136,6 +150,10 @@ public class NItems {
 			renderItem.getItemModelMesher().register(CobaltDrainingSwordCore, 0, new ModelResourceLocation(nmod.MODID + ":" + ((CobaltDrainingSwordCore) CobaltDrainingSwordCore).getName(), "inventory"));
 			renderItem.getItemModelMesher().register(CobaltDrainingSwordEdge, 0, new ModelResourceLocation(nmod.MODID + ":" + ((CobaltDrainingSwordEdge) CobaltDrainingSwordEdge).getName(), "inventory"));
 			renderItem.getItemModelMesher().register(CobaltDrainingSwordBlade, 0, new ModelResourceLocation(nmod.MODID + ":" + ((CobaltDrainingSwordBlade) CobaltDrainingSwordBlade).getName(), "inventory"));
+		//Crafting Tools
+		renderItem.getItemModelMesher().register(Crusher, 0, new ModelResourceLocation(nmod.MODID + ":" + ((Crusher) Crusher).getName(), "inventory"));
+		//Books
+		renderItem.getItemModelMesher().register(VoidBook, 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoidBook) VoidBook).getName(), "inventory"));
     }
 	
 	

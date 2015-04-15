@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 public class NmodRecipes {
 	public static void addRecipes(){
 		//SkyCobalt to block
@@ -175,13 +176,23 @@ public class NmodRecipes {
 				'O', new ItemStack(Blocks.obsidian),
 				'N', new ItemStack(Items.quartz),
 				'C', new ItemStack(NItems.AbsorptionCrystal));
-		//Temporary Testing Recipes
-		GameRegistry.addRecipe(new ItemStack(NItems.CobaltDrainingSword),
-				" D ",
-				" S ",
+		//Crusher
+		GameRegistry.addRecipe(new ItemStack(NItems.Crusher),
 				"   ",
-				'D', new ItemStack(Items.diamond_sword), 'S', new ItemStack(NItems.SkyCobaltCrystal));
-		GameRegistry.addShapelessRecipe(new ItemStack(NItems.FireCrystal, 1, 200), new ItemStack(NItems.VolitiliumDust, 1));
-		
+				"IFI",
+				"   ",
+				'I', new ItemStack(Items.iron_ingot),
+				'F', new ItemStack(Items.flint_and_steel));
+		//Void Dust
+		GameRegistry.addShapelessRecipe(new ItemStack(NItems.VoidDust, 16), new ItemStack(NItems.Crusher,1,OreDictionary.WILDCARD_VALUE), new ItemStack(NItems.VoiditeIngot));
+		//Void Altar
+		GameRegistry.addRecipe(new ItemStack(NBlocks.VoidAltar),
+				"VAV",
+				"OEO",
+				"VOV",
+				'V', new ItemStack(NItems.VoiditeIngot),
+				'A', new ItemStack(NItems.AbsorptionCrystal),
+				'O', new ItemStack(Blocks.obsidian),
+				'E', new ItemStack(Blocks.enchanting_table));
 	}
 }
