@@ -145,8 +145,8 @@ public class CobaltDrainingSword extends NItemSword{
 				}
 			}else if(stack.getTagCompound().getString("Crystal").equals("SAPPING")){
 					if(rand.nextInt(10) == 0){
-						EntityItem item = new EntityItem(attacker.worldObj, attacker.getPosition().getX(), attacker.getPosition().getY(),  attacker.getPosition().getZ(), new ItemStack(Items.gold_nugget));
-					//SPAWN ITEM IN!!!!!
+						EntityItem item = new EntityItem(attacker.worldObj, attacker.getPosition().getX(), attacker.getPosition().getY(),  attacker.getPosition().getZ(), new ItemStack(NItems.LifeForce));
+						attacker.worldObj.spawnEntityInWorld(item);
 					}
 			}
 		}

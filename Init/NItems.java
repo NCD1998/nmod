@@ -37,6 +37,7 @@ public class NItems {
     public static NItem AbsorbiumIngot;
     //Dusts (Not Resources)
     public static NItem VoidDust;
+    public static NItem LifeForce;
     //Spell Papers
     public static NItem SpellPaperNetherRift;
     public static NItem SpellPaperDeathBeam;
@@ -86,6 +87,7 @@ public class NItems {
 		AbsorbiumIngot = new AbsorbiumIngot();
 		//Dusts (Not Resources)
 		VoidDust = new VoidDust();
+		LifeForce = new LifeForce();
 		//Spell Papers
     	SpellPaperNetherRift = new SpellPaperNetherRift();
     	SpellPaperDeathBeam = new SpellPaperDeathBeam();
@@ -136,6 +138,7 @@ public class NItems {
 		renderItem.getItemModelMesher().register(AbsorbiumIngot, 0, new ModelResourceLocation(nmod.MODID + ":" + ((AbsorbiumIngot) AbsorbiumIngot).getName(), "inventory"));
 		//Dusts (Not Resources)
 		renderItem.getItemModelMesher().register(VoidDust, 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoidDust) VoidDust).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(LifeForce, 0, new ModelResourceLocation(nmod.MODID + ":" + ((LifeForce) LifeForce).getName(), "inventory"));
 		//Spell Papers
 		renderItem.getItemModelMesher().register(SpellPaperNetherRift, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SpellPaperNetherRift) SpellPaperNetherRift).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(SpellPaperDeathBeam, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SpellPaperDeathBeam) SpellPaperDeathBeam).getName(), "inventory"));
