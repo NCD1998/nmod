@@ -194,5 +194,13 @@ public class NmodRecipes {
 				'A', new ItemStack(NItems.AbsorptionCrystal),
 				'O', new ItemStack(Blocks.obsidian),
 				'E', new ItemStack(Blocks.enchanting_table));
+		GameRegistry.addRecipe(new ItemStack(NItems.SappingCrystal, 1),
+				"LDV",
+				"DAD",
+				"VDL",
+				'L', new ItemStack(Items.dye, 1, 4),
+				'A', new ItemStack(NItems.AbsorptionCrystal),
+				'D', new ItemStack(NItems.AbsorbiumDust),
+				'V', new ItemStack(NItems.VoidDust));
 	}
 }

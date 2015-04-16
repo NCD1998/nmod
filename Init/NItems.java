@@ -26,6 +26,7 @@ public class NItems {
     public static NItem ChaosCrystal;
     public static NItem SolarCrystal;
     public static NItem LunarCrystal;
+    public static NItem SappingCrystal;
 	//Dusts/ Ingots/ Resource Crystals
     public static NItem SkyCobalt;    
     public static NItem SkyCobaltCrystal;
@@ -74,6 +75,7 @@ public class NItems {
 		ChaosCrystal = new ChaosCrystal();
 		SolarCrystal = new SolarCrystal();
 		LunarCrystal = new LunarCrystal();
+		SappingCrystal = new SappingCrystal();
     	//Dusts/ Ingots/ Resource Crystals
 		SkyCobalt = new ItemSkyCobalt();
     	SkyCobaltCrystal = new SkyCobaltCrystal();
@@ -123,6 +125,7 @@ public class NItems {
 		renderItem.getItemModelMesher().register(ChaosCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((ChaosCrystal) ChaosCrystal).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(SolarCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SolarCrystal) SolarCrystal).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(LunarCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((LunarCrystal) LunarCrystal).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(SappingCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SappingCrystal) SappingCrystal).getName(), "inventory"));
     	//Dusts/ Ingots/ Resource Crystals
 		renderItem.getItemModelMesher().register(SkyCobalt, 0, new ModelResourceLocation(nmod.MODID + ":" + ((ItemSkyCobalt) SkyCobalt).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(SkyCobaltCrystal, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SkyCobaltCrystal) SkyCobaltCrystal).getName(), "inventory"));
