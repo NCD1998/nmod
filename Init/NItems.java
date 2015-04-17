@@ -46,6 +46,8 @@ public class NItems {
     public static NItem SpellPaperEscapeO;
     //Swords
     public static NItemSword CobaltDrainingSword;
+    //Pickaxes
+    public static NPickaxe AbsorbiumPickaxe;
     //Wands
     public static NItem WandOfGrowth;
     //Crafting Objects(sticks, ...)
@@ -96,6 +98,8 @@ public class NItems {
 		SpellPaperEscapeO = new SpellPaperEscapeO();
 		//Swords
 		CobaltDrainingSword = new CobaltDrainingSword(NMaterials.CobaltMaterial);
+		//Pickaxes
+		AbsorbiumPickaxe = new AbsorbiumPickaxe();
 		//Wands
 		WandOfGrowth = new WandOfGrowth();
 		//Crafting Objects(Sticks, ....)
@@ -147,6 +151,8 @@ public class NItems {
 		renderItem.getItemModelMesher().register(SpellPaperEscapeO, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SpellPaperEscapeO) SpellPaperEscapeO).getName(), "inventory"));
 		//Swords
 		renderItem.getItemModelMesher().register(CobaltDrainingSword, 0, new ModelResourceLocation(nmod.MODID + ":" + ((CobaltDrainingSword) CobaltDrainingSword).getName(), "inventory"));
+		//Pickaxes
+		renderItem.getItemModelMesher().register(AbsorbiumPickaxe, 0, new ModelResourceLocation(nmod.MODID + ":" + ((AbsorbiumPickaxe) AbsorbiumPickaxe).getName(), "inventory"));
 		//Wands
 		renderItem.getItemModelMesher().register(WandOfGrowth, 0, new ModelResourceLocation(nmod.MODID + ":" + ((WandOfGrowth) WandOfGrowth).getName(), "inventory"));
 		//Crafting Objects(Sticks, ...)

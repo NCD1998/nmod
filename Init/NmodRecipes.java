@@ -194,6 +194,7 @@ public class NmodRecipes {
 				'A', new ItemStack(NItems.AbsorptionCrystal),
 				'O', new ItemStack(Blocks.obsidian),
 				'E', new ItemStack(Blocks.enchanting_table));
+		//Sapping Crystal
 		GameRegistry.addRecipe(new ItemStack(NItems.SappingCrystal, 1),
 				"LDV",
 				"DAD",
@@ -202,5 +203,12 @@ public class NmodRecipes {
 				'A', new ItemStack(NItems.AbsorptionCrystal),
 				'D', new ItemStack(NItems.AbsorbiumDust),
 				'V', new ItemStack(NItems.VoidDust));
+		//Absorbium Pickaxe
+		GameRegistry.addRecipe(new ItemStack(NItems.AbsorbiumPickaxe),
+				"AAA",
+				" S ",
+				" S ",
+				'A', new ItemStack(NItems.AbsorbiumIngot),
+				'S', new ItemStack(NItems.MysticStick));
 	}
 }

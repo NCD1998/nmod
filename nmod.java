@@ -62,8 +62,6 @@ public class nmod
     
     //Biomes
     public static BiomeGenBase Glasstreebiome;
-    //Entities
-    //public static DeathRayProjectile DeathRayProjectile;
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event)
     {
@@ -77,7 +75,6 @@ public class nmod
     	NInitOreDic.init();
     	//WorldGen
     	NWorldGen = new NWorldGen();
-    	//DeathRayProjectile = new DeathRayProjectile(null, 0, 0, 0, 0, 0, 0);
     	//Biome
     	Glasstreebiome = new GTBiomeGenBase(40, true);
     	BiomeDictionary.registerBiomeType(Glasstreebiome, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL);
@@ -104,7 +101,7 @@ public class nmod
     	//Register Entities
     	EntityRegistry.registerGlobalEntityID(DeathRayProjectile.class, "DeathRayProjectile", EntityRegistry.findGlobalUniqueEntityId());
     	//hooks
-    	//ChestGenHooks.addItem(ChestGenHooks.STRONGHOLD_LIBRARY, new WeightedRandomChestContent(new ItemStack(NItems.VoidBook, 1), 1, 1, 100));
+    	ChestGenHooks.addItem(ChestGenHooks.STRONGHOLD_CORRIDOR, new WeightedRandomChestContent(new ItemStack(NItems.VoidBook, 1), 1, 1, 5));
     }
     
     @Mod.EventHandler

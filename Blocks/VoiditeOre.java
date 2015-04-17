@@ -29,7 +29,7 @@ public class VoiditeOre extends NBlock
 		super(Material.rock);
 		GameRegistry.registerBlock(this, name);
 		setUnlocalizedName(nmod.MODID + "_" + name);
-		setHardness(5F);
+		setHardness(8F);
 		setStepSound(Block.soundTypeStone);
 		setHarvestLevel("pickaxe", 3);
 		setResistance(10F);
