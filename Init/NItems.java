@@ -46,8 +46,13 @@ public class NItems {
     public static NItem SpellPaperEscapeO;
     //Swords
     public static NItemSword CobaltDrainingSword;
+    public static NItemSword AbsorbiumSword;
     //Pickaxes
     public static NPickaxe AbsorbiumPickaxe;
+    //Shovels
+    public static NShovel AbsorbiumShovel;
+    //Axes
+    public static NAxe AbsorbiumAxe;
     //Wands
     public static NItem WandOfGrowth;
     //Crafting Objects(sticks, ...)
@@ -98,8 +103,13 @@ public class NItems {
 		SpellPaperEscapeO = new SpellPaperEscapeO();
 		//Swords
 		CobaltDrainingSword = new CobaltDrainingSword(NMaterials.CobaltMaterial);
+		AbsorbiumSword = new AbsorbiumSword();
 		//Pickaxes
 		AbsorbiumPickaxe = new AbsorbiumPickaxe();
+		//Shovels
+		AbsorbiumShovel = new AbsorbiumShovel();
+		//Axes
+		AbsorbiumAxe = new AbsorbiumAxe();
 		//Wands
 		WandOfGrowth = new WandOfGrowth();
 		//Crafting Objects(Sticks, ....)
@@ -151,8 +161,13 @@ public class NItems {
 		renderItem.getItemModelMesher().register(SpellPaperEscapeO, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SpellPaperEscapeO) SpellPaperEscapeO).getName(), "inventory"));
 		//Swords
 		renderItem.getItemModelMesher().register(CobaltDrainingSword, 0, new ModelResourceLocation(nmod.MODID + ":" + ((CobaltDrainingSword) CobaltDrainingSword).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(AbsorbiumSword, 0, new ModelResourceLocation(nmod.MODID + ":" + ((AbsorbiumSword) AbsorbiumSword).getName(), "inventory"));
 		//Pickaxes
 		renderItem.getItemModelMesher().register(AbsorbiumPickaxe, 0, new ModelResourceLocation(nmod.MODID + ":" + ((AbsorbiumPickaxe) AbsorbiumPickaxe).getName(), "inventory"));
+		//Shovels
+		renderItem.getItemModelMesher().register(AbsorbiumShovel, 0, new ModelResourceLocation(nmod.MODID + ":" + ((AbsorbiumShovel) AbsorbiumShovel).getName(), "inventory"));
+		//Axes
+		renderItem.getItemModelMesher().register(AbsorbiumAxe, 0, new ModelResourceLocation(nmod.MODID + ":" + ((AbsorbiumAxe) AbsorbiumAxe).getName(), "inventory"));
 		//Wands
 		renderItem.getItemModelMesher().register(WandOfGrowth, 0, new ModelResourceLocation(nmod.MODID + ":" + ((WandOfGrowth) WandOfGrowth).getName(), "inventory"));
 		//Crafting Objects(Sticks, ...)

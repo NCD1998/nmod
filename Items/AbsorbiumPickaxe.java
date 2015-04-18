@@ -1,6 +1,9 @@
 package com.ncd1998.nmod.Items;
 
 
+
+import java.util.Random;
+
 import com.ncd1998.nmod.nmod;
 import com.ncd1998.nmod.Init.NBlocks;
 import com.ncd1998.nmod.Init.NMaterials;
@@ -29,6 +32,7 @@ public class AbsorbiumPickaxe extends NPickaxe{
 	private final int AbsorbiumValue = 20;
 	private final int VoiditeValue = 100;
 	private final int VolitiumValue = 50;
+	private final int StoneValue = 3;
 	
 	public AbsorbiumPickaxe(){
 		super(mat);
@@ -92,8 +96,16 @@ public class AbsorbiumPickaxe extends NPickaxe{
 			//Absorb Volitium 
 			if(worldIn.getBlockState(pos).equals(NBlocks.VolitiliumOre.getDefaultState())){
 				worldIn.setBlockState(pos, Blocks.air.getDefaultState());
-				stack.setItemDamage(stack.getItemDamage() - VolitiumValue);
+				stack.setItemDamage(stack.getItemDamage() - StoneValue);
 			}
+		}
+		//Absorb Stone
+		if(worldIn.getBlockState(pos).equals(Blocks.stone.getDefaultState())){
+			worldIn.setBlockState(pos, Blocks.air.getDefaultState());
+			stack.attemptDamageItem(StoneValue, new Random());
+		}
+		if(stack.getItemDamage() >= mat.getMaxUses()){
+			stack.stackSize--;
 		}
         return false;
     }

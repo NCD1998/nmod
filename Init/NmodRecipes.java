@@ -210,5 +210,26 @@ public class NmodRecipes {
 				" S ",
 				'A', new ItemStack(NItems.AbsorbiumIngot),
 				'S', new ItemStack(NItems.MysticStick));
+		//Absorbium Shovel
+		GameRegistry.addRecipe(new ItemStack(NItems.AbsorbiumShovel),
+				"A",
+				"S",
+				"S",
+				'A', new ItemStack(NItems.AbsorbiumIngot),
+				'S', new ItemStack(NItems.MysticStick));
+		//Absorbium Axe
+		GameRegistry.addRecipe(new ItemStack(NItems.AbsorbiumAxe),
+				"AA ",
+				"AS ",
+				" S ",
+				'A', new ItemStack(NItems.AbsorbiumIngot),
+				'S', new ItemStack(NItems.MysticStick));
+		//Absorbium Sword
+		GameRegistry.addRecipe(new ItemStack(NItems.AbsorbiumSword),
+				"A",
+				"A",
+				"S",
+				'A', new ItemStack(NItems.AbsorbiumIngot),
+				'S', new ItemStack(NItems.MysticStick));
 	}
 }
