@@ -25,6 +25,8 @@ public class NBlocks {
     public static NBlock MysticWoodPlanks;
     public static Block VoidAltar;
     public static NBlock BVoidDust;
+    //Void Runes
+    public static NBlock VoidCrosshairRune;
     public static void init(){
     	//Blocks
     	SkyCobaltBlock = new BlockSkyCobaltBlock();
@@ -40,6 +42,8 @@ public class NBlocks {
     	MysticWoodPlanks = new MysticWoodPlanks();
     	VoidAltar = new VoidAltar();
     	BVoidDust = new BVoidDust();
+    	//Void Runes
+    	VoidCrosshairRune = new VoidCrosshairRune();
     }
     public static void render(){
 		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
@@ -56,5 +60,7 @@ public class NBlocks {
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(MysticWoodPlanks), 0, new ModelResourceLocation(nmod.MODID + ":" + ((MysticWoodPlanks) MysticWoodPlanks).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(VoidAltar), 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoidAltar) VoidAltar).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(BVoidDust), 0, new ModelResourceLocation(nmod.MODID + ":" + ((BVoidDust) BVoidDust).getName(), "inventory"));
+		//Void Runes
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(VoidCrosshairRune), 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoidCrosshairRune) VoidCrosshairRune).getName(), "inventory"));
     }
 }
