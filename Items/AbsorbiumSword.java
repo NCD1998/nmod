@@ -118,24 +118,31 @@ public class AbsorbiumSword extends NItemSword{
 			tag.setInteger(Tagname, 0);
 			if(Tagname.equals("SharpnessPro") && tag.getInteger("Sharpnesslvl") == 0){
 					stack.addEnchantment(Enchantment.sharpness, 1);
+					tag.setInteger("Sharpnesslvl", 1);
 			}
 			if(Tagname.equals("BanePro") && tag.getInteger("Banelvl") == 0){
 				stack.addEnchantment(Enchantment.baneOfArthropods, 1);
+				tag.setInteger("Banelvl", 1);
 			}
 			if(Tagname.equals("SmitePro") && tag.getInteger("Smitelvl") == 0){
 				stack.addEnchantment(Enchantment.smite, 1);
+				tag.setInteger("Smitelvl", 1);
 			}
 			if(Tagname.equals("FirePro") && tag.getInteger("Firelvl") == 0){
 				stack.addEnchantment(Enchantment.fireAspect, 1);
+				tag.setInteger("Firelvl", 1);
 			}
 			if(Tagname.equals("KnockbackPro") && tag.getInteger("Knockbacklvl") == 0){
 				stack.addEnchantment(Enchantment.knockback, 1);
+				tag.setInteger("Knockbocklvl", 1);
 			}
 			if(Tagname.equals("LootingPro") && tag.getInteger("Lootinglvl") == 0){
 				stack.addEnchantment(Enchantment.looting, 1);
+				tag.setInteger("Lootinglvl", 1);
 			}
 			if(Tagname.equals("UnbreakingPro") && tag.getInteger("Unbreakinglvl") == 0){
 				stack.addEnchantment(Enchantment.unbreaking, 1);
+				tag.setInteger("Unbreakinglvl", 1);
 			}
 		}
 	}

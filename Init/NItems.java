@@ -44,6 +44,7 @@ public class NItems {
     public static NItem SpellPaperDragonSoul;
     public static NItem SpellPaperEnderRift;
     public static NItem SpellPaperEscapeO;
+    public static NItem SpellPaperSniperVeil;
     //Swords
     public static NItemSword CobaltDrainingSword;
     public static NItemSword AbsorbiumSword;
@@ -101,6 +102,7 @@ public class NItems {
 		SpellPaperDragonSoul = new SpellPaperDragonSoul();
 		SpellPaperEnderRift = new SpellPaperEnderRift();
 		SpellPaperEscapeO = new SpellPaperEscapeO();
+		SpellPaperSniperVeil = new SpellPaperSniperVeil();
 		//Swords
 		CobaltDrainingSword = new CobaltDrainingSword(NMaterials.CobaltMaterial);
 		AbsorbiumSword = new AbsorbiumSword();
@@ -159,6 +161,7 @@ public class NItems {
 		renderItem.getItemModelMesher().register(SpellPaperDragonSoul, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SpellPaperDragonSoul) SpellPaperDragonSoul).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(SpellPaperEnderRift, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SpellPaperEnderRift) SpellPaperEnderRift).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(SpellPaperEscapeO, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SpellPaperEscapeO) SpellPaperEscapeO).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(SpellPaperSniperVeil, 0, new ModelResourceLocation(nmod.MODID + ":" + ((SpellPaperSniperVeil) SpellPaperSniperVeil).getName(), "inventory"));
 		//Swords
 		renderItem.getItemModelMesher().register(CobaltDrainingSword, 0, new ModelResourceLocation(nmod.MODID + ":" + ((CobaltDrainingSword) CobaltDrainingSword).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(AbsorbiumSword, 0, new ModelResourceLocation(nmod.MODID + ":" + ((AbsorbiumSword) AbsorbiumSword).getName(), "inventory"));
