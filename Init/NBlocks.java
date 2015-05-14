@@ -25,6 +25,7 @@ public class NBlocks {
     public static NBlock MysticWoodPlanks;
     public static Block VoidAltar;
     public static NBlock BVoidDust;
+    public static NBlock LightningBlock;
     //Void Runes
     public static NBlock VoidCrosshairRune;
     public static void init(){
@@ -42,6 +43,7 @@ public class NBlocks {
     	MysticWoodPlanks = new MysticWoodPlanks();
     	VoidAltar = new VoidAltar();
     	BVoidDust = new BVoidDust();
+    	LightningBlock = new LightningBlock();
     	//Void Runes
     	VoidCrosshairRune = new VoidCrosshairRune();
     }
@@ -60,6 +62,7 @@ public class NBlocks {
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(MysticWoodPlanks), 0, new ModelResourceLocation(nmod.MODID + ":" + ((MysticWoodPlanks) MysticWoodPlanks).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(VoidAltar), 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoidAltar) VoidAltar).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(BVoidDust), 0, new ModelResourceLocation(nmod.MODID + ":" + ((BVoidDust) BVoidDust).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(LightningBlock), 0, new ModelResourceLocation(nmod.MODID + ":" + ((LightningBlock) LightningBlock).getName(), "inventory"));
 		//Void Runes
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(VoidCrosshairRune), 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoidCrosshairRune) VoidCrosshairRune).getName(), "inventory"));
     }

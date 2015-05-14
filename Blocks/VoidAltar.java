@@ -59,6 +59,7 @@ public class VoidAltar extends NBlock
 				if(isCorrectStructure(pos, worldIn)){
 					if(playerIn.inventory.getCurrentItem().isItemDamaged()){
 					playerIn.inventory.getCurrentItem().setItemDamage(playerIn.inventory.getCurrentItem().getItemDamage() - 10);
+					playerIn.addStat(nmod.voided, 1);
 					}
 				}
 			}
