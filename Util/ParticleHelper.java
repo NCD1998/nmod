@@ -120,41 +120,82 @@ public class ParticleHelper {
 		}
 	}
 	public static void burstOut(BlockPos pos, World world, EnumParticleTypes type){
+		burstOut(pos, world, type, 0,0,0);
+	}
+	public static void burstOut(BlockPos pos, World world, EnumParticleTypes type, int num1, int num2, int num3){
 		int xCoord = pos.getX();
 		int yCoord = pos.getY();
 		int zCoord = pos.getZ();
 		//Y axis
 		for(int i = -5; i < 5; i++){
-			world.spawnParticle(type, xCoord, yCoord + i, zCoord, 0, 0, 0);
+			world.spawnParticle(type, xCoord, yCoord + i, zCoord, num1, num2, num3);
 		}
 		//Z axis
 		for(int i = -5; i < 5; i++){
-			world.spawnParticle(type, xCoord, yCoord, zCoord + i, 0, 0, 0);
+			world.spawnParticle(type, xCoord, yCoord, zCoord + i, num1, num2, num3);
 		}
 		//X axis
 		for(int i = -5; i < 5; i++){
-			world.spawnParticle(type, xCoord + i, yCoord, zCoord, 0, 0, 0);
+			world.spawnParticle(type, xCoord + i, yCoord, zCoord, num1 , num2, num3);
 		}
 		//X/Y
 		for(int i = 0; i < 5; i++){
-			world.spawnParticle(type, xCoord + i, yCoord + i, zCoord, 0, 0, 0);
+			world.spawnParticle(type, xCoord + i, yCoord + i, zCoord, num1, num2, num3);
 		}
 		for(int i = 0; i < 5; i++){
-			world.spawnParticle(type, xCoord - i, yCoord + i, zCoord, 0, 0, 0);
+			world.spawnParticle(type, xCoord - i, yCoord + i, zCoord, num1, num2, num3);
 		}
 		//Z/Y
 		for(int i = 0; i < 5; i++){
-			world.spawnParticle(type, xCoord , yCoord + i, zCoord + i, 0, 0, 0);
+			world.spawnParticle(type, xCoord , yCoord + i, zCoord + i, num1, num2, num3);
 		}
 		for(int i = 0; i < 5; i++){
-			world.spawnParticle(type, xCoord, yCoord + i, zCoord - i, 0, 0, 0);
+			world.spawnParticle(type, xCoord, yCoord + i, zCoord - i, num1, num2, num3);
 		}	
 		//ZX
 		for(int i = -5; i < 5; i++){
-			world.spawnParticle(type, xCoord + i, yCoord, zCoord + i, 0, 0, 0);
+			world.spawnParticle(type, xCoord + i, yCoord, zCoord + i, num1, num2, num3);
 		}
 		for(int i = 0; i < 5; i++){
-			world.spawnParticle(type, xCoord - i, yCoord, zCoord - i, 0, 0, 0);
+			world.spawnParticle(type, xCoord - i, yCoord, zCoord - i, num1, num2, num3);
+		}
+	}
+	public static void burstOut(BlockPos pos, World world, EnumParticleTypes type, int num1, int num2, int num3, int range){
+		int xCoord = pos.getX();
+		int yCoord = pos.getY();
+		int zCoord = pos.getZ();
+		//Y axis
+		for(int i = -range; i < range; i++){
+			world.spawnParticle(type, xCoord, yCoord + i, zCoord, num1, num2, num3);
+		}
+		//Z axis
+		for(int i = -range; i < range; i++){
+			world.spawnParticle(type, xCoord, yCoord, zCoord + i, num1, num2, num3);
+		}
+		//X axis
+		for(int i = -range; i < range; i++){
+			world.spawnParticle(type, xCoord + i, yCoord, zCoord, num1 , num2, num3);
+		}
+		//X/Y
+		for(int i = 0; i < range; i++){
+			world.spawnParticle(type, xCoord + i, yCoord + i, zCoord, num1, num2, num3);
+		}
+		for(int i = 0; i < range; i++){
+			world.spawnParticle(type, xCoord - i, yCoord + i, zCoord, num1, num2, num3);
+		}
+		//Z/Y
+		for(int i = 0; i < range; i++){
+			world.spawnParticle(type, xCoord , yCoord + i, zCoord + i, num1, num2, num3);
+		}
+		for(int i = 0; i < range; i++){
+			world.spawnParticle(type, xCoord, yCoord + i, zCoord - i, num1, num2, num3);
+		}	
+		//ZX
+		for(int i = -range; i < range; i++){
+			world.spawnParticle(type, xCoord + i, yCoord, zCoord + i, num1, num2, num3);
+		}
+		for(int i = 0; i < range; i++){
+			world.spawnParticle(type, xCoord - i, yCoord, zCoord - i, num1, num2, num3);
 		}
 	}
 }

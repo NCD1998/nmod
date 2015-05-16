@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ncd1998.nmod.nmod;
+import com.ncd1998.nmod.Entities.LightningBall;
 import com.ncd1998.nmod.Init.NItems;
 import com.ncd1998.nmod.Util.ParticleHelper;
 
@@ -57,6 +58,11 @@ public class DebugTool extends Item{
 				//Toggle
 				tag.setBoolean(tag.getString("currentToggle"), !tag.getBoolean(tag.getString("currentToggle")));
 				playerIn.addChatMessage(new ChatComponentTranslation(EnumChatFormatting.RED + "Debug Tool: Toggled " + tag.getString("currentToggle") + " to " + tag.getBoolean(tag.getString("currentToggle"))));
+				if(!worldIn.isRemote){
+				Entity ball = new LightningBall(worldIn);
+				ball.setLocationAndAngles(playerIn.getPosition().getX() + 4, playerIn.getPosition().getY(), playerIn.getPosition().getZ(), 0, 0);
+				worldIn.spawnEntityInWorld(ball);
+				}
 			}
 		}else{
 			activateNBT(itemStackIn);

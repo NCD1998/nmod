@@ -15,5 +15,18 @@ public class ServerProxy extends CommonProxy{
 		
 	}
 
+	@Override
+	public void registerRenders() {
+		//NOOP
+		
+	}
+
+	@Override
+	public void genererateBurst(BlockPos pos, World world,
+			EnumParticleTypes type, int num1, int num2, int num3) {
+		//NOOP
+		
+	}
+
 
 }
