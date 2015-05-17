@@ -11,8 +11,10 @@ import com.ncd1998.nmod.Reference.Reference;
 import com.ncd1998.nmod.World.NWorldGen;
 import com.ncd1998.nmod.World.Biomes.GlassTreeBiome.GTBiomeGenBase;
 import com.ncd1998.nmod.Blocks.*;
+import com.ncd1998.nmod.Entities.LightningBall;
 import com.ncd1998.nmod.Init.*;
 import com.ncd1998.nmod.Projectile.*;
+import com.ncd1998.nmod.TileEntities.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -24,6 +26,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.Achievement;
+import net.minecraft.stats.AchievementList;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -51,6 +56,8 @@ public class nmod
 {
 	@Mod.Instance(nmod.MODID)
 	public static nmod instance;
+	//Developer Mode Toggle
+	public static final boolean devmode =  false;
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_PATH, serverSide = Reference.SERVER_PROXY_PATH)
 	public static IProxy Proxy;
 	
@@ -62,6 +69,11 @@ public class nmod
     
     //Biomes
     public static BiomeGenBase Glasstreebiome;
+    //Achievements
+    public static Achievement getESnow;
+    public static Achievement voided;
+    
+	
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event)
     {
@@ -80,7 +92,6 @@ public class nmod
     	BiomeDictionary.registerBiomeType(Glasstreebiome, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL);
     	BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Glasstreebiome, 100)); 
     	
-    	
     }
     
     @Mod.EventHandler
@@ -97,9 +108,18 @@ public class nmod
     		//Blocks
     		NBlocks.render();
     		NItems.render();
+    		Proxy.registerRenders();
     	}
+    	getESnow = new Achievement("achievement.throwElectronSnow", "throwElectronSnow", 10, 10, NItems.ElectronSnowball, null);
+    	AchievementList.achievementList.add(getESnow);
+    	voided = new Achievement("achievement.useVoidAltar", "useVoidAltar", 11, 11, NItems.VoidCrystal, null);
+    	AchievementList.achievementList.add(voided);
+    	
     	//Register Entities
     	EntityRegistry.registerGlobalEntityID(DeathRayProjectile.class, "DeathRayProjectile", EntityRegistry.findGlobalUniqueEntityId());
+    	EntityRegistry.registerGlobalEntityID(ElectronSnowballEntity.class, "ElectronSnowballEntity", EntityRegistry.findGlobalUniqueEntityId());
+    	EntityRegistry.registerGlobalEntityID(ShootingStarEntity.class, "ShootingStarEntity", EntityRegistry.findGlobalUniqueEntityId());
+    	EntityRegistry.registerGlobalEntityID(LightningBall.class, "LightningBall", EntityRegistry.findGlobalUniqueEntityId());
     	//hooks
     	ChestGenHooks.addItem(ChestGenHooks.STRONGHOLD_CORRIDOR, new WeightedRandomChestContent(new ItemStack(NItems.VoidBook, 1), 1, 1, 5));
     }

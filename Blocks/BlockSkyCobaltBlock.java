@@ -52,4 +52,8 @@ public class BlockSkyCobaltBlock extends NBlock
 	 public boolean isBeaconBase(){
 		 return true;
 	 }
+	 @Override 
+	 public boolean isOpaqueCube(){
+		 return false;
+	 }
 }
