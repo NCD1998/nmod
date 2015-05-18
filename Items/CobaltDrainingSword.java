@@ -121,6 +121,7 @@ public class CobaltDrainingSword extends NItemSword{
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
+		if(stack.hasTagCompound()){
 		//System.out.println(target.getClass().getName());
 		if(!stack.getTagCompound().getString("Crystal").equals("NONE")){
 			if(stack.getTagCompound().getString("Crystal").equals("ENDER") && EntityIdentifier.isEntityEnderMob(target.getClass().getName())) {
@@ -149,6 +150,7 @@ public class CobaltDrainingSword extends NItemSword{
 						attacker.worldObj.spawnEntityInWorld(item);
 					}
 			}
+		}
 		}
         stack.damageItem(1, attacker);
         return true;

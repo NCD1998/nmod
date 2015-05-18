@@ -65,7 +65,7 @@ public class StarlightRing extends NItem{
 	public ItemStack onItemRightClick(ItemStack stack, World worldIn, EntityPlayer playerIn)
     {
 		//, and It is Night, and You are under open sky
-		if( worldIn.getWorldTime() > 13000 && worldIn.canBlockSeeSky(playerIn.getPosition())){
+		if(  worldIn.getLightFor(EnumSkyBlock.SKY, playerIn.getPosition()) - worldIn.getSkylightSubtracted() == 4 && worldIn.canBlockSeeSky(playerIn.getPosition())){
 				//If the player is sneaking && If the Item has enough Power To cast Shooting Star
 				if(stack.getItemDamage() < 600 && !playerIn.isSneaking()){
 					stack.damageItem(300, playerIn);
@@ -92,7 +92,7 @@ public class StarlightRing extends NItem{
 						System.out.println("SPAWNED");
 					}
 				}
-		}else if((worldIn.getWorldTime() > 13000 && !worldIn.canBlockSeeSky(playerIn.getPosition()) && playerIn.getPosition().getY() > 50) ||(!worldIn.canBlockSeeSky(playerIn.getPosition()) && playerIn.getPosition().getY() <= 50)){
+		}else if((worldIn.getLightFor(EnumSkyBlock.SKY, playerIn.getPosition()) - worldIn.getSkylightSubtracted() == 4 && !worldIn.canBlockSeeSky(playerIn.getPosition()) && playerIn.getPosition().getY() > 50) ||(!worldIn.canBlockSeeSky(playerIn.getPosition()) && playerIn.getPosition().getY() <= 50)){
 			if(playerIn.isSneaking()){
 				if(stack.getItemDamage() < 100){
 					stack.damageItem(800, playerIn);
@@ -169,14 +169,14 @@ public class StarlightRing extends NItem{
 	@Override
 	public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack)
     {
-		if(stack.getItemDamage() < 850 && entityLiving.worldObj.getWorldTime() > 13000 && entityLiving.worldObj.canBlockSeeSky(entityLiving.getPosition()) && !entityLiving.isSneaking()){
+		if(stack.getItemDamage() < 850 && entityLiving.worldObj.getLightFor(EnumSkyBlock.SKY, entityLiving.getPosition()) - entityLiving.worldObj.getSkylightSubtracted() == 4 && entityLiving.worldObj.canBlockSeeSky(entityLiving.getPosition()) && !entityLiving.isSneaking()){
 			stack.damageItem(50, entityLiving);
 			for(int i = -5; i <= 5; i++){
 				for(int k = -5; k <= 5; k++)
 				entityLiving.worldObj.setLightFor(EnumSkyBlock.BLOCK, entityLiving.getPosition().add(i, 0, k), 15);
 			}
 			
-		}else if(stack.getItemDamage() < 890 && entityLiving.worldObj.getWorldTime() > 13000 && entityLiving.worldObj.canBlockSeeSky(entityLiving.getPosition()) && entityLiving.isSneaking()){
+		}else if(stack.getItemDamage() < 890 && entityLiving.worldObj.getLightFor(EnumSkyBlock.SKY, entityLiving.getPosition()) - entityLiving.worldObj.getSkylightSubtracted() == 4 && entityLiving.worldObj.canBlockSeeSky(entityLiving.getPosition()) && entityLiving.isSneaking()){
 			stack.damageItem(10, entityLiving);
 			BlockPos pos1 = entityLiving.getPosition().add(0,0,5);
 			BlockPos pos2 = entityLiving.getPosition().add(0,0,-5);

@@ -74,6 +74,8 @@ public class NItems {
     public static NItem ElectronSnowball;
     //Magic Rings
     public static NItem StarlightRing;
+    //Magic Items: Other Equipment
+    public static NItem MobilityGauntlet;
     
     
     //Debug
@@ -143,6 +145,8 @@ public class NItems {
 		ElectronSnowball = new ElectronSnowball();
 		//Magic Rings
 		StarlightRing = new StarlightRing();
+		//Magic Items: Other Equipment
+		MobilityGauntlet = new MobilityGauntlet();
 		
 		
 		
@@ -217,6 +221,8 @@ public class NItems {
 		renderItem.getItemModelMesher().register(ElectronSnowball, 0, new ModelResourceLocation(nmod.MODID + ":" + ((ElectronSnowball) ElectronSnowball).getName(), "inventory"));
 		//Magic Items: Rings
 		renderItem.getItemModelMesher().register(StarlightRing, 0, new ModelResourceLocation(nmod.MODID + ":" + ((StarlightRing) StarlightRing).getName(), "inventory"));
+		//Magic Items: Other Equipment
+		renderItem.getItemModelMesher().register(MobilityGauntlet, 0, new ModelResourceLocation(nmod.MODID + ":" + ((MobilityGauntlet) MobilityGauntlet).getName(), "inventory"));
     
     
     
