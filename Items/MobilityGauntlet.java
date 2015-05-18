@@ -77,7 +77,7 @@ public class MobilityGauntlet extends NItem{
 			if(stack.getItemDamage() < 900){
 				stack.damageItem(100, entityLiving);
 				MovingObjectPosition telepos = entityLiving.rayTrace(200, 1.0F);
-				List entities = entityLiving.worldObj.getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(telepos.getBlockPos().add(-1,-1,-1), telepos.getBlockPos().add(1,1,1)));
+				List entities = entityLiving.worldObj.getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(telepos.getBlockPos().add(-2,-2,-2), telepos.getBlockPos().add(2,2,2)));
 				if(!entities.isEmpty()){
 					EntityLiving target = (EntityLiving) entities.get(0);
 					BlockPos targetPos = target.getPosition();
@@ -92,7 +92,7 @@ public class MobilityGauntlet extends NItem{
 			if(stack.getItemDamage() < 800){
 				stack.damageItem(200, entityLiving);
 				MovingObjectPosition telepos = entityLiving.rayTrace(100, 1.0F);
-				List entities = entityLiving.worldObj.getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(telepos.getBlockPos().add(-1,-1,-1), telepos.getBlockPos().add(1,1,1)));
+				List entities = entityLiving.worldObj.getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(telepos.getBlockPos().add(-2,-2,-2), telepos.getBlockPos().add(2,2,2)));
 				if(!entities.isEmpty()){
 					EntityLiving target = (EntityLiving) entities.get(0);
 					BlockPos targetPos = target.getPosition();
