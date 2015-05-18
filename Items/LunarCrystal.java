@@ -18,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -39,9 +40,9 @@ public class LunarCrystal extends NItem{
 	}
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if(worldIn.getWorldTime() < 13000 && worldIn.canSeeSky(entityIn.getPosition()) && stack.getItemDamage() != 1000 && !worldIn.isRaining()){
+		if(worldIn.getLightFor(EnumSkyBlock.SKY, entityIn.getPosition()) - worldIn.getSkylightSubtracted() == 4 && worldIn.canSeeSky(entityIn.getPosition()) && stack.getItemDamage() != 1000 && !worldIn.isRaining()){
 			stack.damageItem(1, (EntityLivingBase) entityIn);
-		}else if(worldIn.getWorldTime() > 13000 && worldIn.canSeeSky(entityIn.getPosition()) && stack.isItemDamaged() && !worldIn.isRaining()){
+		}else if(worldIn.getLightFor(EnumSkyBlock.SKY, entityIn.getPosition()) - worldIn.getSkylightSubtracted() > 4 && worldIn.canSeeSky(entityIn.getPosition()) && stack.isItemDamaged() && !worldIn.isRaining()){
 			stack.setItemDamage(stack.getItemDamage() - 1);
 		}
 		/*if(entityIn instanceof EntityPlayer || entityIn instanceof EntityPlayerMP){

@@ -1,8 +1,7 @@
 package com.ncd1998.nmod.Proxy;
 
-import Render.RenderLightningBall;
-
 import com.ncd1998.nmod.Entities.LightningBall;
+import com.ncd1998.nmod.Render.RenderLightningBall;
 import com.ncd1998.nmod.Util.ParticleHelper;
 
 import net.minecraft.client.Minecraft;

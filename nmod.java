@@ -57,7 +57,7 @@ public class nmod
 	@Mod.Instance(nmod.MODID)
 	public static nmod instance;
 	//Developer Mode Toggle
-	public static final boolean devmode =  false;
+	public static final boolean devmode =  true;
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_PATH, serverSide = Reference.SERVER_PROXY_PATH)
 	public static IProxy Proxy;
 	

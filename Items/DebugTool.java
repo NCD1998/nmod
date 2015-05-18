@@ -11,13 +11,16 @@ import com.ncd1998.nmod.Util.ParticleHelper;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -58,11 +61,6 @@ public class DebugTool extends Item{
 				//Toggle
 				tag.setBoolean(tag.getString("currentToggle"), !tag.getBoolean(tag.getString("currentToggle")));
 				playerIn.addChatMessage(new ChatComponentTranslation(EnumChatFormatting.RED + "Debug Tool: Toggled " + tag.getString("currentToggle") + " to " + tag.getBoolean(tag.getString("currentToggle"))));
-				if(!worldIn.isRemote){
-				Entity ball = new LightningBall(worldIn);
-				ball.setLocationAndAngles(playerIn.getPosition().getX() + 4, playerIn.getPosition().getY(), playerIn.getPosition().getZ(), 0, 0);
-				worldIn.spawnEntityInWorld(ball);
-				}
 			}
 		}else{
 			activateNBT(itemStackIn);
@@ -115,4 +113,10 @@ public class DebugTool extends Item{
 		}
 		return "YOU GOOFED";
 	}
+	@Override
+	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
+    {
+		target.setCurrentItemOrArmor(0, new ItemStack(NItems.MobilityGauntlet));
+        return false;
+    }
 }

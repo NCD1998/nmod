@@ -248,5 +248,14 @@ public class NmodRecipes {
 				"S",
 				'V', new ItemStack(NItems.VolitileIngot),
 				'S', new ItemStack(NItems.MysticStick));
+		//MobilityGauntlet
+		GameRegistry.addRecipe(new ItemStack(NItems.MobilityGauntlet),
+				"PVP",
+				"LEL",
+				"LLL",
+				'P', new ItemStack(Items.ender_pearl),
+				'V', new ItemStack(NItems.VoidCrystal, 1, 0),
+				'L', new ItemStack(Items.leather),
+				'E', new ItemStack(NItems.EnderCrystal, 1, 0));
 	}
 }
