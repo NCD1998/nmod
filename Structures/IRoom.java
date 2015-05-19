@@ -27,4 +27,24 @@ public interface IRoom {
 	 * @return an array of ChestRarity values
 	 */
 	public ChestRarity[] getPossibleLootLevels();
+	/**
+	 * 
+	 * @param length location
+	 * @param width location
+	 * @param height location
+	 * @return IBlockState at that location in the Schematic
+	 */
+	public IBlockState getBlock(int l, int w, int h);
+	
+	/**
+	 * Get the Maximum number of Random chests to generate
+	 * @return integer number of chests
+	 */
+	public int getMaxChests();
+	
+	/**
+	 * Get the Minimum number of Random chests to generate
+	 * @return integer number of chests
+	 */
+	public int getMinChests();
 }

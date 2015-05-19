@@ -39,7 +39,7 @@ public class SkyTempleEntry implements IRoom{
 	 * A 16x8x8 Hallway
 	 * Carpeted, with design
 	 */
-	SkyTempleEntry(){
+	public SkyTempleEntry(){
 		fillOutArray();
 	}
 	
@@ -57,26 +57,31 @@ public class SkyTempleEntry implements IRoom{
 		blocks = new IBlockState[16][16][16];
 		//Fillout floor
 		for(int length = 0; length <= 15; length++){
-			for(int width = 4; width <= 12; width++){
+			for(int width = 4; width <= 11; width++){
 				blocks[length][width][0] = baseFloorMaterial;
 			}
 		}
 		//Lengthwise walls
 		for(int length = 0; length <= 15; length++){
-			for(int height = 1; height <= 7; height++){
-				blocks[length][0][height] = baseWallMaterial;
+			for(int height = 1; height <= 8; height++){
+				blocks[length][4][height] = baseWallMaterial;
+			}
+		}
+		for(int length = 0; length <= 15; length++){
+			for(int height = 1; height <= 8; height++){
+				blocks[length][11][height] = baseWallMaterial;
 			}
 		}
 		//Fillout Cieling
 		for(int length = 0; length <= 15; length++){
 			for(int width = 5; width <= 10; width++){
-				blocks[length][width][15] = baseRoofMaterial;
+				blocks[length][width][8] = baseRoofMaterial;
 			}
 		}
 		//Construct Enterence
 			//Build Walls
 		for(int width = 5; width <= 11; width++){
-			for(int height = 1; height <=15; height++){
+			for(int height = 1; height <=8; height++){
 				blocks[0][width][height] = baseWallMaterial;
 			}
 		}
@@ -115,5 +120,14 @@ public class SkyTempleEntry implements IRoom{
 	}
 	public ChestRarity[] getPossibleLootLevels(){
 		return possibleLootLevels;
+	}
+	public IBlockState getBlock(int l, int w, int h){
+		return blocks[l][w][h];
+	}
+	public int getMaxChests(){
+		return maxChests;
+	}
+	public int getMinChests(){
+		return minChests;
 	}
 }

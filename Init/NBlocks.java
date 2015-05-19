@@ -27,6 +27,7 @@ public class NBlocks {
     public static NBlock BVoidDust;
     public static NBlock ShadowGlass;
     public static NBlock ShadowsBlock;
+    public static NBlock SunBeamBlock;
     //Void Runes
     public static NBlock VoidCrosshairRune;
     public static void init(){
@@ -46,6 +47,7 @@ public class NBlocks {
     	BVoidDust = new BVoidDust();
     	ShadowGlass = new ShadowGlass();
     	ShadowsBlock = new ShadowsBlock();
+    	SunBeamBlock = new SunBeamBlock();
     	//Void Runes
     	VoidCrosshairRune = new VoidCrosshairRune();
     }
@@ -66,6 +68,7 @@ public class NBlocks {
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(BVoidDust), 0, new ModelResourceLocation(nmod.MODID + ":" + ((BVoidDust) BVoidDust).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(ShadowGlass), 0, new ModelResourceLocation(nmod.MODID + ":" + ((ShadowGlass) ShadowGlass).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(ShadowsBlock), 0, new ModelResourceLocation(nmod.MODID + ":" + ((ShadowsBlock) ShadowsBlock).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(SunBeamBlock), 0, new ModelResourceLocation(nmod.MODID + ":" + ((SunBeamBlock) SunBeamBlock).getName(), "inventory"));
 		//Void Runes
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(VoidCrosshairRune), 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoidCrosshairRune) VoidCrosshairRune).getName(), "inventory"));
     }

@@ -7,6 +7,8 @@ import java.util.List;
 import com.ncd1998.nmod.nmod;
 import com.ncd1998.nmod.Entities.LightningBall;
 import com.ncd1998.nmod.Init.NItems;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBaseFloor1;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleEntry;
 import com.ncd1998.nmod.Util.ParticleHelper;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -117,6 +119,18 @@ public class DebugTool extends Item{
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
+		BlockPos startPos = target.getPosition();
+		SkyTempleBaseFloor1 entry = new SkyTempleBaseFloor1();
+		for(int length = 0; length < entry.getDimensions().getLength(); length++){
+			for(int width = 0; width < entry.getDimensions().getWidth(); width++){
+				for(int height = 0; height < entry.getDimensions().getHeight(); height++){
+					if(entry.getBlock(length, width, height) != null){
+						attacker.worldObj.setBlockState(startPos.add(length,height, width), entry.getBlock(length, width, height));
+					}
+					
+				}
+			}
+		}
         return false;
     }
 }
