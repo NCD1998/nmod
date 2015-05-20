@@ -8,6 +8,8 @@ import com.ncd1998.nmod.nmod;
 import com.ncd1998.nmod.Entities.LightningBall;
 import com.ncd1998.nmod.Init.NItems;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBaseFloor1;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBaseFloor2;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBaseFloor3;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleEntry;
 import com.ncd1998.nmod.Util.ParticleHelper;
 
@@ -119,15 +121,50 @@ public class DebugTool extends Item{
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
-		BlockPos startPos = target.getPosition();
-		SkyTempleBaseFloor1 entry = new SkyTempleBaseFloor1();
+		BlockPos basePos = target.getPosition();
+		BlockPos startPos = basePos;
+		SkyTempleBaseFloor1 floor1 = new SkyTempleBaseFloor1();
+		for(int length = 0; length < floor1.getDimensions().getLength(); length++){
+			for(int width = 0; width < floor1.getDimensions().getWidth(); width++){
+				for(int height = 0; height < floor1.getDimensions().getHeight(); height++){
+					if(floor1.getBlock(length, width, height) != null){
+						attacker.worldObj.setBlockState(startPos.add(length,height, width), floor1.getBlock(length, width, height));
+					}
+					
+				}
+			}
+		}
+		BlockPos secondPos = basePos.up(5);
+		SkyTempleBaseFloor2 floor2 = new SkyTempleBaseFloor2();
+		for(int length = 0; length < floor2.getDimensions().getLength(); length++){
+			for(int width = 0; width < floor2.getDimensions().getWidth(); width++){
+				for(int height = 0; height < floor2.getDimensions().getHeight(); height++){
+					if(floor2.getBlock(length, width, height) != null){
+						attacker.worldObj.setBlockState(secondPos.add(length,height,width), floor2.getBlock(length, width, height));
+					}
+				}
+			}
+		}
+		BlockPos thirdPos = basePos.up(10);
+		SkyTempleBaseFloor3 floor3 = new SkyTempleBaseFloor3();
+		for(int length = 0; length < floor3.getDimensions().getLength(); length++){
+			for(int width = 0; width < floor3.getDimensions().getWidth(); width++){
+				for(int height = 0; height < floor3.getDimensions().getHeight(); height++){
+					if(floor3.getBlock(length, width, height) != null){
+						attacker.worldObj.setBlockState(thirdPos.add(length,height,width), floor3.getBlock(length, width, height));
+					}
+				}
+			}
+		}
+		
+		BlockPos entryPos = basePos.west(16);
+		SkyTempleEntry entry = new SkyTempleEntry();
 		for(int length = 0; length < entry.getDimensions().getLength(); length++){
 			for(int width = 0; width < entry.getDimensions().getWidth(); width++){
 				for(int height = 0; height < entry.getDimensions().getHeight(); height++){
 					if(entry.getBlock(length, width, height) != null){
-						attacker.worldObj.setBlockState(startPos.add(length,height, width), entry.getBlock(length, width, height));
+						attacker.worldObj.setBlockState(entryPos.add(length,height,width), entry.getBlock(length, width, height));
 					}
-					
 				}
 			}
 		}
