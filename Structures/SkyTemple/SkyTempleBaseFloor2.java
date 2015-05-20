@@ -11,6 +11,8 @@ import com.ncd1998.nmod.Util.ChestRarity;
 public class SkyTempleBaseFloor2 implements IRoom{
 	//Name
 	private final String NAME = "Sky Temple Floor 2";
+	//Type
+	private final EnumSkyTempleRooms type = EnumSkyTempleRooms.FLOOR2;
 	//Room Dimension Holder
 	private final BoxSizer sizer = new BoxSizer(16,16,5);
 	//All Possible chest Locations

@@ -12,6 +12,8 @@ import net.minecraft.util.BlockPos;
 public class SkyTempleEntry implements IRoom{
 	//Name
 	private final String NAME = "SkyTempleEntry";
+	//Type
+	private final EnumSkyTempleRooms type = EnumSkyTempleRooms.ENTRY;
 	//Box Size that Room is limited to 
 	private final BoxSizer sizeLimits = new BoxSizer(16,16,16);
 	//Blockstate array;

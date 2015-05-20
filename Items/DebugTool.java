@@ -7,10 +7,16 @@ import java.util.List;
 import com.ncd1998.nmod.nmod;
 import com.ncd1998.nmod.Entities.LightningBall;
 import com.ncd1998.nmod.Init.NItems;
+import com.ncd1998.nmod.Structures.SkyTemple.Bridge;
+import com.ncd1998.nmod.Structures.SkyTemple.BridgeEroder;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBaseFloor1;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBaseFloor2;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBaseFloor3;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBossRoof;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleClosedBridge;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleEntry;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleOpenBridge;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTemplePillarBridge;
 import com.ncd1998.nmod.Util.ParticleHelper;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -121,7 +127,7 @@ public class DebugTool extends Item{
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
-		BlockPos basePos = target.getPosition();
+		/*BlockPos basePos = target.getPosition();
 		BlockPos startPos = basePos;
 		SkyTempleBaseFloor1 floor1 = new SkyTempleBaseFloor1();
 		for(int length = 0; length < floor1.getDimensions().getLength(); length++){
@@ -168,6 +174,59 @@ public class DebugTool extends Item{
 				}
 			}
 		}
+		BlockPos roofPos = basePos.up(15);
+		SkyTempleBossRoof bossRoof = new SkyTempleBossRoof();
+		for(int length = 0; length < bossRoof.getDimensions().getLength(); length++){
+			for(int width = 0; width < bossRoof.getDimensions().getWidth(); width++){
+				for(int height = 0; height < bossRoof.getDimensions().getHeight(); height++){
+					if(bossRoof.getBlock(length, width, height) != null){
+						attacker.worldObj.setBlockState(roofPos.add(length,height,width), bossRoof.getBlock(length, width, height));
+					}
+				}
+			}
+		}*/
+		BlockPos bridge1Pos = target.getPosition();
+		BlockPos bridge2Pos = target.getPosition().up(7);
+		BlockPos bridge3Pos = target.getPosition().up(14);
+		BlockPos bridge4Pos = target.getPosition().up(21);
+		BlockPos bridge5Pos = target.getPosition().up(28);
+		BlockPos bridge6Pos = target.getPosition().up(35);
+		Bridge bridge1 = new SkyTempleOpenBridge();
+		Bridge bridge2 = new SkyTempleClosedBridge();
+		Bridge bridge3 = new SkyTemplePillarBridge();
+		Bridge bridge4 = BridgeEroder.erode(new SkyTempleOpenBridge(), 50);
+		Bridge bridge5 = BridgeEroder.erode(new SkyTempleClosedBridge(), 50);
+		Bridge bridge6 = BridgeEroder.erode(new SkyTemplePillarBridge(), 50);
+		
+       
+        for(int length = 0; length < 4; length++){
+        	for(int width = 0; width < 8; width++){
+        		for(int height = 0; height < 2; height++){
+        			if(bridge1.getBlock(length, width, height) != null){
+        				attacker.worldObj.setBlockState(bridge1Pos.add(length, height, width), bridge1.getBlock(length, width, height));
+        			}
+        			if(bridge4.getBlock(length, width, height) != null){
+        				attacker.worldObj.setBlockState(bridge4Pos.add(length, height, width), bridge4.getBlock(length, width, height));
+        			}
+        		}
+        		for(int height = 0; height < 4; height++){
+        			if(bridge2.getBlock(length, width, height) != null){
+        				attacker.worldObj.setBlockState(bridge2Pos.add(length, height, width), bridge2.getBlock(length, width, height));
+        			}
+        			if(bridge5.getBlock(length, width, height) != null){
+        			attacker.worldObj.setBlockState(bridge5Pos.add(length, height, width), bridge5.getBlock(length, width, height));
+        			}
+        		}
+        		for(int height = 0; height < 5; height++){
+        			if(bridge3.getBlock(length, width, height) != null){
+        				attacker.worldObj.setBlockState(bridge3Pos.add(length, height, width), bridge3.getBlock(length, width, height));
+        			}
+        			if(bridge6.getBlock(length, width, height) != null){
+        				attacker.worldObj.setBlockState(bridge6Pos.add(length, height, width), bridge6.getBlock(length, width, height));
+        			}
+        		}
+        	}
+        }
         return false;
     }
 }

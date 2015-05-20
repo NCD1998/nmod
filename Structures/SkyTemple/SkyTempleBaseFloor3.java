@@ -11,13 +11,15 @@ import com.ncd1998.nmod.Util.ChestRarity;
 public class SkyTempleBaseFloor3 implements IRoom{
 	//Name
 	private final String NAME = "Sky Temple Floor 3";
+	//type
+	private final EnumSkyTempleRooms type = EnumSkyTempleRooms.FLOOR3;
 	//Room Dimension Holder
 	private final BoxSizer sizer = new BoxSizer(16,16,5);
 	//All Possible chest Locations
 	//!!!!!!!!!!!!!THIS ROOM HAS HARDCODED CHESTS AS WELL THAT ALWAYS SPAWN!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	private final int[][] possiblechestlocations = {{14,2,1},{14,13,1},{9,6,1},{9,9,1}};
 	//All Possible levels of loot to spawn in the chests in this room
-	private final ChestRarity[] lootLevels = {ChestRarity.COMMON, ChestRarity.UNCOMMON};
+	private final ChestRarity[] lootLevels = {ChestRarity.COMMON, ChestRarity.UNCOMMON, ChestRarity.SEMIRARE};
 	//Max random chests to generate
 	private final int maxChests = 2;
 	//Min random chests to generate

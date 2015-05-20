@@ -5,5 +5,6 @@ public enum ChestRarity {
 	UNCOMMON,
 	SEMIRARE,
 	RARE,
-	SPECIAL
+	SPECIAL,
+	NONE
 }
