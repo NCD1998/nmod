@@ -19,6 +19,7 @@ import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleEntry;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleOpenBridge;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleOpenJunction;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTemplePillarBridge;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTemplePillarJunction;
 import com.ncd1998.nmod.Util.ParticleHelper;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -229,9 +230,9 @@ public class DebugTool extends Item{
         		}
         	}
         }*/
-		Bridge junc1 = new SkyTempleClosedJunction();
+		Bridge junc1 = new SkyTemplePillarJunction();
 		BlockPos junc1Pos = target.getPosition();
-		BridgeEroder.erode(junc1, 20);
+		//BridgeEroder.erode(junc1, 20);
 		for(int length = 0; length < junc1.getDimensions().getLength(); length++){
 			for(int width = 0; width < junc1.getDimensions().getWidth(); width++){
 				for(int height = 0; height < junc1.getDimensions().getHeight(); height++){
