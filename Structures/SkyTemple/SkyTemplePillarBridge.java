@@ -5,6 +5,7 @@ import net.minecraft.init.Blocks;
 
 import com.ncd1998.nmod.Init.NBlocks;
 import com.ncd1998.nmod.Structures.IRoom;
+import com.ncd1998.nmod.Structures.RoomType;
 import com.ncd1998.nmod.Util.BoxSizer;
 import com.ncd1998.nmod.Util.ChestRarity;
 
@@ -82,6 +83,10 @@ public class SkyTemplePillarBridge extends Bridge implements IRoom {
 	@Override
 	public void setEroded(int l, int w, int h) {
 		blocks[l][w][h] = Blocks.air.getDefaultState();
+	}
+	@Override
+	public RoomType getType() {
+		return type;
 	}
 
 }

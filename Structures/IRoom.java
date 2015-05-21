@@ -47,4 +47,9 @@ public interface IRoom {
 	 * @return integer number of chests
 	 */
 	public int getMinChests();
+	/**
+	 * Returns a enum value of the rooms type
+	 * @return type variable
+	 */
+	public RoomType getType();
 }

@@ -1,6 +1,7 @@
 package com.ncd1998.nmod.Structures.SkyTemple;
 
 import com.ncd1998.nmod.Structures.IRoom;
+import com.ncd1998.nmod.Structures.RoomType;
 import com.ncd1998.nmod.Util.BoxSizer;
 import com.ncd1998.nmod.Util.ChestRarity;
 
@@ -131,5 +132,11 @@ public class SkyTempleEntry implements IRoom{
 	}
 	public int getMinChests(){
 		return minChests;
+	}
+
+
+	@Override
+	public RoomType getType() {
+		return type;
 	}
 }

@@ -5,6 +5,7 @@ import net.minecraft.init.Blocks;
 
 import com.ncd1998.nmod.Init.NBlocks;
 import com.ncd1998.nmod.Structures.IRoom;
+import com.ncd1998.nmod.Structures.RoomType;
 import com.ncd1998.nmod.Util.BoxSizer;
 import com.ncd1998.nmod.Util.ChestRarity;
 
@@ -185,6 +186,10 @@ public class SkyTempleBaseFloor2 implements IRoom{
 	@Override
 	public int getMinChests() {
 		return minChests;
+	}
+	@Override
+	public RoomType getType() {
+		return type;
 	}
 
 }
