@@ -14,6 +14,7 @@ import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBaseFloor2;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBaseFloor3;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBossRoof;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleClosedBridge;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleClosedJunction;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleEntry;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleOpenBridge;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleOpenJunction;
@@ -228,7 +229,7 @@ public class DebugTool extends Item{
         		}
         	}
         }*/
-		Bridge junc1 = new SkyTempleOpenJunction();
+		Bridge junc1 = new SkyTempleClosedJunction();
 		BlockPos junc1Pos = target.getPosition();
 		BridgeEroder.erode(junc1, 20);
 		for(int length = 0; length < junc1.getDimensions().getLength(); length++){
