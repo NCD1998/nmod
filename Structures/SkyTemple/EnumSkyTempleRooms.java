@@ -11,5 +11,6 @@ public enum EnumSkyTempleRooms implements RoomType{
 	SPAWNER,
 	LOOT,
 	PUZZLE,
-	JUNCTION
+	JUNCTION,
+	UTILITY
 }

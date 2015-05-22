@@ -3,10 +3,12 @@ package com.ncd1998.nmod.Items;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.ncd1998.nmod.nmod;
 import com.ncd1998.nmod.Entities.LightningBall;
 import com.ncd1998.nmod.Init.NItems;
+import com.ncd1998.nmod.Structures.IRoom;
 import com.ncd1998.nmod.Structures.SkyTemple.Bridge;
 import com.ncd1998.nmod.Structures.SkyTemple.BridgeEroder;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBaseFloor1;
@@ -16,6 +18,9 @@ import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBossRoof;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleClosedBridge;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleClosedJunction;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleEntry;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleLootRoomLarge;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleLootRoomMedium;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleLootRoomSmall;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleOpenBridge;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleOpenJunction;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTemplePillarBridge;
@@ -25,6 +30,7 @@ import com.ncd1998.nmod.Util.ParticleHelper;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -41,6 +47,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class DebugTool extends Item{
 	private final String name = "DebugTool";
 	private final List<String> toggleList = new ArrayList();
+	private Random rand = new Random();
 	
 	public DebugTool(){
 		GameRegistry.registerItem(this, name);
@@ -230,7 +237,7 @@ public class DebugTool extends Item{
         		}
         	}
         }*/
-		Bridge junc1 = new SkyTemplePillarJunction();
+	/*	Bridge junc1 = new SkyTemplePillarJunction();
 		BlockPos junc1Pos = target.getPosition();
 		//BridgeEroder.erode(junc1, 20);
 		for(int length = 0; length < junc1.getDimensions().getLength(); length++){
@@ -242,7 +249,39 @@ public class DebugTool extends Item{
 					
 				}
 			}
+		}*/
+		/*EntityHorse horse1[] = new EntityHorse[20];
+		
+		for(int horse = 0; horse < 20; horse++){
+			horse1[horse] = new EntityHorse(attacker.worldObj);
 		}
+		for(int horse = 0; horse < 20; horse++){
+			int randinvt;
+			if(rand.nextBoolean()){
+			randinvt = -1;
+		}else{
+			randinvt = 1;
+		}
+			if(!attacker.worldObj.isRemote){
+			horse1[horse].setLocationAndAngles(target.getPosition().getX() + rand.nextInt(10) * randinvt, 150, target.getPosition().getZ() + rand.nextInt(10), 0, 0);
+			attacker.worldObj.spawnEntityInWorld(horse1[horse]);
+			horse1[horse].setFire(10);
+			}
+		}*/
+		
+			IRoom lootRoom = new SkyTempleLootRoomLarge();
+		BlockPos junc1Pos = target.getPosition();
+		for(int length = 0; length < lootRoom.getDimensions().getLength(); length++){
+			for(int width = 0; width < lootRoom.getDimensions().getWidth(); width++){
+				for(int height = 0; height < lootRoom.getDimensions().getHeight(); height++){
+					if(lootRoom.getBlock(length, width, height) != null){
+						attacker.worldObj.setBlockState(junc1Pos.add(length, height, width), lootRoom.getBlock(length, width, height));
+					}
+					
+				}
+			}
+		}
+
         return false;
     }
 }
