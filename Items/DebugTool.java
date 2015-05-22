@@ -25,6 +25,7 @@ import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleOpenBridge;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleOpenJunction;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTemplePillarBridge;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTemplePillarJunction;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleSpawnerRoomSpirit;
 import com.ncd1998.nmod.Util.ParticleHelper;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -269,7 +270,7 @@ public class DebugTool extends Item{
 			}
 		}*/
 		
-			IRoom lootRoom = new SkyTempleLootRoomLarge();
+			IRoom lootRoom = new SkyTempleSpawnerRoomSpirit();
 		BlockPos junc1Pos = target.getPosition();
 		for(int length = 0; length < lootRoom.getDimensions().getLength(); length++){
 			for(int width = 0; width < lootRoom.getDimensions().getWidth(); width++){
