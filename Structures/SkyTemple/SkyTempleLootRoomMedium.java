@@ -1,5 +1,6 @@
 package com.ncd1998.nmod.Structures.SkyTemple;
 
+import java.util.Random;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 
@@ -25,9 +26,24 @@ public class SkyTempleLootRoomMedium implements IRoom{
 	//Main Wall Block
 	private final IBlockState wallBase = Blocks.quartz_block.getStateFromMeta(2);
 	//Main Chest Block
-	private final IBlockState chestBase = Blocks.chest.getDefaultState();
+	private final IBlockState chestBase;
+	//Random
+	private Random rand = new Random();
 	
 	public SkyTempleLootRoomMedium(){
+		int chestrare = rand.nextInt(100);
+		if(chestrare < 50){
+			chestBase = ReferenceSTBlocks.COMMONCHEST;
+		}else if(chestrare < 75){
+			//Change to uncommon
+			chestBase = ReferenceSTBlocks.COMMONCHEST;
+		}else if(chestrare < 90){
+			//Change to semiRare
+			chestBase = ReferenceSTBlocks.COMMONCHEST;
+		}else{
+			//Change to rare
+			chestBase = ReferenceSTBlocks.COMMONCHEST;
+		}
 		fillOutArray();
 	}
 	private void fillOutArray() {

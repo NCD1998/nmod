@@ -9,9 +9,13 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -65,6 +69,27 @@ public class SkyTempleGlass extends NBlock
 	 protected boolean canSilkHarvest()
 	    {
 	        return true;
+	    }
+	 @SideOnly(Side.CLIENT)
+	    public boolean shouldSideBeRendered(IBlockAccess worldIn, BlockPos pos, EnumFacing side)
+	    {
+	        IBlockState iblockstate = worldIn.getBlockState(pos);
+	        Block block = iblockstate.getBlock();
+
+	        if (this == Blocks.glass || this == Blocks.stained_glass)
+	        {
+	            if (worldIn.getBlockState(pos.offset(side.getOpposite())) != iblockstate)
+	            {
+	                return true;
+	            }
+
+	            if (block == this)
+	            {
+	                return false;
+	            }
+	        }
+
+	        return !this.ignoreSimilarity && block == this ? false : super.shouldSideBeRendered(worldIn, pos, side);
 	    }
 	 
 }

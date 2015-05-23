@@ -270,7 +270,7 @@ public class DebugTool extends Item{
 			}
 		}*/
 		
-			IRoom lootRoom = new SkyTempleSpawnerRoomSpirit();
+			IRoom lootRoom = new SkyTempleLootRoomSmall();
 		BlockPos junc1Pos = target.getPosition();
 		for(int length = 0; length < lootRoom.getDimensions().getLength(); length++){
 			for(int width = 0; width < lootRoom.getDimensions().getWidth(); width++){

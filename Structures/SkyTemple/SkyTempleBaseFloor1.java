@@ -34,7 +34,7 @@ public class SkyTempleBaseFloor1 implements IRoom{
 	//Block to make tables out of
 	private final IBlockState tableBlock = Blocks.stonebrick.getStateFromMeta(3);
 	//Hardcoded Loot Boxes
-	private final IBlockState chestBase = Blocks.chest.getDefaultState();
+	private final IBlockState chestBase = ReferenceSTBlocks.COMMONCHEST;
 	
 	public SkyTempleBaseFloor1(){
 		fillArray();

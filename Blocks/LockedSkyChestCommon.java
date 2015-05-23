@@ -1,5 +1,7 @@
 package com.ncd1998.nmod.Blocks;
  
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -27,10 +29,10 @@ public class LockedSkyChestCommon extends NBlock
 			NItems.AbsorbiumSword,NItems.SkyCobaltCrystal, NItems.LesserSkyKey, NItems.LifeForce, NItems.SpellPaperSniperVeil, NItems.VoiditeIngot,
 			NItems.WandOfGrowth, Items.gold_ingot, Items.diamond, Items.apple, Items.golden_apple, Items.book, Items.ender_pearl, Items.experience_bottle,
 			Items.emerald, Items.name_tag};
-	private final int[] quantitymin = {16,5,1,1,1,1,1,1,5,1,5,1,1,5,3,7,1,5,2,10,2,1};
-	private final int[] quantitymax = {32,7,1,1,1,1,3,1,7,1,8,1,1,9,5,22,1,7,3,15,3,2};
+	private final int[] quantitymin = {16,5,1,1,1,1,1,1,5,1,5,1,1,5,3,1,1,5,2,10,2,1};
+	private final int[] quantitymax = {32,7,1,1,1,1,3,1,7,1,8,1,1,9,5,1,1,7,3,15,3,2};
 	//private final int[] rarity = {4,4,4,4,4,4,6,6,5,5,4,5,2,3,1,3,1,1,4,3,4};
-	private final int maxItems = 7;
+	private final int maxItems = 5;
 	private final int minItems = 3;
 	private Random rand = new Random();
 	public LockedSkyChestCommon()
@@ -60,7 +62,8 @@ public class LockedSkyChestCommon extends NBlock
 	 @Override
 	 public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
 	    {
-		 if(playerIn.getCurrentEquippedItem().getItem().equals(NItems.LesserSkyKey)){
+		 if(playerIn.getCurrentEquippedItem() != null){
+		 if(playerIn.getCurrentEquippedItem().getItem().equals(NItems.LesserSkyKey) && side.equals(EnumFacing.UP)){
 			 playerIn.inventory.consumeInventoryItem(NItems.LesserSkyKey);
 			 ItemStack[] itemsToDrop = this.getItemsToDrop();
 			 for(int i = 0; i < itemsToDrop.length; i++){
@@ -73,6 +76,7 @@ public class LockedSkyChestCommon extends NBlock
 			 worldIn.setBlockToAir(pos);
 			 
 		 }
+		 }
 	        return false;
 	    }
 	 /**
@@ -81,15 +85,52 @@ public class LockedSkyChestCommon extends NBlock
 	  */
 	 private ItemStack[] getItemsToDrop(){
 		 ItemStack[] returnItems = new ItemStack[rand.nextInt(maxItems - minItems) + minItems];
-		 for(int i = 0; i < returnItems.length; i++){
-			 int nextItemIndex = rand.nextInt(items.length);
-			 int nextQuantity;
-			 if(quantitymax[nextItemIndex] - quantitymin[nextItemIndex] == 0){
-				 nextQuantity = 1;
-			 }else{
-				 nextQuantity = rand.nextInt(quantitymax[nextItemIndex] - quantitymin[nextItemIndex] + quantitymin[nextItemIndex]);
+		 List<Item> itemList = new ArrayList();
+			 for(Item current:items){
+				 itemList.add(current);
 			 }
-			 returnItems[i] = new ItemStack(items[nextItemIndex], nextQuantity, 0);
+		 for(int i = 0; i < returnItems.length; i++){
+			 int nextItemIndex = rand.nextInt(itemList.size());
+			 Item currentItem = itemList.remove(nextItemIndex);
+			 if(currentItem.equals(NItems.AbsorbiumAxe) || currentItem.equals(NItems.AbsorbiumPickaxe) || currentItem.equals(NItems.AbsorbiumShovel) || currentItem.equals(NItems.AbsorbiumSword)){
+				 for(int k = 0; k < itemList.size(); k++){
+					 if(NItems.AbsorbiumAxe.equals(itemList.get(k))){
+						 itemList.remove(k);
+						 k = 500;
+					 }
+				 }
+				 for(int k = 0; k < itemList.size(); k++){
+					 if(NItems.AbsorbiumPickaxe.equals(itemList.get(k))){
+						 itemList.remove(k);
+						 k = 500;
+					 }
+				 }
+				 for(int k = 0; k < itemList.size(); k++){
+					 if(NItems.AbsorbiumShovel.equals(itemList.get(k))){
+						 itemList.remove(k);
+						 k = 500;
+					 }
+				 }
+				 for(int k = 0; k < itemList.size(); k++){
+					 if(NItems.AbsorbiumSword.equals(itemList.get(k))){
+						 itemList.remove(k);
+						 k = 500;
+					 }
+				 }
+				 }
+				 int quantity = 0;
+				 for(int h = 0; h < items.length; h++){
+					 if(currentItem.equals(items[h])){
+						 if(quantitymin[h] != quantitymax[h]){
+							 quantity = rand.nextInt(quantitymax[h] - quantitymin[h]) + quantitymin[h];
+						 }else{
+							 quantity = quantitymin[h];
+						 }
+						 
+					 }
+				 }
+				 returnItems[i] = new ItemStack(currentItem, quantity, 0);
+			 
 		 }
 		 return returnItems;
 	 }

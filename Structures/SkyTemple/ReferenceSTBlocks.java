@@ -10,4 +10,5 @@ public class ReferenceSTBlocks {
 	public static final IBlockState BRICKMATERIAL = Blocks.stonebrick.getDefaultState();
 	public static final IBlockState TEMPLEGLASS = NBlocks.SkyTempleGlass.getDefaultState();
 	public static final IBlockState SPIRITGLASS = NBlocks.SpiritGlass.getDefaultState();
+	public static final IBlockState COMMONCHEST = NBlocks.LockedSkyChestCommon.getDefaultState();
 }
