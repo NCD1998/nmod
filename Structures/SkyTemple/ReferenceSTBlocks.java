@@ -13,4 +13,5 @@ public class ReferenceSTBlocks {
 	public static final IBlockState COMMONCHEST = NBlocks.LockedSkyChestCommon.getDefaultState();
 	public static final IBlockState UNCOMMONCHEST = NBlocks.LockedSkyChestUncommon.getDefaultState();
 	public static final IBlockState SEMIRARECHEST = NBlocks.LockedSkyChestSemirare.getDefaultState();
+	public static final IBlockState RARECHEST = NBlocks.LockedSkyChestRare.getDefaultState();
 }

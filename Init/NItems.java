@@ -80,6 +80,7 @@ public class NItems {
     public static NItem LesserSkyKey;
     public static NItem DecentSkyKey;
     public static NItem FineSkyKey;
+    public static NItem GlimmeringSkyKey;
     
     
     //Debug
@@ -155,6 +156,7 @@ public class NItems {
 		LesserSkyKey = new LesserSkyKey();
 		DecentSkyKey = new DecentSkyKey();
 		FineSkyKey = new FineSkyKey();
+		GlimmeringSkyKey = new GlimmeringSkyKey();
 		
 		
 		//Debug
@@ -234,6 +236,7 @@ public class NItems {
 		renderItem.getItemModelMesher().register(LesserSkyKey, 0, new ModelResourceLocation(nmod.MODID + ":" + ((LesserSkyKey) LesserSkyKey).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(DecentSkyKey, 0, new ModelResourceLocation(nmod.MODID + ":" + ((DecentSkyKey) DecentSkyKey).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(FineSkyKey, 0, new ModelResourceLocation(nmod.MODID + ":" + ((FineSkyKey) FineSkyKey).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(GlimmeringSkyKey, 0, new ModelResourceLocation(nmod.MODID + ":" + ((GlimmeringSkyKey) GlimmeringSkyKey).getName(), "inventory"));
     
     
     

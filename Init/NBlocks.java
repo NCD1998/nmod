@@ -34,6 +34,7 @@ public class NBlocks {
     public static NBlock LockedSkyChestCommon;
     public static NBlock LockedSkyChestUncommon;
     public static NBlock LockedSkyChestSemirare;
+    public static NBlock LockedSkyChestRare;
     //Void Runes
     public static NBlock VoidCrosshairRune;
     public static void init(){
@@ -60,6 +61,7 @@ public class NBlocks {
     	LockedSkyChestCommon = new LockedSkyChestCommon();
     	LockedSkyChestUncommon = new LockedSkyChestUncommon();
     	LockedSkyChestSemirare = new LockedSkyChestSemirare();
+    	LockedSkyChestRare = new LockedSkyChestRare();
     	//Void Runes
     	VoidCrosshairRune = new VoidCrosshairRune();
     }
@@ -87,6 +89,7 @@ public class NBlocks {
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(LockedSkyChestCommon), 0, new ModelResourceLocation(nmod.MODID + ":" + ((LockedSkyChestCommon) LockedSkyChestCommon).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(LockedSkyChestUncommon), 0, new ModelResourceLocation(nmod.MODID + ":" + ((LockedSkyChestUncommon) LockedSkyChestUncommon).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(LockedSkyChestSemirare), 0, new ModelResourceLocation(nmod.MODID + ":" + ((LockedSkyChestSemirare) LockedSkyChestSemirare).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(LockedSkyChestRare), 0, new ModelResourceLocation(nmod.MODID + ":" + ((LockedSkyChestRare) LockedSkyChestRare).getName(), "inventory"));
 		//Void Runes
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(VoidCrosshairRune), 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoidCrosshairRune) VoidCrosshairRune).getName(), "inventory"));
     }

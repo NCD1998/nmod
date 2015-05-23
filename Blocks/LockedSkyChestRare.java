@@ -23,22 +23,24 @@ import com.ncd1998.nmod.Init.NBlocks;
 import com.ncd1998.nmod.Init.NItems;
 
 
-public class LockedSkyChestUncommon extends NBlock
+public class LockedSkyChestRare extends NBlock
 {
-	private final String name = "LockedSkyChestUncommon";
-	private final Item[] items = {new ItemStack(NBlocks.GlimmerStone).getItem(),new ItemStack(NBlocks.ShadowsBlock).getItem(),
-			new ItemStack(NBlocks.ShadowGlass).getItem(),NItems.EnderCrystal, NItems.NetherCrystal, NItems.SolarCrystal,
-			NItems.LunarCrystal, NItems.VoidCrystal, NItems.EnergyCrystal, NItems.FireCrystal, NItems.WaterCrystal, NItems.AirCrystal,
-			NItems.EarthCrystal, NItems.LesserSkyKey, NItems.LifeForce, NItems.SpellPaperSniperVeil, NItems.VolitileIngot,Items.gold_ingot,
-			Items.diamond, Items.golden_apple, Items.experience_bottle, Items.emerald, Items.name_tag, Items.chainmail_boots, Items.chainmail_chestplate,
-			Items.chainmail_helmet, Items.chainmail_leggings, Items.ghast_tear, Items.iron_horse_armor, Items.golden_horse_armor, NItems.DecentSkyKey};
-	private final int[] quantitymin = {10,32,32,1,1,1,1,1,1,1,1,1,1,1,10,1,1,5,1,1,5,1,1,1,1,1,1,1,1,1,1};
-	private final int[] quantitymax = {20,48,48,1,1,1,1,1,1,1,1,1,1,1,15,1,1,9,4,1,20,3,2,1,1,1,1,2,1,1,1};
+	private final String name = "LockedSkyChestRare";
+	private final Item[] items = {NItems.LesserSkyKey, NItems.DecentSkyKey,NItems.FineSkyKey,NItems.GlimmeringSkyKey,NItems.MobilityGauntlet,
+			new ItemStack(NBlocks.VoidAltar).getItem(),NItems.EnderCrystal,NItems.NetherCrystal,NItems.SolarCrystal, NItems.LunarCrystal,
+			NItems.VoidCrystal,NItems.EnergyCrystal, NItems.FireCrystal, NItems.WaterCrystal, NItems.EarthCrystal, NItems.AirCrystal,
+			NItems.CobaltDrainingSword, NItems.SpellPaperDeathBeam, NItems.SpellPaperDragonSoul, NItems.SpellPaperEnderRift,
+			NItems.SpellPaperEscapeO, NItems.SpellPaperNetherRift, NItems.SpellPaperSniperVeil, NItems.VoidBook, new ItemStack(Blocks.sponge).getItem(),
+			new ItemStack(Blocks.lapis_block).getItem(), new ItemStack(Blocks.gold_block).getItem(), new ItemStack(Blocks.diamond_block).getItem(),
+			new ItemStack(Blocks.emerald_block).getItem(),new ItemStack(Blocks.beacon).getItem(),new ItemStack(Blocks.packed_ice).getItem(),
+			Items.golden_apple, Items.experience_bottle, Items.skull, Items.nether_star};
+	private final int[] quantitymin = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,10,7,3,5,1,48,3,32,1,1};
+	private final int[] quantitymax = {3,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10,20,10,5,7,1,64,5,64,1,1};
 	//private final int[] rarity = {};
 	private final int maxItems = 5;
 	private final int minItems = 3;
 	private Random rand = new Random();
-	public LockedSkyChestUncommon()
+	public LockedSkyChestRare()
 	{
 		super(Material.rock);
 		GameRegistry.registerBlock(this, name);
@@ -66,8 +68,8 @@ public class LockedSkyChestUncommon extends NBlock
 	 public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
 	    {
 		 if(playerIn.getCurrentEquippedItem() != null){
-		 if(playerIn.getCurrentEquippedItem().getItem().equals(NItems.DecentSkyKey) && side.equals(EnumFacing.UP)){
-			 playerIn.inventory.consumeInventoryItem(NItems.DecentSkyKey);
+		 if(playerIn.getCurrentEquippedItem().getItem().equals(NItems.GlimmeringSkyKey) && side.equals(EnumFacing.UP)){
+			 playerIn.inventory.consumeInventoryItem(NItems.GlimmeringSkyKey);
 			 ItemStack[] itemsToDrop = this.getItemsToDrop();
 			 for(int i = 0; i < itemsToDrop.length; i++){
 				 EntityItem currentItem = new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), itemsToDrop[i]);
@@ -78,34 +80,6 @@ public class LockedSkyChestUncommon extends NBlock
 			 }
 			 worldIn.setBlockToAir(pos);
 			 
-		 }
-		 if(playerIn.getCurrentEquippedItem().getItem().equals(NItems.FineSkyKey) && side.equals(EnumFacing.UP)){
-			 playerIn.inventory.consumeInventoryItem(NItems.FineSkyKey);
-			 ItemStack[] itemsToDrop = this.getItemsToDrop();
-			 for(int i = 0; i < itemsToDrop.length; i++){
-				 EntityItem currentItem = new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), itemsToDrop[i]);
-				 if(!worldIn.isRemote){
-					 worldIn.spawnEntityInWorld(currentItem);
-				 }
-				 
-			 }
-			 worldIn.setBlockToAir(pos);
-			 
-		 }
-		 if(playerIn.getCurrentEquippedItem() != null){
-			 if(playerIn.getCurrentEquippedItem().getItem().equals(NItems.GlimmeringSkyKey) && side.equals(EnumFacing.UP)){
-				 playerIn.inventory.consumeInventoryItem(NItems.GlimmeringSkyKey);
-				 ItemStack[] itemsToDrop = this.getItemsToDrop();
-				 for(int i = 0; i < itemsToDrop.length; i++){
-					 EntityItem currentItem = new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), itemsToDrop[i]);
-					 if(!worldIn.isRemote){
-						 worldIn.spawnEntityInWorld(currentItem);
-					 }
-					 
-				 }
-				 worldIn.setBlockToAir(pos);
-				 
-			 }
 		 }
 		 }
 	        return false;
@@ -186,6 +160,56 @@ public class LockedSkyChestUncommon extends NBlock
 					 }
 				 }
 				 }
+			 if(currentItem.equals(Items.diamond_axe) || currentItem.equals(Items.diamond_boots) || currentItem.equals(Items.diamond_chestplate) || currentItem.equals(Items.diamond_helmet) ||
+					 currentItem.equals(Items.diamond_leggings) || currentItem.equals(Items.diamond_pickaxe) || currentItem.equals(Items.diamond_shovel) || currentItem.equals(Items.diamond_sword)){
+				 for(int k = 0; k < itemList.size(); k++){
+					 if(Items.diamond_axe.equals(itemList.get(k))){
+						 itemList.remove(k);
+						 k = 500;
+					 }
+				 }
+				 for(int k = 0; k < itemList.size(); k++){
+					 if(Items.diamond_boots.equals(itemList.get(k))){
+						 itemList.remove(k);
+						 k = 500;
+					 }
+				 }
+				 for(int k = 0; k < itemList.size(); k++){
+					 if(Items.diamond_chestplate.equals(itemList.get(k))){
+						 itemList.remove(k);
+						 k = 500;
+					 }
+				 }
+				 for(int k = 0; k < itemList.size(); k++){
+					 if(Items.diamond_helmet.equals(itemList.get(k))){
+						 itemList.remove(k);
+						 k = 500;
+					 }
+				 }for(int k = 0; k < itemList.size(); k++){
+					 if(Items.diamond_leggings.equals(itemList.get(k))){
+						 itemList.remove(k);
+						 k = 500;
+					 }
+				 }
+				 for(int k = 0; k < itemList.size(); k++){
+					 if(Items.diamond_pickaxe.equals(itemList.get(k))){
+						 itemList.remove(k);
+						 k = 500;
+					 }
+				 }
+				 for(int k = 0; k < itemList.size(); k++){
+					 if(Items.diamond_shovel.equals(itemList.get(k))){
+						 itemList.remove(k);
+						 k = 500;
+					 }
+				 }
+				 for(int k = 0; k < itemList.size(); k++){
+					 if(Items.diamond_sword.equals(itemList.get(k))){
+						 itemList.remove(k);
+						 k = 500;
+					 }
+				 }
+				 }
 				 int quantity = 0;
 				 for(int h = 0; h < items.length; h++){
 					 if(currentItem.equals(items[h])){
@@ -197,8 +221,24 @@ public class LockedSkyChestUncommon extends NBlock
 						 
 					 }
 				 }
-				 returnItems[i] = new ItemStack(currentItem, quantity, 0);
-			 
+				 if(currentItem.equals(Items.golden_apple)){
+					 returnItems[i] = new ItemStack(currentItem,quantity, 1);
+				 }else if(currentItem.equals(Items.skull)){
+					 int randskull = rand.nextInt(5);
+					 if(randskull == 0){
+						 returnItems[i] = new ItemStack(currentItem, quantity, 0);
+					 }else if(randskull == 1){
+						 returnItems[i] = new ItemStack(currentItem, quantity, 1);
+					 }else if(randskull == 2){
+						 returnItems[i] = new ItemStack(currentItem, quantity, 2);
+					 }else if(randskull == 4){
+						 returnItems[i] = new ItemStack(currentItem, quantity, 4);
+					 }else{
+						 returnItems[i] = new ItemStack(currentItem, quantity, 0);
+					 }
+				 }else{
+					 returnItems[i] = new ItemStack(currentItem, quantity, 0);
+				 }
 		 }
 		 return returnItems;
 	 }

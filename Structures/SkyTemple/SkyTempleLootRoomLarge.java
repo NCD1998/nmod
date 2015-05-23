@@ -50,8 +50,7 @@ public class SkyTempleLootRoomLarge implements IRoom{
 		}else if(chestrare < 90){
 			chestBase = ReferenceSTBlocks.SEMIRARECHEST;
 		}else{
-			//Change to rare
-			chestBase = ReferenceSTBlocks.COMMONCHEST;
+			chestBase = ReferenceSTBlocks.RARECHEST;
 		}
 		fillOutArray();
 	}
