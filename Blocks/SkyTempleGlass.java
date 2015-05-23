@@ -70,26 +70,5 @@ public class SkyTempleGlass extends NBlock
 	    {
 	        return true;
 	    }
-	 @SideOnly(Side.CLIENT)
-	    public boolean shouldSideBeRendered(IBlockAccess worldIn, BlockPos pos, EnumFacing side)
-	    {
-	        IBlockState iblockstate = worldIn.getBlockState(pos);
-	        Block block = iblockstate.getBlock();
-
-	        if (this == Blocks.glass || this == Blocks.stained_glass)
-	        {
-	            if (worldIn.getBlockState(pos.offset(side.getOpposite())) != iblockstate)
-	            {
-	                return true;
-	            }
-
-	            if (block == this)
-	            {
-	                return false;
-	            }
-	        }
-
-	        return !this.ignoreSimilarity && block == this ? false : super.shouldSideBeRendered(worldIn, pos, side);
-	    }
 	 
 }

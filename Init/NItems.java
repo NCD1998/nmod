@@ -78,6 +78,7 @@ public class NItems {
     public static NItem MobilityGauntlet;
     //Keys
     public static NItem LesserSkyKey;
+    public static NItem DecentSkyKey;
     
     
     //Debug
@@ -151,6 +152,7 @@ public class NItems {
 		MobilityGauntlet = new MobilityGauntlet();
 		//Keys
 		LesserSkyKey = new LesserSkyKey();
+		DecentSkyKey = new DecentSkyKey();
 		
 		
 		//Debug
@@ -228,6 +230,7 @@ public class NItems {
 		renderItem.getItemModelMesher().register(MobilityGauntlet, 0, new ModelResourceLocation(nmod.MODID + ":" + ((MobilityGauntlet) MobilityGauntlet).getName(), "inventory"));
 		//Keys
 		renderItem.getItemModelMesher().register(LesserSkyKey, 0, new ModelResourceLocation(nmod.MODID + ":" + ((LesserSkyKey) LesserSkyKey).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(DecentSkyKey, 0, new ModelResourceLocation(nmod.MODID + ":" + ((DecentSkyKey) DecentSkyKey).getName(), "inventory"));
     
     
     
