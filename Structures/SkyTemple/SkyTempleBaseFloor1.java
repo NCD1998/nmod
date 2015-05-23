@@ -28,9 +28,9 @@ public class SkyTempleBaseFloor1 implements IRoom{
 	//The schematic array
 	private final IBlockState[][][] blocks = new IBlockState[sizer.getLength()][sizer.getWidth()][sizer.getHeight()];
 	//Floor Block
-	private final IBlockState floorBase = Blocks.stonebrick.getDefaultState();
+	private final IBlockState floorBase = ReferenceSTBlocks.BRICKMATERIAL;
 	//Wall Block
-	private final IBlockState wallBase = Blocks.quartz_block.getDefaultState();
+	private final IBlockState wallBase = ReferenceSTBlocks.TEMPLESTONE;
 	//Block to make tables out of
 	private final IBlockState tableBlock = Blocks.stonebrick.getStateFromMeta(3);
 	//Hardcoded Loot Boxes

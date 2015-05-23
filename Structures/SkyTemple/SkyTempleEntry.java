@@ -20,11 +20,11 @@ public class SkyTempleEntry implements IRoom{
 	//Blockstate array;
 	private IBlockState[][][] blocks;
 	//Block to use as floor of room
-	private final IBlockState baseFloorMaterial = Blocks.stonebrick.getDefaultState();
+	private final IBlockState baseFloorMaterial = ReferenceSTBlocks.BRICKMATERIAL;;
 	//Block to use as walls of room
-	private final IBlockState baseWallMaterial = Blocks.quartz_block.getDefaultState();
+	private final IBlockState baseWallMaterial = ReferenceSTBlocks.TEMPLESTONE;
 	//Block to use as ceiling of room
-	private final IBlockState baseRoofMaterial = Blocks.glass.getDefaultState();
+	private final IBlockState baseRoofMaterial = ReferenceSTBlocks.TEMPLEGLASS;
 	//Blocks to carpet the room's floor in
 	private final IBlockState baseCarpetColor = Blocks.carpet.getStateFromMeta(11);
 	//Blocks to create a design in the rooms carpet with

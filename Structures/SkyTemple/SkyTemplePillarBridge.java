@@ -19,7 +19,7 @@ public class SkyTemplePillarBridge extends Bridge implements IRoom {
 			//The schematic array
 			private final IBlockState[][][] blocks = new IBlockState[sizer.getLength()][sizer.getWidth()][sizer.getHeight()];
 			//Floor Block
-			private final IBlockState floorBase = Blocks.quartz_block.getDefaultState();
+			private final IBlockState floorBase = ReferenceSTBlocks.TEMPLESTONE;
 			//Wall Block
 			private final IBlockState wallBase = Blocks.quartz_block.getStateFromMeta(2);
 	public SkyTemplePillarBridge(){

@@ -21,11 +21,11 @@ public class SkyTempleLootRoomSmall implements IRoom{
 	//Block Schematic
 	private final IBlockState[][][] blocks = new IBlockState[sizer.getLength()][sizer.getWidth()][sizer.getHeight()];
 	//Main Floor Block
-	private final IBlockState floorBase = Blocks.stonebrick.getDefaultState();
+	private final IBlockState floorBase = ReferenceSTBlocks.BRICKMATERIAL;
 	//Main Wall Block
-	private final IBlockState wallBase = Blocks.quartz_block.getDefaultState();
+	private final IBlockState wallBase = ReferenceSTBlocks.TEMPLESTONE;
 	//Main Glass Block
-	private final IBlockState glassBase = Blocks.glass.getDefaultState();
+	private final IBlockState glassBase = ReferenceSTBlocks.TEMPLEGLASS;
 	//Main Slab Block
 	private final IBlockState slabBase = Blocks.stone_slab.getStateFromMeta(5);
 	//Main Chest Block

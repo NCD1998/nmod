@@ -27,15 +27,15 @@ public class SkyTempleLootRoomLarge implements IRoom{
 	//Block Schematic
 	private final IBlockState[][][] blocks = new IBlockState[sizer.getLength()][sizer.getWidth()][sizer.getHeight()];
 	//Main Floor Block
-	private final IBlockState floorBase = Blocks.stonebrick.getDefaultState();
+	private final IBlockState floorBase = ReferenceSTBlocks.BRICKMATERIAL;;
 	//Main Wall Block
-	private final IBlockState wallBase = Blocks.quartz_block.getDefaultState();
+	private final IBlockState wallBase = ReferenceSTBlocks.TEMPLESTONE;
 	//Design Block
 	private final IBlockState designBlock = Blocks.quartz_block.getStateFromMeta(1);
 	//Main Chest Block
 	private final IBlockState chestBase = Blocks.chest.getDefaultState();
 	//Table Block
-	private final IBlockState tableBase = Blocks.stonebrick.getDefaultState();
+	private final IBlockState tableBase = ReferenceSTBlocks.BRICKMATERIAL;;
 	
 	public SkyTempleLootRoomLarge(){
 		fillOutArray();

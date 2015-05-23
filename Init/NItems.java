@@ -76,6 +76,8 @@ public class NItems {
     public static NItem StarlightRing;
     //Magic Items: Other Equipment
     public static NItem MobilityGauntlet;
+    //Keys
+    public static NItem LesserSkyKey;
     
     
     //Debug
@@ -147,7 +149,8 @@ public class NItems {
 		StarlightRing = new StarlightRing();
 		//Magic Items: Other Equipment
 		MobilityGauntlet = new MobilityGauntlet();
-		
+		//Keys
+		LesserSkyKey = new LesserSkyKey();
 		
 		
 		//Debug
@@ -223,6 +226,8 @@ public class NItems {
 		renderItem.getItemModelMesher().register(StarlightRing, 0, new ModelResourceLocation(nmod.MODID + ":" + ((StarlightRing) StarlightRing).getName(), "inventory"));
 		//Magic Items: Other Equipment
 		renderItem.getItemModelMesher().register(MobilityGauntlet, 0, new ModelResourceLocation(nmod.MODID + ":" + ((MobilityGauntlet) MobilityGauntlet).getName(), "inventory"));
+		//Keys
+		renderItem.getItemModelMesher().register(LesserSkyKey, 0, new ModelResourceLocation(nmod.MODID + ":" + ((LesserSkyKey) LesserSkyKey).getName(), "inventory"));
     
     
     

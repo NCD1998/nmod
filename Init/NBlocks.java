@@ -28,6 +28,10 @@ public class NBlocks {
     public static NBlock ShadowGlass;
     public static NBlock ShadowsBlock;
     public static NBlock SunBeamBlock;
+    public static NBlock SkyTempleStone;
+    public static NBlock SkyTempleGlass;
+    public static NBlock SpiritGlass;
+    public static NBlock LockedSkyChestCommon;
     //Void Runes
     public static NBlock VoidCrosshairRune;
     public static void init(){
@@ -48,6 +52,10 @@ public class NBlocks {
     	ShadowGlass = new ShadowGlass();
     	ShadowsBlock = new ShadowsBlock();
     	SunBeamBlock = new SunBeamBlock();
+    	SkyTempleStone = new SkyTempleStone();
+    	SkyTempleGlass = new SkyTempleGlass();
+    	SpiritGlass = new SpiritGlass();
+    	LockedSkyChestCommon = new LockedSkyChestCommon();
     	//Void Runes
     	VoidCrosshairRune = new VoidCrosshairRune();
     }
@@ -69,6 +77,10 @@ public class NBlocks {
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(ShadowGlass), 0, new ModelResourceLocation(nmod.MODID + ":" + ((ShadowGlass) ShadowGlass).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(ShadowsBlock), 0, new ModelResourceLocation(nmod.MODID + ":" + ((ShadowsBlock) ShadowsBlock).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(SunBeamBlock), 0, new ModelResourceLocation(nmod.MODID + ":" + ((SunBeamBlock) SunBeamBlock).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(SkyTempleStone), 0, new ModelResourceLocation(nmod.MODID + ":" + ((SkyTempleStone) SkyTempleStone).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(SkyTempleGlass), 0, new ModelResourceLocation(nmod.MODID + ":" + ((SkyTempleGlass) SkyTempleGlass).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(SpiritGlass), 0, new ModelResourceLocation(nmod.MODID + ":" + ((SpiritGlass) SpiritGlass).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(LockedSkyChestCommon), 0, new ModelResourceLocation(nmod.MODID + ":" + ((LockedSkyChestCommon) LockedSkyChestCommon).getName(), "inventory"));
 		//Void Runes
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(VoidCrosshairRune), 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoidCrosshairRune) VoidCrosshairRune).getName(), "inventory"));
     }

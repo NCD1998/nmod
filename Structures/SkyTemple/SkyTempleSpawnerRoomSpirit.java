@@ -19,15 +19,15 @@ public class SkyTempleSpawnerRoomSpirit implements IRoom{
 	//Block Schematic
 	private final IBlockState[][][] blocks = new IBlockState[sizer.getLength()][sizer.getWidth()][sizer.getHeight()];
 	//Main Floor Block
-	private final IBlockState floorBase = Blocks.quartz_block.getDefaultState();
+	private final IBlockState floorBase = ReferenceSTBlocks.TEMPLESTONE;
 	//Main Wall Block
-	private final IBlockState wallBase = Blocks.quartz_block.getDefaultState();
+	private final IBlockState wallBase = ReferenceSTBlocks.TEMPLESTONE;
 	//Main Chest Block
 	private final IBlockState chestBase = Blocks.chest.getDefaultState();
 	//Table Block
 	private final IBlockState tableBase = Blocks.quartz_block.getStateFromMeta(1);
 	//Glass Block
-	private final IBlockState glassBase = Blocks.glass.getDefaultState();
+	private final IBlockState glassBase = ReferenceSTBlocks.SPIRITGLASS;
 	
 	public SkyTempleSpawnerRoomSpirit(){
 		fillOutArray();
