@@ -76,6 +76,32 @@ public class LockedSkyChestCommon extends NBlock
 			 worldIn.setBlockToAir(pos);
 			 
 		 }
+		 if(playerIn.getCurrentEquippedItem().getItem().equals(NItems.DecentSkyKey) && side.equals(EnumFacing.UP)){
+			 playerIn.inventory.consumeInventoryItem(NItems.DecentSkyKey);
+			 ItemStack[] itemsToDrop = this.getItemsToDrop();
+			 for(int i = 0; i < itemsToDrop.length; i++){
+				 EntityItem currentItem = new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), itemsToDrop[i]);
+				 if(!worldIn.isRemote){
+					 worldIn.spawnEntityInWorld(currentItem);
+				 }
+				 
+			 }
+			 worldIn.setBlockToAir(pos);
+			 
+		 }
+		 if(playerIn.getCurrentEquippedItem().getItem().equals(NItems.FineSkyKey) && side.equals(EnumFacing.UP)){
+			 playerIn.inventory.consumeInventoryItem(NItems.FineSkyKey);
+			 ItemStack[] itemsToDrop = this.getItemsToDrop();
+			 for(int i = 0; i < itemsToDrop.length; i++){
+				 EntityItem currentItem = new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), itemsToDrop[i]);
+				 if(!worldIn.isRemote){
+					 worldIn.spawnEntityInWorld(currentItem);
+				 }
+				 
+			 }
+			 worldIn.setBlockToAir(pos);
+			 
+		 }
 		 }
 	        return false;
 	    }
