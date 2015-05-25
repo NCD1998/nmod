@@ -51,6 +51,7 @@ public class NItems {
     public static NItemSword CobaltDrainingSword;
     public static NItemSword AbsorbiumSword;
     public static NItemSword VolitiumSword;
+    public static NItemSword ExignisianBlade;
     //Pickaxes
     public static NPickaxe AbsorbiumPickaxe;
     //Shovels
@@ -127,6 +128,7 @@ public class NItems {
 		CobaltDrainingSword = new CobaltDrainingSword(NMaterials.CobaltMaterial);
 		AbsorbiumSword = new AbsorbiumSword();
 		VolitiumSword = new VolitiumSword();
+		ExignisianBlade = new ExignisianBlade();
 		//Pickaxes
 		AbsorbiumPickaxe = new AbsorbiumPickaxe();
 		//Shovels
@@ -207,6 +209,7 @@ public class NItems {
 		renderItem.getItemModelMesher().register(CobaltDrainingSword, 0, new ModelResourceLocation(nmod.MODID + ":" + ((CobaltDrainingSword) CobaltDrainingSword).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(AbsorbiumSword, 0, new ModelResourceLocation(nmod.MODID + ":" + ((AbsorbiumSword) AbsorbiumSword).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(VolitiumSword, 0, new ModelResourceLocation(nmod.MODID + ":" + ((VolitiumSword) VolitiumSword).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(ExignisianBlade, 0, new ModelResourceLocation(nmod.MODID + ":" + ((ExignisianBlade) ExignisianBlade).getName(), "inventory"));
 		//Pickaxes
 		renderItem.getItemModelMesher().register(AbsorbiumPickaxe, 0, new ModelResourceLocation(nmod.MODID + ":" + ((AbsorbiumPickaxe) AbsorbiumPickaxe).getName(), "inventory"));
 		//Shovels
