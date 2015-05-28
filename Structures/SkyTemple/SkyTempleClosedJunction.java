@@ -1,5 +1,9 @@
 package com.ncd1998.nmod.Structures.SkyTemple;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 
@@ -32,9 +36,12 @@ public class SkyTempleClosedJunction extends Bridge implements IRoom {
 	private final IBlockState wallBase = ReferenceSTBlocks.TEMPLESTONE;
 	//Glass Block
 	private final IBlockState glassBase = ReferenceSTBlocks.TEMPLEGLASS;
+	//Random
+	private Random rand = new Random();
 	
 	public SkyTempleClosedJunction(){
 		fillOutArray();
+		addRandomChests();
 	}
 	private void fillOutArray() {
 		//Floor Edges and ceiling edges
@@ -84,6 +91,28 @@ public class SkyTempleClosedJunction extends Bridge implements IRoom {
 				}
 			}
 		}
+	}
+	private void addRandomChests() {
+		int actuallRandomChestNumber = rand.nextInt(maxChest - minChest) + minChest;
+		if(actuallRandomChestNumber != 0){
+			List list = new ArrayList();
+			for(int i = 0; i < possiblechestlocations.length; i++){
+				list.add(possiblechestlocations[i]);
+			}
+			for(int i = 0; i <= actuallRandomChestNumber; i++){
+				
+				int[] current = (int[]) list.remove(rand.nextInt(list.size()));
+				IBlockState currentChest;
+				int randomWeight = rand.nextInt(100);
+				if(rand.nextInt(100) < 75){
+					currentChest = ReferenceSTBlocks.COMMONCHEST;
+				}else{
+					currentChest = ReferenceSTBlocks.UNCOMMONCHEST;
+				}
+				blocks[current[0]][current[1]][current[2]] = currentChest;
+			}
+		}
+		
 	}
 	@Override
 	public String getName() {

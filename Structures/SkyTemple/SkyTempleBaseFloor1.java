@@ -1,9 +1,14 @@
 package com.ncd1998.nmod.Structures.SkyTemple;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 
 import com.ncd1998.nmod.Init.NBlocks;
+import com.ncd1998.nmod.Reference.Reference;
 import com.ncd1998.nmod.Structures.IRoom;
 import com.ncd1998.nmod.Structures.RoomType;
 import com.ncd1998.nmod.Util.BoxSizer;
@@ -35,9 +40,33 @@ public class SkyTempleBaseFloor1 implements IRoom{
 	private final IBlockState tableBlock = Blocks.stonebrick.getStateFromMeta(3);
 	//Hardcoded Loot Boxes
 	private final IBlockState chestBase = ReferenceSTBlocks.COMMONCHEST;
+	//Random
+	private Random rand = new Random();
 	
 	public SkyTempleBaseFloor1(){
 		fillArray();
+		addRandomChests();
+	}
+	private void addRandomChests() {
+		int actuallRandomChestNumber = rand.nextInt(maxChests - minChests) + minChests;
+		if(actuallRandomChestNumber != 0){
+			List list = new ArrayList();
+			for(int i = 0; i < possiblechestlocations.length; i++){
+				list.add(possiblechestlocations[i]);
+			}
+			for(int i = 0; i <= actuallRandomChestNumber; i++){
+				
+				int[] current = (int[]) list.remove(rand.nextInt(list.size()));
+				IBlockState currentChest;
+				if(rand.nextInt(100) < 75){
+					currentChest = ReferenceSTBlocks.COMMONCHEST;
+				}else{
+					currentChest = ReferenceSTBlocks.UNCOMMONCHEST;
+				}
+				blocks[current[0]][current[1]][current[2]] = currentChest;
+			}
+		}
+		
 	}
 	private void fillArray(){
 		//FLoor

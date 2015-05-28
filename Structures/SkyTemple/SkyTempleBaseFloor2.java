@@ -1,5 +1,9 @@
 package com.ncd1998.nmod.Structures.SkyTemple;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 
@@ -37,9 +41,12 @@ public class SkyTempleBaseFloor2 implements IRoom{
 	private final IBlockState chestBase = ReferenceSTBlocks.UNCOMMONCHEST;
 	//Glass Base
 	private final IBlockState glassBase = ReferenceSTBlocks.TEMPLEGLASS;
+	//Random
+	private Random rand = new Random();
 	
 	public SkyTempleBaseFloor2(){
 		fillOutArray();
+		addRandomChests();
 	}
 	private void fillOutArray(){
 		//FLoor
@@ -152,6 +159,27 @@ public class SkyTempleBaseFloor2 implements IRoom{
 		//Table and chests
 				blocks[1][7][1] = blocks[1][8][1] = tableBlock;
 				blocks[1][7][2] = blocks[1][8][2] = chestBase;
+	}
+	private void addRandomChests() {
+		int actuallRandomChestNumber = rand.nextInt(maxChests - minChests) + minChests;
+		if(actuallRandomChestNumber != 0){
+			List list = new ArrayList();
+			for(int i = 0; i < possiblechestlocations.length; i++){
+				list.add(possiblechestlocations[i]);
+			}
+			for(int i = 0; i <= actuallRandomChestNumber; i++){
+				
+				int[] current = (int[]) list.remove(rand.nextInt(list.size()));
+				IBlockState currentChest;
+				if(rand.nextInt(100) < 75){
+					currentChest = ReferenceSTBlocks.UNCOMMONCHEST;
+				}else{
+					currentChest = ReferenceSTBlocks.COMMONCHEST;
+				}
+				blocks[current[0]][current[1]][current[2]] = currentChest;
+			}
+		}
+		
 	}
 	@Override
 	public String getName() {

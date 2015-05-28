@@ -1,5 +1,9 @@
 package com.ncd1998.nmod.Structures.SkyTemple;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import com.ncd1998.nmod.Structures.IRoom;
 import com.ncd1998.nmod.Structures.RoomType;
 import com.ncd1998.nmod.Util.BoxSizer;
@@ -37,6 +41,8 @@ public class SkyTempleEntry implements IRoom{
 	private final int maxChests = 2;
 	//Minimum amount of chests to spawn, can be 0, cannot be greater than maxChests
 	private final int minChests = 1;
+	//Random
+	private Random rand = new Random();
 	/*
 	 * Room Description:
 	 * A 16x8x8 Hallway
@@ -44,6 +50,7 @@ public class SkyTempleEntry implements IRoom{
 	 */
 	public SkyTempleEntry(){
 		fillOutArray();
+		addRandomChests();
 	}
 	
 	
@@ -116,6 +123,21 @@ public class SkyTempleEntry implements IRoom{
 		blocks[5][8][1] = blocks[6][8][1] = blocks[12][8][1] = blocks[13][8][1] = designCarpetColor;
 		blocks[1][9][1] = blocks[2][9][1] = blocks[5][9][1] = blocks[7][9][1] = blocks[11][9][1] = blocks[13][9][1] = designCarpetColor;
 		blocks[1][10][1] = blocks[2][10][1] = blocks[3][10][1] = blocks[4][10][1] = blocks[8][10][1] = blocks[9][10][1] = blocks[10][10][1] = blocks[13][10][1] = blocks[14][10][1] = blocks[15][10][1] = designCarpetColor;
+		
+	}
+	private void addRandomChests() {
+		int actuallRandomChestNumber = rand.nextInt(maxChests - minChests) + minChests;
+		if(actuallRandomChestNumber != 0){
+			List list = new ArrayList();
+			for(int i = 0; i < POSSIBLECHESTLOCATIONS.length; i++){
+				list.add(POSSIBLECHESTLOCATIONS[i]);
+			}
+			for(int i = 0; i <= actuallRandomChestNumber; i++){
+				
+				int[] current = (int[]) list.remove(rand.nextInt(list.size()));
+				blocks[current[0]][current[1]][current[2]] = ReferenceSTBlocks.COMMONCHEST;
+			}
+		}
 		
 	}
 	public int[][] getPossibleChestLocations(){

@@ -1,5 +1,7 @@
 package com.ncd1998.nmod.Structures.SkyTemple;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.state.IBlockState;
@@ -53,6 +55,7 @@ public class SkyTempleLootRoomLarge implements IRoom{
 			chestBase = ReferenceSTBlocks.RARECHEST;
 		}
 		fillOutArray();
+		addRandomChests();
 	}
 	private void fillOutArray() {
 		//Floor
@@ -98,6 +101,32 @@ public class SkyTempleLootRoomLarge implements IRoom{
 		//Chests
 		blocks[3][3][2] = blocks[3][4][2] = chestBase;
 		
+		
+	}
+	private void addRandomChests() {
+		int actuallRandomChestNumber = rand.nextInt(maxChest - minChest) + minChest;
+		if(actuallRandomChestNumber != 0){
+			List list = new ArrayList();
+			for(int i = 0; i < possibleChestLocations.length; i++){
+				list.add(possibleChestLocations[i]);
+			}
+			for(int i = 0; i <= actuallRandomChestNumber; i++){
+				
+				int[] current = (int[]) list.remove(rand.nextInt(list.size()));
+				IBlockState currentChest;
+				int randomWeight = rand.nextInt(100);
+				if(rand.nextInt(100) < 50){
+					currentChest = ReferenceSTBlocks.COMMONCHEST;
+				}else if(randomWeight < 75){
+					currentChest = ReferenceSTBlocks.UNCOMMONCHEST;
+				}else if(randomWeight < 90){
+					currentChest = ReferenceSTBlocks.SEMIRARECHEST;
+				}else{
+					currentChest = ReferenceSTBlocks.RARECHEST;
+				}
+				blocks[current[0]][current[1]][current[2]] = currentChest;
+			}
+		}
 		
 	}
 	@Override

@@ -1,5 +1,9 @@
 package com.ncd1998.nmod.Structures.SkyTemple;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 
@@ -20,7 +24,7 @@ public class SkyTempleBossRoof implements IRoom{
 		//!!!!!!!!!!!!!THIS ROOM HAS HARDCODED CHESTS AS WELL THAT ALWAYS SPAWN!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		private final int[][] possiblechestlocations = {{13,5,1},{13,10,1},{2,5,1},{2,10,1},{5,2,1},{10,2,1},{10,13,1},{5,13,1}};
 		//All Possible levels of loot to spawn in the chests in this room
-		private final ChestRarity[] lootLevels = {ChestRarity.UNCOMMON, ChestRarity.SEMIRARE, ChestRarity.RARE, ChestRarity.SPECIAL};
+		private final ChestRarity[] lootLevels = {ChestRarity.UNCOMMON, ChestRarity.SEMIRARE, ChestRarity.RARE};
 		//Max random chests to generate
 		private final int maxChests = 4;
 		//Min random chests to generate
@@ -39,9 +43,12 @@ public class SkyTempleBossRoof implements IRoom{
 		private final IBlockState glassBase = ReferenceSTBlocks.TEMPLEGLASS;
 		//Boss Spawner Block
 		private final IBlockState bossSpawner = Blocks.diamond_block.getDefaultState();
+		//Random
+		private Random rand = new Random();
 		
 		public SkyTempleBossRoof(){
 			fillOutArray();
+			addRandomChests();
 		}
 	private void fillOutArray() {
 		//Floor
@@ -143,6 +150,30 @@ public class SkyTempleBossRoof implements IRoom{
 			//Fix beam
 			blocks[7][7][1] = blocks[7][8][1] = blocks[8][7][1] = blocks[8][8][1] = NBlocks.SunBeamBlock.getDefaultState();
 		}
+	private void addRandomChests() {
+		int actuallRandomChestNumber = rand.nextInt(maxChests - minChests) + minChests;
+		if(actuallRandomChestNumber != 0){
+			List list = new ArrayList();
+			for(int i = 0; i < possiblechestlocations.length; i++){
+				list.add(possiblechestlocations[i]);
+			}
+			for(int i = 0; i <= actuallRandomChestNumber; i++){
+				
+				int[] current = (int[]) list.remove(rand.nextInt(list.size()));
+				IBlockState currentChest;
+				int randomWeight = rand.nextInt(100);
+				if(rand.nextInt(100) < 75){
+					currentChest = ReferenceSTBlocks.SEMIRARECHEST;
+				}else if(randomWeight < 90){
+					currentChest = ReferenceSTBlocks.RARECHEST;
+				}else{
+					currentChest = ReferenceSTBlocks.UNCOMMONCHEST;
+				}
+				blocks[current[0]][current[1]][current[2]] = currentChest;
+			}
+		}
+		
+	}
 	@Override
 	public String getName() {
 		return NAME;
