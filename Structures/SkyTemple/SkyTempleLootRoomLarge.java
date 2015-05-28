@@ -104,7 +104,7 @@ public class SkyTempleLootRoomLarge implements IRoom{
 		
 	}
 	private void addRandomChests() {
-		int actuallRandomChestNumber = rand.nextInt(maxChest - minChest) + minChest;
+		int actuallRandomChestNumber = rand.nextInt(maxChest - minChest + 1) + minChest;
 		if(actuallRandomChestNumber != 0){
 			List list = new ArrayList();
 			for(int i = 0; i < possibleChestLocations.length; i++){

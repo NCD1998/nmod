@@ -16,6 +16,8 @@ public class SkyTempleClosedBridge extends Bridge implements IRoom {
 			private final EnumSkyTempleRooms type = EnumSkyTempleRooms.HALLWAY;
 			//Room Dimension Holder
 			private final BoxSizer sizer = new BoxSizer(4,8,4);
+			//Door locations
+			private final int[][][] doorLocations = {{{2,0,2},{1,0,2},{2,0,1},{1,0,1}},{{1,7,2},{2,7,2},{1,7,1},{2,7,1}}};
 			//The schematic array
 			private final IBlockState[][][] blocks = new IBlockState[sizer.getLength()][sizer.getWidth()][sizer.getHeight()];
 			//Floor Block

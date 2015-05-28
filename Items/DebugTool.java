@@ -239,7 +239,7 @@ public class DebugTool extends Item{
         		}
         	}
         }*/
-	/*	Bridge junc1 = new SkyTemplePillarJunction();
+		Bridge junc1 = new SkyTempleClosedBridge();
 		BlockPos junc1Pos = target.getPosition();
 		//BridgeEroder.erode(junc1, 20);
 		for(int length = 0; length < junc1.getDimensions().getLength(); length++){
@@ -251,7 +251,7 @@ public class DebugTool extends Item{
 					
 				}
 			}
-		}*/
+		}
 		/*EntityHorse horse1[] = new EntityHorse[20];
 		
 		for(int horse = 0; horse < 20; horse++){
@@ -271,7 +271,7 @@ public class DebugTool extends Item{
 			}
 		}*/
 		
-			IRoom lootRoom = new SkyTempleSpawnerRoomLightning();
+		/*	IRoom lootRoom = new SkyTempleSpawnerRoomLightning();
 		BlockPos junc1Pos = target.getPosition();
 		for(int length = 0; length < lootRoom.getDimensions().getLength(); length++){
 			for(int width = 0; width < lootRoom.getDimensions().getWidth(); width++){
@@ -282,7 +282,7 @@ public class DebugTool extends Item{
 					
 				}
 			}
-		}
+		}*/
 
         return false;
     }
