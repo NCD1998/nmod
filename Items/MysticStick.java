@@ -4,6 +4,7 @@ package com.ncd1998.nmod.Items;
 import java.util.Stack;
 
 import com.ncd1998.nmod.nmod;
+import com.ncd1998.nmod.Init.NItems;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.effect.EntityLightningBolt;
@@ -11,6 +12,7 @@ import net.minecraft.entity.monster.EntityGiantZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -50,6 +52,13 @@ public class MysticStick extends NItem{
 		}*/
 		//System.out.println(worldIn.getBiomeGenForCoords(playerIn.getPosition()).getBiomeClass().getName());
 		//System.out.println(worldIn.getBiomeGenForCoords(playerIn.getPosition()).biomeName);
+		
+		ItemStack Fruit = new ItemStack(NItems.MagicFruit, 1);
+		NBTTagCompound tag = new NBTTagCompound();
+		tag.setString("EFFECT1", "HARM");
+		tag.setString("NAME1", "Toxic");
+		Fruit.setTagCompound(tag);
+		playerIn.inventory.addItemStackToInventory(Fruit);
         return itemStackIn;
     }
 }

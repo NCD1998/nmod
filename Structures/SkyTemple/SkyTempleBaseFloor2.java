@@ -251,5 +251,9 @@ public class SkyTempleBaseFloor2 implements IRoom{
 	public RoomType getType() {
 		return type;
 	}
+	@Override
+	public int[][][] getDoorLocations() {
+		return doorLocations;
+	}
 
 }

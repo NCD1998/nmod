@@ -78,7 +78,7 @@ public class LockedSkyChestSemirare extends NBlock
 				 
 			 }
 			 worldIn.setBlockToAir(pos);
-			 
+			 return false;
 		 }
 		 if(playerIn.getCurrentEquippedItem() != null){
 			 if(playerIn.getCurrentEquippedItem().getItem().equals(NItems.GlimmeringSkyKey) && side.equals(EnumFacing.UP)){
@@ -92,7 +92,7 @@ public class LockedSkyChestSemirare extends NBlock
 					 
 				 }
 				 worldIn.setBlockToAir(pos);
-				 
+				 return false;
 			 }
 		 }
 		 }

@@ -79,7 +79,7 @@ public class LockedSkyChestRare extends NBlock
 				 
 			 }
 			 worldIn.setBlockToAir(pos);
-			 
+			 return false;
 		 }
 		 }
 	        return false;

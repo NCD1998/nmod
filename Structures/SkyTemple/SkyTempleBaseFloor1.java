@@ -228,8 +228,6 @@ public class SkyTempleBaseFloor1 implements IRoom{
 	@Override
 	public int[][][] getDoorLocations() {
 		return doorLocations;
-		//NOTE TO MYSELF!!!!!!!!!!!! YOU WERE ADDING DOOR LOCATIONS AND ADDING UNIMPLEMENTED getDoorLocations Methods!!!!!!!!!! DO THAT WHEN YOU
-		//WORK ON THIS NEXT!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	}
 
 }

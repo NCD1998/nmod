@@ -56,5 +56,5 @@ public interface IRoom {
 	 * Returns places to generate rooms next to
 	 * @return an int[][][] containing the sets of 4 blocks at their given locations where doors exist
 	 */
-	public int[][][] getDoorLocations();
+	int[][][] getDoorLocations();
 }

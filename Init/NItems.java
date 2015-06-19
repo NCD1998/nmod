@@ -7,8 +7,10 @@ import com.ncd1998.nmod.Reference.*;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 
 public class NItems {
 	//items
@@ -82,7 +84,8 @@ public class NItems {
     public static NItem DecentSkyKey;
     public static NItem FineSkyKey;
     public static NItem GlimmeringSkyKey;
-    
+    //FOODS
+    public static ItemFood MagicFruit;
     
     //Debug
     public static Item DebugTool;
@@ -159,7 +162,8 @@ public class NItems {
 		DecentSkyKey = new DecentSkyKey();
 		FineSkyKey = new FineSkyKey();
 		GlimmeringSkyKey = new GlimmeringSkyKey();
-		
+		//FOODS
+		MagicFruit = new MagicFruit();
 		
 		//Debug
 		if(nmod.devmode){
@@ -240,9 +244,39 @@ public class NItems {
 		renderItem.getItemModelMesher().register(DecentSkyKey, 0, new ModelResourceLocation(nmod.MODID + ":" + ((DecentSkyKey) DecentSkyKey).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(FineSkyKey, 0, new ModelResourceLocation(nmod.MODID + ":" + ((FineSkyKey) FineSkyKey).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(GlimmeringSkyKey, 0, new ModelResourceLocation(nmod.MODID + ":" + ((GlimmeringSkyKey) GlimmeringSkyKey).getName(), "inventory"));
-    
-    
-    
+		//FOODS
+		renderItem.getItemModelMesher().register(MagicFruit, 0, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "ENDER", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 1, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "FLAMING", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 2, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "SPEED", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 3, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "SLOW", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 4, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "HASTE", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 5, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "MINESLOW", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 6, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "STRENGTH", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 7, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "HEAL", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 8, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "HARM", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 9, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "JUMP", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 10, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "SICK", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 11, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "REGEN", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 12, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "RESIST", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 13, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "FLAMERESIST", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 14, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "WATERBREATHING", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 15, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "INVISIBLE", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 16, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "BLINDING", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 17, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "NIGHTVISION", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 18, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "HUNGER", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 19, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "POISON", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 20, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "WEAK", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 21, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "WITHER", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 22, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "HEALTHBOOST", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 23, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "SATURATING", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 24, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "ABSORPTION", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 25, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "DEADLY", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 26, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "SUMMONING", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 27, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "ENLIGHTENING", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 28, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "STUPIFYING", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 29, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "SMITING", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 30, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "EXTINGUISHING", "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruit, 31, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "EXPLODING", "inventory"));
 		//Debug
 		if(nmod.devmode){
 			renderItem.getItemModelMesher().register(DebugTool, 0, new ModelResourceLocation(nmod.MODID + ":" + ((DebugTool) DebugTool).getName(), "inventory"));

@@ -77,7 +77,7 @@ public class LockedSkyChestUncommon extends NBlock
 				 
 			 }
 			 worldIn.setBlockToAir(pos);
-			 
+			 return false;
 		 }
 		 if(playerIn.getCurrentEquippedItem().getItem().equals(NItems.FineSkyKey) && side.equals(EnumFacing.UP)){
 			 playerIn.inventory.consumeInventoryItem(NItems.FineSkyKey);
@@ -90,7 +90,7 @@ public class LockedSkyChestUncommon extends NBlock
 				 
 			 }
 			 worldIn.setBlockToAir(pos);
-			 
+			 return false;
 		 }
 		 if(playerIn.getCurrentEquippedItem() != null){
 			 if(playerIn.getCurrentEquippedItem().getItem().equals(NItems.GlimmeringSkyKey) && side.equals(EnumFacing.UP)){
@@ -104,7 +104,7 @@ public class LockedSkyChestUncommon extends NBlock
 					 
 				 }
 				 worldIn.setBlockToAir(pos);
-				 
+				 return false;
 			 }
 		 }
 		 }
