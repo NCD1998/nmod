@@ -25,6 +25,7 @@ import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleOpenBridge;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleOpenJunction;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTemplePillarBridge;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTemplePillarJunction;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleSpawnerRoomGaurdian;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleSpawnerRoomLightning;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleSpawnerRoomSpirit;
 import com.ncd1998.nmod.Util.ParticleHelper;
@@ -239,7 +240,7 @@ public class DebugTool extends Item{
         		}
         	}
         }*/
-		SkyTempleLootRoomSmall junc1 = new SkyTempleLootRoomSmall();
+		SkyTempleSpawnerRoomSpirit junc1 = new SkyTempleSpawnerRoomSpirit();
 		BlockPos junc1Pos = target.getPosition();
 		//BridgeEroder.erode(junc1, 20);
 		for(int length = 0; length < junc1.getDimensions().getLength(); length++){

@@ -18,6 +18,8 @@ public class SkyTempleSpawnerRoomLightning implements IRoom{
 	private final BoxSizer sizer = new BoxSizer(8,8,5);
 	//Block Schematic
 	private final IBlockState[][][] blocks = new IBlockState[sizer.getLength()][sizer.getWidth()][sizer.getHeight()];
+	//door Locations
+	private final int[][][] doorLocations = {{{0,3,1},{0,4,1},{0,3,2},{0,4,2}}};
 	//Main Floor Block
 	private final IBlockState floorBase = ReferenceSTBlocks.TEMPLESTONE;
 	//Main Wall Block
@@ -141,6 +143,10 @@ public class SkyTempleSpawnerRoomLightning implements IRoom{
 	@Override
 	public RoomType getType() {
 		return type;
+	}
+	@Override
+	public int[][][] getDoorLocations() {
+		return doorLocations;
 	}
 
 }

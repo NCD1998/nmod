@@ -18,6 +18,8 @@ public class SkyTemplePillarBridge extends Bridge implements IRoom {
 			private final BoxSizer sizer = new BoxSizer(4,8,5);
 			//The schematic array
 			private final IBlockState[][][] blocks = new IBlockState[sizer.getLength()][sizer.getWidth()][sizer.getHeight()];
+			//Door Locations
+			private final int[][][] doorLocations = {{{1,0,1},{2,0,1},{1,0,2},{2,0,2}},{{1,7,1},{2,7,1},{1,7,2},{2,7,2}}};
 			//Floor Block
 			private final IBlockState floorBase = ReferenceSTBlocks.TEMPLESTONE;
 			//Wall Block
@@ -87,6 +89,10 @@ public class SkyTemplePillarBridge extends Bridge implements IRoom {
 	@Override
 	public RoomType getType() {
 		return type;
+	}
+	@Override
+	public int[][][] getDoorLocations() {
+		return doorLocations;
 	}
 
 }

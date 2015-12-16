@@ -19,6 +19,8 @@ public class SkyTempleLootRoomSmall implements IRoom{
 	private final BoxSizer sizer = new BoxSizer(4,4,4);
 	//Possible Loot Levels
 	private final ChestRarity[] lootLevels = {ChestRarity.COMMON, ChestRarity.UNCOMMON, ChestRarity.SEMIRARE, ChestRarity.RARE};
+	//Door Locations
+	private final int[][][] doorLocations = {{{0,1,1},{0,2,1},{0,1,2},{0,2,2}}};
 	//Block Schematic
 	private final IBlockState[][][] blocks = new IBlockState[sizer.getLength()][sizer.getWidth()][sizer.getHeight()];
 	//Main Floor Block
@@ -118,8 +120,7 @@ public class SkyTempleLootRoomSmall implements IRoom{
 	}
 	@Override
 	public int[][][] getDoorLocations() {
-		// TODO Auto-generated method stub
-		return null;
+		return doorLocations;
 	}
 
 }

@@ -16,6 +16,8 @@ public class SkyTempleSpawnerRoomGaurdian implements IRoom{
 	private final EnumSkyTempleRooms type = EnumSkyTempleRooms.SPAWNER;
 	//Box Sizer for this room
 	private final BoxSizer sizer = new BoxSizer(8,8,5);
+	//door Locations
+	private final int[][][] doorLocations = {{{0,3,1},{0,4,1},{0,3,2},{0,4,2}}};
 	//Block Schematic
 	private final IBlockState[][][] blocks = new IBlockState[sizer.getLength()][sizer.getWidth()][sizer.getHeight()];
 	//Main Floor Block
@@ -109,8 +111,7 @@ public class SkyTempleSpawnerRoomGaurdian implements IRoom{
 	}
 	@Override
 	public int[][][] getDoorLocations() {
-		// TODO Auto-generated method stub
-		return null;
+		return doorLocations;
 	}
 
 }
