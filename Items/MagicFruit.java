@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Random;
 
 import com.ncd1998.nmod.nmod;
+import com.ncd1998.nmod.Init.NBlocks;
 import com.ncd1998.nmod.Reference.EnumFruitEffects;
+import com.ncd1998.nmod.TileEntities.MagicLeafTileEntity;
 
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -21,8 +23,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -99,7 +104,7 @@ public class MagicFruit extends ItemFood{
 				}
 				int tryfailcount = 0;
 				boolean flag = false;
-				while(!flag && tryfailcount < 40){
+				while(!flag && tryfailcount < 100){
 					if(player.worldObj.isAirBlock(player.getPosition().add(xpos, ypos, zpos))){
 						player.setPositionAndUpdate(player.getPosition().getX() + xpos, player.getPosition().getY() + ypos, player.getPosition().getZ() + zpos);
 						flag = true;
@@ -184,9 +189,13 @@ public class MagicFruit extends ItemFood{
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn,
 			int itemSlot, boolean isSelected) {
+		
 		if(!stack.hasTagCompound()){
 			activateNBT(stack);
 		}else{
+			if(stack.getMetadata() != stack.getTagCompound().getInteger("Meta")){
+				stack.setItemDamage(stack.getTagCompound().getInteger("Meta"));
+			}
 			if(entityIn.isSneaking()){
 				study(stack);
 			}
@@ -194,13 +203,15 @@ public class MagicFruit extends ItemFood{
 		super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
 	}
 
-	private void activateNBT(ItemStack stack) {
-		stack.setTagCompound(new NBTTagCompound());
-		NBTTagCompound tag = stack.getTagCompound();
-		for(int i = 1; i <= rand.nextInt(10); i++){
-			tag.setString("EFFECT" + i, getNewEffect(stack, i));	
+	public void activateNBT(ItemStack stack) {
+		if(!stack.hasTagCompound()){
+			stack.setTagCompound(new NBTTagCompound());
+			NBTTagCompound tag = stack.getTagCompound();
+			for(int i = 1; i <= rand.nextInt(6); i++){
+				tag.setString("EFFECT" + i, getNewEffect(stack, i));	
+			}
+			tag.setBoolean("STUDIED", false);
 		}
-		tag.setBoolean("STUDIED", false);
 	}
 
 	private String getNewEffect(ItemStack stack, int num) {
@@ -209,6 +220,7 @@ public class MagicFruit extends ItemFood{
 			if(!hasEffect(stack, effects[nextEffectNum].name())){
 				stack.getTagCompound().setString("NAME" + num, effects[nextEffectNum].getDesc());
 				stack.setItemDamage(effects[nextEffectNum].getMeta());
+				stack.getTagCompound().setInteger("Meta", effects[nextEffectNum].getMeta());
 				return effects[nextEffectNum].name();
 			}
 		}
@@ -266,4 +278,14 @@ public class MagicFruit extends ItemFood{
             subItems.add(new ItemStack(itemIn, 1, i));
         }
     }
+	@Override
+	public boolean onItemUse(ItemStack stack, EntityPlayer playerIn,
+			World worldIn, BlockPos pos, EnumFacing side, float hitX,
+			float hitY, float hitZ) {
+		if(worldIn.getBlockState(pos).equals(NBlocks.MagicFruitLeaves.getDefaultState())){
+			MagicLeafTileEntity tile = (MagicLeafTileEntity) worldIn.getTileEntity(pos);
+			tile.replaceTag(stack.getTagCompound());
+		}
+		return super.onItemUse(stack, playerIn, worldIn, pos, side, hitX, hitY, hitZ);
+	}
 }

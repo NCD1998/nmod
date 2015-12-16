@@ -157,7 +157,7 @@ public class SkyTempleBossRoof implements IRoom{
 			for(int i = 0; i < possiblechestlocations.length; i++){
 				list.add(possiblechestlocations[i]);
 			}
-			for(int i = 0; i <= actuallRandomChestNumber; i++){
+			for(int i = 0; i < actuallRandomChestNumber; i++){
 				
 				int[] current = (int[]) list.remove(rand.nextInt(list.size()));
 				IBlockState currentChest;
@@ -211,6 +211,11 @@ public class SkyTempleBossRoof implements IRoom{
 	@Override
 	public RoomType getType() {
 		return type;
+	}
+	@Override
+	public int[][][] getDoorLocations() {
+		int[][][] Thing = new int[0][0][0];
+		return Thing;
 	}
 
 }

@@ -239,7 +239,7 @@ public class DebugTool extends Item{
         		}
         	}
         }*/
-		Bridge junc1 = new SkyTempleClosedBridge();
+		SkyTempleLootRoomSmall junc1 = new SkyTempleLootRoomSmall();
 		BlockPos junc1Pos = target.getPosition();
 		//BridgeEroder.erode(junc1, 20);
 		for(int length = 0; length < junc1.getDimensions().getLength(); length++){

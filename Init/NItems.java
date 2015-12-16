@@ -64,6 +64,7 @@ public class NItems {
     public static NItem WandOfGrowth;
     //Crafting Objects(sticks, ...)
     public static NItem MysticStick;
+    public static NItem MagicFruitTreeStick;
     	//Cobalt Sword Componants
     	public static NItem CobaltDrainingSwordHandle;
     	public static NItem CobaltDrainingSwordCore;
@@ -142,6 +143,7 @@ public class NItems {
 		WandOfGrowth = new WandOfGrowth();
 		//Crafting Objects(Sticks, ....)
 		MysticStick = new MysticStick();
+		MagicFruitTreeStick = new MagicFruitTreeStick();
 			//Cobalt Draining Sword Components
 			CobaltDrainingSwordHandle = new CobaltDrainingSwordHandle();
 			CobaltDrainingSwordCore = new CobaltDrainingSwordCore();
@@ -224,6 +226,7 @@ public class NItems {
 		renderItem.getItemModelMesher().register(WandOfGrowth, 0, new ModelResourceLocation(nmod.MODID + ":" + ((WandOfGrowth) WandOfGrowth).getName(), "inventory"));
 		//Crafting Objects(Sticks, ...)
 		renderItem.getItemModelMesher().register(MysticStick, 0, new ModelResourceLocation(nmod.MODID + ":" + ((MysticStick) MysticStick).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(MagicFruitTreeStick, 0, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruitTreeStick) MagicFruitTreeStick).getName(), "inventory"));
 			//Cobalt Draining Sword Componants
 			renderItem.getItemModelMesher().register(CobaltDrainingSwordHandle, 0, new ModelResourceLocation(nmod.MODID + ":" + ((CobaltDrainingSwordHandle) CobaltDrainingSwordHandle).getName(), "inventory"));
 			renderItem.getItemModelMesher().register(CobaltDrainingSwordCore, 0, new ModelResourceLocation(nmod.MODID + ":" + ((CobaltDrainingSwordCore) CobaltDrainingSwordCore).getName(), "inventory"));
@@ -245,6 +248,7 @@ public class NItems {
 		renderItem.getItemModelMesher().register(FineSkyKey, 0, new ModelResourceLocation(nmod.MODID + ":" + ((FineSkyKey) FineSkyKey).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(GlimmeringSkyKey, 0, new ModelResourceLocation(nmod.MODID + ":" + ((GlimmeringSkyKey) GlimmeringSkyKey).getName(), "inventory"));
 		//FOODS
+		//Magic Fruit Metas
 		renderItem.getItemModelMesher().register(MagicFruit, 0, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "ENDER", "inventory"));
 		renderItem.getItemModelMesher().register(MagicFruit, 1, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "FLAMING", "inventory"));
 		renderItem.getItemModelMesher().register(MagicFruit, 2, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruit) MagicFruit).getName() + "SPEED", "inventory"));
@@ -282,6 +286,13 @@ public class NItems {
 			renderItem.getItemModelMesher().register(DebugTool, 0, new ModelResourceLocation(nmod.MODID + ":" + ((DebugTool) DebugTool).getName(), "inventory"));
 		}
     
+    }
+    
+    public static void modelBakeryPreInit(){
+    	//Magic Fruit
+    	ModelBakery.addVariantName(NItems.MagicFruit, new String[]{"nmod:MagicFruitENDER","nmod:MagicFruitFLAMING","nmod:MagicFruitSPEED","nmod:MagicFruitSLOW","nmod:MagicFruitHASTE","nmod:MagicFruitMINESLOW","nmod:MagicFruitSTRENGTH","nmod:MagicFruitHEAL","nmod:MagicFruitHARM",
+				"nmod:MagicFruitJUMP","nmod:MagicFruitSICK","nmod:MagicFruitREGEN","nmod:MagicFruitRESIST","nmod:MagicFruitFLAMERESIST","nmod:MagicFruitWATERBREATHING","nmod:MagicFruitINVISIBLE","nmod:MagicFruitBLINDING","nmod:MagicFruitNIGHTVISION","nmod:MagicFruitHUNGER","nmod:MagicFruitWEAK","nmod:MagicFruitPOISON",
+				"nmod:MagicFruitWITHER","nmod:MagicFruitHEALTHBOOST","nmod:MagicFruitSATURATING","nmod:MagicFruitABSORPTION","nmod:MagicFruitDEADLY","nmod:MagicFruitSUMMONING","nmod:MagicFruitENLIGHTENING","nmod:MagicFruitSTUPIFYING", "nmod:MagicFruitSMITING", "nmod:MagicFruitEXTINGUISHING", "nmod:MagicFruitEXPLODING"});
     }
 	
 	

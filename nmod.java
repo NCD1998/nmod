@@ -84,6 +84,8 @@ public class nmod
     	NItems.init();
     	//Blocks
     	NBlocks.init();
+    	//Tile Entities
+    	NTileEntities.init();
     	//Ore Dictionary
     	NInitOreDic.init();
     	//WorldGen
@@ -92,9 +94,11 @@ public class nmod
     	Glasstreebiome = new GTBiomeGenBase(40, true);
     	BiomeDictionary.registerBiomeType(Glasstreebiome, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL);
     	BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Glasstreebiome, 100)); 
-    	ModelBakery.addVariantName(NItems.MagicFruit, new String[]{"nmod:MagicFruitENDER","nmod:MagicFruitFLAMING","nmod:MagicFruitSPEED","nmod:MagicFruitSLOW","nmod:MagicFruitHASTE","nmod:MagicFruitMINESLOW","nmod:MagicFruitSTRENGTH","nmod:MagicFruitHEAL","nmod:MagicFruitHARM",
-				"nmod:MagicFruitJUMP","nmod:MagicFruitSICK","nmod:MagicFruitREGEN","nmod:MagicFruitRESIST","nmod:MagicFruitFLAMERESIST","nmod:MagicFruitWATERBREATHING","nmod:MagicFruitINVISIBLE","nmod:MagicFruitBLINDING","nmod:MagicFruitNIGHTVISION","nmod:MagicFruitHUNGER","nmod:MagicFruitWEAK","nmod:MagicFruitPOISON",
-				"nmod:MagicFruitWITHER","nmod:MagicFruitHEALTHBOOST","nmod:MagicFruitSATURATING","nmod:MagicFruitABSORPTION","nmod:MagicFruitDEADLY","nmod:MagicFruitSUMMONING","nmod:MagicFruitENLIGHTENING","nmod:MagicFruitSTUPIFYING", "nmod:MagicFruitSMITING", "nmod:MagicFruitEXTINGUISHING", "nmod:MagicFruitEXPLODING"});
+    	//Model Bakery for Variant Items
+    	if(event.getSide() == Side.CLIENT)
+    	{
+    		NItems.modelBakeryPreInit();
+    	}
     }
     
     @Mod.EventHandler

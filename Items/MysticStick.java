@@ -53,12 +53,12 @@ public class MysticStick extends NItem{
 		//System.out.println(worldIn.getBiomeGenForCoords(playerIn.getPosition()).getBiomeClass().getName());
 		//System.out.println(worldIn.getBiomeGenForCoords(playerIn.getPosition()).biomeName);
 		
-		ItemStack Fruit = new ItemStack(NItems.MagicFruit, 1);
+		/*ItemStack Fruit = new ItemStack(NItems.MagicFruit, 1);
 		NBTTagCompound tag = new NBTTagCompound();
 		tag.setString("EFFECT1", "HARM");
 		tag.setString("NAME1", "Toxic");
 		Fruit.setTagCompound(tag);
-		playerIn.inventory.addItemStackToInventory(Fruit);
+		playerIn.inventory.addItemStackToInventory(Fruit);*/
         return itemStackIn;
     }
 }

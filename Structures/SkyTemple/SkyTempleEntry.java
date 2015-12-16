@@ -126,13 +126,13 @@ public class SkyTempleEntry implements IRoom{
 		
 	}
 	private void addRandomChests() {
-		int actuallRandomChestNumber = rand.nextInt(maxChests - minChests) + minChests;
+		int actuallRandomChestNumber = rand.nextInt(maxChests - minChests + 1) + minChests;
 		if(actuallRandomChestNumber != 0){
 			List list = new ArrayList();
 			for(int i = 0; i < POSSIBLECHESTLOCATIONS.length; i++){
 				list.add(POSSIBLECHESTLOCATIONS[i]);
 			}
-			for(int i = 0; i <= actuallRandomChestNumber; i++){
+			for(int i = 0; i < actuallRandomChestNumber; i++){
 				
 				int[] current = (int[]) list.remove(rand.nextInt(list.size()));
 				blocks[current[0]][current[1]][current[2]] = ReferenceSTBlocks.COMMONCHEST;
@@ -160,5 +160,12 @@ public class SkyTempleEntry implements IRoom{
 	@Override
 	public RoomType getType() {
 		return type;
+	}
+
+
+	@Override
+	public int[][][] getDoorLocations() {
+		int[][][] placeholder = new int[0][0][0];
+		return null;
 	}
 }

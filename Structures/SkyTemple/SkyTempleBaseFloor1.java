@@ -86,7 +86,7 @@ public class SkyTempleBaseFloor1 implements IRoom{
 			for(int i = 0; i < possiblechestlocations.length; i++){
 				list.add(possiblechestlocations[i]);
 			}
-			for(int i = 0; i <= actuallRandomChestNumber; i++){
+			for(int i = 0; i < actuallRandomChestNumber; i++){
 				
 				int[] current = (int[]) list.remove(rand.nextInt(list.size()));
 				IBlockState currentChest;

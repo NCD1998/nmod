@@ -22,6 +22,8 @@ public class SkyTempleClosedJunction extends Bridge implements IRoom {
 	private final BoxSizer sizer = new BoxSizer(8,8,5);
 	//Possible Chest Locations
 	private final int[][] possiblechestlocations = {{1,1,1},{1,6,1},{6,6,1},{6,1,1}};
+	//DoorLocations
+	private final int[][][] doorLocations = {{{3,0,1},{4,0,1},{3,0,2},{4,0,2}},{{0,3,1},{0,4,1},{0,3,2},{0,4,2}},{{3,7,1},{4,7,1},{3,7,2},{4,7,2}},{{7,3,1},{7,4,1},{7,3,2},{7,4,2}}};
 	//Possible loot levels
 	private final ChestRarity[] lootLevels = {ChestRarity.COMMON, ChestRarity.UNCOMMON};
 	//Max Random Chests
@@ -158,6 +160,10 @@ public class SkyTempleClosedJunction extends Bridge implements IRoom {
 	public void setEroded(int l, int w, int h) {
 		blocks[l][w][h] = Blocks.air.getDefaultState();
 
+	}
+	@Override
+	public int[][][] getDoorLocations() {
+		return doorLocations;
 	}
 
 }

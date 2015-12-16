@@ -257,5 +257,12 @@ public class NmodRecipes {
 				'V', new ItemStack(NItems.VoidCrystal, 1, 0),
 				'L', new ItemStack(Items.leather),
 				'E', new ItemStack(NItems.EnderCrystal, 1, 0));
+		//Magic Fruit tree Logs to planks
+		GameRegistry.addShapelessRecipe(new ItemStack(NBlocks.MagicFruitTreePlanks, 4), new ItemStack(NBlocks.MagicFruitTreeLog));
+		//Magic Fruit tree planks to sticks
+		GameRegistry.addRecipe(new ItemStack(NItems.MagicFruitTreeStick, 4),
+				"P",
+				"P",
+				'P', new ItemStack(NBlocks.MagicFruitTreePlanks));
 	}
 }

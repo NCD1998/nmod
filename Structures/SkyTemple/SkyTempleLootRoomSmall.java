@@ -116,5 +116,10 @@ public class SkyTempleLootRoomSmall implements IRoom{
 	public RoomType getType() {
 		return type;
 	}
+	@Override
+	public int[][][] getDoorLocations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

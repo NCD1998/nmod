@@ -21,7 +21,9 @@ public class SkyTempleLootRoomLarge implements IRoom{
 	//Box Sizer for this room
 	private final BoxSizer sizer = new BoxSizer(8,8,5);
 	//Possible Chest Locations
-	private final int[][] possibleChestLocations = {{1,1,1},{1,7,1},{7,1,1},{7,7,1}};
+	private final int[][] possibleChestLocations = {{1,1,1},{1,6,1},{6,1,1},{6,6,1}};
+	//Door Locations
+	private final int[][][] doorLocations = {{{0,3,1},{0,4,1},{0,3,2},{0,4,2}}};
 	//Possible Loot Levels
 	private final ChestRarity[] lootLevels = {ChestRarity.COMMON, ChestRarity.UNCOMMON, ChestRarity.SEMIRARE, ChestRarity.RARE};
 	//Max Random Chests
@@ -105,14 +107,25 @@ public class SkyTempleLootRoomLarge implements IRoom{
 	}
 	private void addRandomChests() {
 		int actuallRandomChestNumber = rand.nextInt(maxChest - minChest + 1) + minChest;
+		if(actuallRandomChestNumber > maxChest){
+			actuallRandomChestNumber = maxChest;
+		}
 		if(actuallRandomChestNumber != 0){
 			List list = new ArrayList();
 			for(int i = 0; i < possibleChestLocations.length; i++){
 				list.add(possibleChestLocations[i]);
 			}
-			for(int i = 0; i <= actuallRandomChestNumber; i++){
-				
-				int[] current = (int[]) list.remove(rand.nextInt(list.size()));
+			for(int i = 0; i < actuallRandomChestNumber; i++){
+				int[] current;
+				if(actuallRandomChestNumber == maxChest){
+					//System.out.println("Max Chest Invoked");
+					current = (int[]) list.get(i);
+				}else{
+					//System.out.println("List size is: " + list.size());
+					int randValue = rand.nextInt(list.size());
+					//System.out.println("Going to attempt to remove: " + randValue + "from list of length" + list.size());
+					current = (int[]) list.remove(randValue);
+				}
 				IBlockState currentChest;
 				int randomWeight = rand.nextInt(100);
 				if(rand.nextInt(100) < 50){
@@ -168,6 +181,10 @@ public class SkyTempleLootRoomLarge implements IRoom{
 	@Override
 	public RoomType getType() {
 		return type;
+	}
+	@Override
+	public int[][][] getDoorLocations() {
+		return doorLocations;
 	}
 
 }

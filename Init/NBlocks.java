@@ -11,7 +11,7 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 
 public class NBlocks {
-	 //blocks
+	//blocks
     public static NBlock SkyCobaltBlock;
     public static NBlock SkyCobaltOre;
     public static NBlock AbsorbiumOre;
@@ -36,6 +36,10 @@ public class NBlocks {
     public static NBlock LockedSkyChestSemirare;
     public static NBlock LockedSkyChestRare;
     public static NBlock DarkSkyTempleStone;
+    public static Block MagicFruitLeaves;
+    public static NBlock MagicFruitTreeLog;
+    public static NBlock MagicFruitTreePlanks;
+    public static Block MagicFruitTreeSapling;
     //Void Runes
     public static NBlock VoidCrosshairRune;
     public static void init(){
@@ -64,6 +68,10 @@ public class NBlocks {
     	LockedSkyChestSemirare = new LockedSkyChestSemirare();
     	LockedSkyChestRare = new LockedSkyChestRare();
     	DarkSkyTempleStone = new DarkSkyTempleStone();
+    	MagicFruitLeaves = new MagicFruitLeaves();
+    	MagicFruitTreeLog = new MagicFruitTreeLog();
+    	MagicFruitTreePlanks = new MagicFruitTreePlanks();
+    	MagicFruitTreeSapling = new MagicFruitTreeSapling();
     	//Void Runes
     	VoidCrosshairRune = new VoidCrosshairRune();
     }
@@ -93,6 +101,10 @@ public class NBlocks {
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(LockedSkyChestSemirare), 0, new ModelResourceLocation(nmod.MODID + ":" + ((LockedSkyChestSemirare) LockedSkyChestSemirare).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(LockedSkyChestRare), 0, new ModelResourceLocation(nmod.MODID + ":" + ((LockedSkyChestRare) LockedSkyChestRare).getName(), "inventory"));
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(DarkSkyTempleStone), 0, new ModelResourceLocation(nmod.MODID + ":" + ((DarkSkyTempleStone) DarkSkyTempleStone).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(MagicFruitLeaves), 0, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruitLeaves) MagicFruitLeaves).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(MagicFruitTreeLog), 0, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruitTreeLog) MagicFruitTreeLog).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(MagicFruitTreePlanks), 0, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruitTreePlanks) MagicFruitTreePlanks).getName(), "inventory"));
+		renderItem.getItemModelMesher().register(Item.getItemFromBlock(MagicFruitTreeSapling), 0, new ModelResourceLocation(nmod.MODID + ":" + ((MagicFruitTreeSapling) MagicFruitTreeSapling).getName(), "inventory"));
 		//Void Runes
 		renderItem.getItemModelMesher().register(Item.getItemFromBlock(VoidCrosshairRune), 0, new ModelResourceLocation(nmod.MODID + ":" + ((VoidCrosshairRune) VoidCrosshairRune).getName(), "inventory"));
     }

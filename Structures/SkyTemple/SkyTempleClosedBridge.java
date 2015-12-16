@@ -92,6 +92,10 @@ public class SkyTempleClosedBridge extends Bridge implements IRoom {
 	public RoomType getType() {
 		return type;
 	}
+	@Override
+	public int[][][] getDoorLocations() {
+		return doorLocations;
+	}
 
 
 }
