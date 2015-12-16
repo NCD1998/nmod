@@ -11,6 +11,7 @@ import com.ncd1998.nmod.Init.NItems;
 import com.ncd1998.nmod.Structures.IRoom;
 import com.ncd1998.nmod.Structures.SkyTemple.Bridge;
 import com.ncd1998.nmod.Structures.SkyTemple.BridgeEroder;
+import com.ncd1998.nmod.Structures.SkyTemple.SkyTemple;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBaseFloor1;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBaseFloor2;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleBaseFloor3;
@@ -28,6 +29,7 @@ import com.ncd1998.nmod.Structures.SkyTemple.SkyTemplePillarJunction;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleSpawnerRoomGaurdian;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleSpawnerRoomLightning;
 import com.ncd1998.nmod.Structures.SkyTemple.SkyTempleSpawnerRoomSpirit;
+import com.ncd1998.nmod.Util.MatrixTransformer;
 import com.ncd1998.nmod.Util.ParticleHelper;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -240,19 +242,10 @@ public class DebugTool extends Item{
         		}
         	}
         }*/
-		SkyTempleSpawnerRoomSpirit junc1 = new SkyTempleSpawnerRoomSpirit();
-		BlockPos junc1Pos = target.getPosition();
-		//BridgeEroder.erode(junc1, 20);
-		for(int length = 0; length < junc1.getDimensions().getLength(); length++){
-			for(int width = 0; width < junc1.getDimensions().getWidth(); width++){
-				for(int height = 0; height < junc1.getDimensions().getHeight(); height++){
-					if(junc1.getBlock(length, width, height) != null){
-						attacker.worldObj.setBlockState(junc1Pos.add(length, height, width), junc1.getBlock(length, width, height));
-					}
-					
-				}
-			}
-		}
+		SkyTemple junc1 = new SkyTemple();
+		junc1.generate(attacker.worldObj, target.getPosition());
+		
+		
 		/*EntityHorse horse1[] = new EntityHorse[20];
 		
 		for(int horse = 0; horse < 20; horse++){

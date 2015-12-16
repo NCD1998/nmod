@@ -180,5 +180,9 @@ public class SkyTemplePillarJunction extends Bridge implements IRoom {
 	public int[][][] getDoorLocations() {
 		return doorLocations;
 	}
+	
+	public IBlockState[][][] getBlockArray(){
+		return blocks;
+	}
 
 }

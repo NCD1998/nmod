@@ -6,12 +6,15 @@ import java.util.Random;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.World;
 
 import com.ncd1998.nmod.Init.NBlocks;
 import com.ncd1998.nmod.Structures.IRoom;
 import com.ncd1998.nmod.Structures.RoomType;
 import com.ncd1998.nmod.Util.BoxSizer;
 import com.ncd1998.nmod.Util.ChestRarity;
+import com.ncd1998.nmod.Util.MatrixTransformer;
 
 public class SkyTempleBaseFloor2 implements IRoom{
 	//Name
@@ -54,7 +57,7 @@ public class SkyTempleBaseFloor2 implements IRoom{
 		initiateDoors();
 	}
 	private void initiateDoors() {
-		int actuallNumOfDoors = rand.nextInt(possibleDoorLocations.length - 1) + 1;
+		int actuallNumOfDoors = 1;
 		if(actuallNumOfDoors != 0){
 		List doorList = new ArrayList();
 		List choosenDoorList = new ArrayList();
@@ -256,4 +259,10 @@ public class SkyTempleBaseFloor2 implements IRoom{
 		return doorLocations;
 	}
 
+	public IBlockState[][][] getBlockArray(){
+		return blocks;
+	}
+	public void build(World world, BlockPos pos){
+		MatrixTransformer.buildStandard(blocks, world, pos);
+	}
 }

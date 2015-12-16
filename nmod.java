@@ -93,7 +93,7 @@ public class nmod
     	//Biome
     	Glasstreebiome = new GTBiomeGenBase(40, true);
     	BiomeDictionary.registerBiomeType(Glasstreebiome, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL);
-    	BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Glasstreebiome, 100)); 
+    	BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Glasstreebiome, 60)); 
     	//Model Bakery for Variant Items
     	if(event.getSide() == Side.CLIENT)
     	{

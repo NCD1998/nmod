@@ -57,4 +57,6 @@ public interface IRoom {
 	 * @return an int[][][] containing the sets of 4 blocks at their given locations where doors exist
 	 */
 	int[][][] getDoorLocations();
+	
+	public IBlockState[][][] getBlockArray();
 }

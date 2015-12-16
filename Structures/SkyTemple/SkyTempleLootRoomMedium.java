@@ -116,5 +116,9 @@ public class SkyTempleLootRoomMedium implements IRoom{
 	public int[][][] getDoorLocations() {
 		return doorLocations;
 	}
+	
+	public IBlockState[][][] getBlockArray(){
+		return blocks;
+	}
 
 }

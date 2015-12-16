@@ -186,5 +186,8 @@ public class SkyTempleLootRoomLarge implements IRoom{
 	public int[][][] getDoorLocations() {
 		return doorLocations;
 	}
+	public IBlockState[][][] getBlockArray(){
+		return blocks;
+	}
 
 }

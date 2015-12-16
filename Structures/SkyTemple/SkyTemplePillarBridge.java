@@ -1,5 +1,6 @@
 package com.ncd1998.nmod.Structures.SkyTemple;
 
+import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 
@@ -94,5 +95,9 @@ public class SkyTemplePillarBridge extends Bridge implements IRoom {
 	public int[][][] getDoorLocations() {
 		return doorLocations;
 	}
+	public IBlockState[][][] getBlockArray(){
+		return blocks;
+	}
+
 
 }

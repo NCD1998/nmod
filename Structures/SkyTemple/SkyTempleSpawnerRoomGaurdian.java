@@ -114,4 +114,7 @@ public class SkyTempleSpawnerRoomGaurdian implements IRoom{
 		return doorLocations;
 	}
 
+	public IBlockState[][][] getBlockArray(){
+		return blocks;
+	}
 }

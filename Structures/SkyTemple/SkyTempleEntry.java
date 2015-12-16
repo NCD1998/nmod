@@ -8,11 +8,13 @@ import com.ncd1998.nmod.Structures.IRoom;
 import com.ncd1998.nmod.Structures.RoomType;
 import com.ncd1998.nmod.Util.BoxSizer;
 import com.ncd1998.nmod.Util.ChestRarity;
+import com.ncd1998.nmod.Util.MatrixTransformer;
 
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
+import net.minecraft.world.World;
 
 public class SkyTempleEntry implements IRoom{
 	//Name
@@ -167,5 +169,11 @@ public class SkyTempleEntry implements IRoom{
 	public int[][][] getDoorLocations() {
 		int[][][] placeholder = new int[0][0][0];
 		return null;
+	}
+	public IBlockState[][][] getBlockArray(){
+		return blocks;
+	}
+	public void build(World world, BlockPos pos){
+		MatrixTransformer.buildStandard(blocks, world, pos);
 	}
 }

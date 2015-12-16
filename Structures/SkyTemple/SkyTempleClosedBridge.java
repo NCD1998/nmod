@@ -97,5 +97,8 @@ public class SkyTempleClosedBridge extends Bridge implements IRoom {
 		return doorLocations;
 	}
 
+	public IBlockState[][][] getBlockArray(){
+		return blocks;
+	}
 
 }
