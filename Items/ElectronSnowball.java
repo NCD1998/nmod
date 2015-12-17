@@ -32,6 +32,7 @@ public class ElectronSnowball extends NItem{
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
     {
+		playerIn.addVelocity((playerIn.getLookVec().xCoord * -15), playerIn.getLookVec().yCoord * -15, playerIn.getLookVec().zCoord * -15);
         if (!playerIn.capabilities.isCreativeMode)
         {
             --itemStackIn.stackSize;

@@ -150,10 +150,6 @@ public class StarlightRing extends NItem{
 					}
 				}
 			}
-		}else{
-			if(worldIn.isRemote){
-				ParticleHelper.notReadyEffect(stack, playerIn, playerIn.getPosition());
-			}
 		}
         return stack;
     }
@@ -169,14 +165,14 @@ public class StarlightRing extends NItem{
 	@Override
 	public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack)
     {
-		if(stack.getItemDamage() < 850 && entityLiving.worldObj.getLightFor(EnumSkyBlock.SKY, entityLiving.getPosition()) - entityLiving.worldObj.getSkylightSubtracted() == 4 && entityLiving.worldObj.canBlockSeeSky(entityLiving.getPosition()) && !entityLiving.isSneaking()){
+		if(stack.getItemDamage() < 850 && entityLiving.worldObj.canBlockSeeSky(entityLiving.getPosition()) && !entityLiving.isSneaking()){
 			stack.damageItem(50, entityLiving);
 			for(int i = -5; i <= 5; i++){
 				for(int k = -5; k <= 5; k++)
 				entityLiving.worldObj.setLightFor(EnumSkyBlock.BLOCK, entityLiving.getPosition().add(i, 0, k), 15);
 			}
 			
-		}else if(stack.getItemDamage() < 890 && entityLiving.worldObj.getLightFor(EnumSkyBlock.SKY, entityLiving.getPosition()) - entityLiving.worldObj.getSkylightSubtracted() == 4 && entityLiving.worldObj.canBlockSeeSky(entityLiving.getPosition()) && entityLiving.isSneaking()){
+		}else if(stack.getItemDamage() < 890  && entityLiving.worldObj.canBlockSeeSky(entityLiving.getPosition()) && entityLiving.isSneaking()){
 			stack.damageItem(10, entityLiving);
 			BlockPos pos1 = entityLiving.getPosition().add(0,0,5);
 			BlockPos pos2 = entityLiving.getPosition().add(0,0,-5);

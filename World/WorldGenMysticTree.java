@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
@@ -30,6 +31,7 @@ public class WorldGenMysticTree extends WorldGenAbstractTree{
     private final Block leaf;
     //Vine type
     private final Block vine;
+	private final NBTTagCompound tag;
 
     public WorldGenMysticTree(boolean p_i2027_1_)
     {
@@ -46,6 +48,7 @@ public class WorldGenMysticTree extends WorldGenAbstractTree{
         this.Log = NBlocks.MysticWoodLog;
         this.leaf = NBlocks.MysticLeaves;
         this.vine = Blocks.vine;
+        this.tag = null;
         
     }
     public WorldGenMysticTree(boolean p_i2028_1_, int p_i2028_2_, int p_i2028_3_, int p_i2028_4_, boolean p_i2028_5_, Block LogBlock, Block leafBlock)
@@ -58,6 +61,19 @@ public class WorldGenMysticTree extends WorldGenAbstractTree{
         this.Log = LogBlock;
         this.leaf = leafBlock;
         this.vine = Blocks.vine;
+        this.tag = null;
+    }
+    public WorldGenMysticTree(boolean p_i2028_1_, int p_i2028_2_, int p_i2028_3_, int p_i2028_4_, boolean p_i2028_5_, Block LogBlock, Block leafBlock, NBTTagCompound tag)
+    {
+        super(p_i2028_1_);
+        this.minTreeHeight = p_i2028_2_;
+        this.metaWood = p_i2028_3_;
+        this.metaLeaves = p_i2028_4_;
+        this.vinesGrow = p_i2028_5_;
+        this.Log = LogBlock;
+        this.leaf = leafBlock;
+        this.tag = (NBTTagCompound) tag.copy();
+        this.vine = Blocks.vine;
     }
     public WorldGenMysticTree(boolean p_i2028_1_, int p_i2028_2_, int p_i2028_3_, int p_i2028_4_, boolean p_i2028_5_, Block LogBlock, Block leafBlock, Block vineType)
     {
@@ -69,6 +85,7 @@ public class WorldGenMysticTree extends WorldGenAbstractTree{
         this.Log = LogBlock;
         this.leaf = leafBlock;
         this.vine = vineType;
+        this.tag = null;
     }
     
     

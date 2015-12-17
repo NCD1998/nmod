@@ -19,6 +19,7 @@ import com.ncd1998.nmod.TileEntities.*;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -83,6 +84,8 @@ public class nmod
     	NItems.init();
     	//Blocks
     	NBlocks.init();
+    	//Tile Entities
+    	NTileEntities.init();
     	//Ore Dictionary
     	NInitOreDic.init();
     	//WorldGen
@@ -90,8 +93,12 @@ public class nmod
     	//Biome
     	Glasstreebiome = new GTBiomeGenBase(40, true);
     	BiomeDictionary.registerBiomeType(Glasstreebiome, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL);
-    	BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Glasstreebiome, 100)); 
-    	
+    	BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Glasstreebiome, 60)); 
+    	//Model Bakery for Variant Items
+    	if(event.getSide() == Side.CLIENT)
+    	{
+    		NItems.modelBakeryPreInit();
+    	}
     }
     
     @Mod.EventHandler

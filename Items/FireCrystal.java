@@ -101,6 +101,7 @@ public class FireCrystal extends NItem{
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
     {
+		if(!itemStackIn.isItemDamaged()){
 		//Fire
 		BlockPos pos = null;
 		BlockPos playerPos = playerIn.getPosition();
@@ -113,6 +114,7 @@ public class FireCrystal extends NItem{
 					}
 				}
 			}
+		}
 		}
 		itemStackIn.setItemDamage(MaxDamage);
         return itemStackIn;
