@@ -27,7 +27,7 @@ public class SkyTempleBossRoof implements IRoom{
 		//!!!!!!!!!!!!!THIS ROOM HAS HARDCODED CHESTS AS WELL THAT ALWAYS SPAWN!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		private final int[][] possiblechestlocations = {{13,5,1},{13,10,1},{2,5,1},{2,10,1},{5,2,1},{10,2,1},{10,13,1},{5,13,1}};
 		//All Possible levels of loot to spawn in the chests in this room
-		private final ChestRarity[] lootLevels = {ChestRarity.UNCOMMON, ChestRarity.SEMIRARE, ChestRarity.RARE};
+		private final ChestRarity[] lootLevels = {ChestRarity.UNCOMMON, ChestRarity.SEMIRARE};
 		//Max random chests to generate
 		private final int maxChests = 4;
 		//Min random chests to generate
@@ -167,8 +167,6 @@ public class SkyTempleBossRoof implements IRoom{
 				int randomWeight = rand.nextInt(100);
 				if(rand.nextInt(100) < 75){
 					currentChest = ReferenceSTBlocks.SEMIRARECHEST;
-				}else if(randomWeight < 90){
-					currentChest = ReferenceSTBlocks.RARECHEST;
 				}else{
 					currentChest = ReferenceSTBlocks.UNCOMMONCHEST;
 				}

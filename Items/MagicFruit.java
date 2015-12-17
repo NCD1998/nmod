@@ -7,7 +7,6 @@ import java.util.Random;
 import com.ncd1998.nmod.nmod;
 import com.ncd1998.nmod.Init.NBlocks;
 import com.ncd1998.nmod.Reference.EnumFruitEffects;
-import com.ncd1998.nmod.TileEntities.MagicLeafTileEntity;
 
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -213,6 +212,11 @@ public class MagicFruit extends ItemFood{
 			tag.setBoolean("STUDIED", false);
 		}
 	}
+	public static void activateNBT(ItemStack stack, NBTTagCompound tag) {
+		if(!stack.hasTagCompound()){
+			stack.setTagCompound(tag);
+		}
+	}
 
 	private String getNewEffect(ItemStack stack, int num) {
 		while(true){
@@ -278,14 +282,4 @@ public class MagicFruit extends ItemFood{
             subItems.add(new ItemStack(itemIn, 1, i));
         }
     }
-	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer playerIn,
-			World worldIn, BlockPos pos, EnumFacing side, float hitX,
-			float hitY, float hitZ) {
-		if(worldIn.getBlockState(pos).equals(NBlocks.MagicFruitLeaves.getDefaultState())){
-			MagicLeafTileEntity tile = (MagicLeafTileEntity) worldIn.getTileEntity(pos);
-			tile.replaceTag(stack.getTagCompound());
-		}
-		return super.onItemUse(stack, playerIn, worldIn, pos, side, hitX, hitY, hitZ);
-	}
 }

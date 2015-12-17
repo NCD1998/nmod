@@ -8,6 +8,8 @@ import com.ncd1998.nmod.Init.NBlocks;
 import com.ncd1998.nmod.Util.EntityIdentifier;
 import com.ncd1998.nmod.Util.ParticleHelper;
 import com.ncd1998.nmod.World.WorldGenMysticTree;
+import com.ncd1998.nmod.Structures.Tree.FruitTree;
+import com.ncd1998.nmod.Structures.Tree.MysticTree;
 import com.ncd1998.nmod.TileEntities.*;
 
 import net.minecraft.block.state.BlockState;
@@ -44,36 +46,21 @@ public class WandOfGrowth extends NItem{
 	public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
     {
 		//Get block at position pos
-		if(worldIn.isRemote){
 		IBlockState block = worldIn.getBlockState(pos);
 		if(block.equals(NBlocks.MysticTreeSapling.getDefaultState())){
-			WorldGenMysticTree object;
+			MysticTree tree = new MysticTree(pos);
 	        worldIn.setBlockState(pos, Blocks.air.getDefaultState());
-	        object = new WorldGenMysticTree(true, 5, 0, 0, false);
-	        if(object.generate(worldIn, rand, pos) == true){
+	       tree.grow(worldIn, pos);
 	        	stack.damageItem(1, playerIn);
-	        }else{
-	        	worldIn.setBlockState(pos, NBlocks.MysticTreeSapling.getDefaultState());
-	        }
+	        
 	        
 		}
 		
 		if(block.equals(NBlocks.MagicFruitTreeSapling.getDefaultState())){
-			NBTTagCompound tag =(NBTTagCompound) ((MagicLeafTileEntity)worldIn.getTileEntity(pos)).getTag().copy();
-			WorldGenMysticTree object;
-
-	        object = new WorldGenMysticTree(true, 5, 0, 0, false, NBlocks.MagicFruitTreeLog, NBlocks.MagicFruitLeaves, tag);
+			FruitTree tree = new FruitTree(pos);
 	        worldIn.setBlockState(pos, Blocks.air.getDefaultState());
-	        if(object.generate(worldIn, rand, pos) == true){
-	        	if(worldIn.isRemote){
-	        		ParticleHelper.growthEffect(stack, playerIn, pos);
-	        		
-	        	}
+	       tree.grow(worldIn, pos);
 	        	stack.damageItem(1, playerIn);
-	        }else{
-	        	worldIn.setBlockState(pos, NBlocks.MagicFruitTreeSapling.getDefaultState());
-	        }
-		}
 		}
         return false;
     }

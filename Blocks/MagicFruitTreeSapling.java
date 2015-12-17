@@ -35,9 +35,10 @@ import com.ncd1998.nmod.nmod;
 import com.ncd1998.nmod.Init.NBlocks;
 import com.ncd1998.nmod.Init.NItems;
 import com.ncd1998.nmod.World.WorldGenMysticTree;
+import com.ncd1998.nmod.Structures.Tree.FruitTree;
 import com.ncd1998.nmod.TileEntities.*;
 
-public class MagicFruitTreeSapling extends BlockBush implements ITileEntityProvider
+public class MagicFruitTreeSapling extends BlockBush
 {
 	private final String name = "MagicFruitTreeSapling";
 	private Random rand = new Random();
@@ -56,14 +57,9 @@ public class MagicFruitTreeSapling extends BlockBush implements ITileEntityProvi
 	}
 	public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
-        WorldGenMysticTree object;
-        object = new WorldGenMysticTree(false, 5, 0, 0, false,NBlocks.MagicFruitTreeLog, NBlocks.MagicFruitLeaves, ((MagicLeafTileEntity) worldIn.getTileEntity(pos)).getTag());
+        FruitTree object = new FruitTree(pos);
         worldIn.setBlockState(pos, Blocks.air.getDefaultState());
-        if(object.generate(worldIn, rand, pos) == true){
-        	
-        }else{
-        	worldIn.setBlockState(pos, NBlocks.MagicFruitTreeSapling.getDefaultState());
-        }
+        object.grow(worldIn, pos);
     }
 	@Override
 	public boolean isBlockSolid(IBlockAccess worldIn, BlockPos pos, EnumFacing side)
@@ -102,10 +98,6 @@ public class MagicFruitTreeSapling extends BlockBush implements ITileEntityProvi
 			this.generateTree(worldIn, pos, state, rand);
         return false;
     }*/
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new MagicLeafTileEntity();
-	}
 	 @Override
 	 public void breakBlock(World world, BlockPos pos, IBlockState state) {
 		

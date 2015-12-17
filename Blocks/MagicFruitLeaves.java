@@ -1,12 +1,13 @@
 package com.ncd1998.nmod.Blocks;
  
 import java.util.List;
+
 import java.util.Random;
 
 import com.ncd1998.nmod.nmod;
 import com.ncd1998.nmod.Init.NBlocks;
 import com.ncd1998.nmod.Init.NItems;
-import com.ncd1998.nmod.TileEntities.MagicLeafTileEntity;
+import com.ncd1998.nmod.Items.MagicFruit;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGlowstone;
@@ -37,7 +38,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class MagicFruitLeaves extends BlockLeavesBase implements ITileEntityProvider
+public class MagicFruitLeaves extends BlockLeavesBase
 {
 	private final String name = "MagicFruitLeaves";
 	private Random rand = new Random();
@@ -50,7 +51,6 @@ public class MagicFruitLeaves extends BlockLeavesBase implements ITileEntityProv
 		this.setHardness(.5F);
 		this.setStepSound(soundTypeGrass);
 		this.setCreativeTab(CreativeTabs.tabBlock);
-		this.isBlockContainer = true;
 	}
 	public String getName()
 	{
@@ -83,16 +83,10 @@ public class MagicFruitLeaves extends BlockLeavesBase implements ITileEntityProv
 		return random.nextInt(11) == 0 ? 1 : 0;
     }
 
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new MagicLeafTileEntity(); 
-	}
 	 @Override
 	 public void breakBlock(World world, BlockPos pos, IBlockState state) {
 		 if(rand.nextInt(3) == 0){
 			 ItemStack Fruit = new ItemStack(NItems.MagicFruit, 1);
-			 Fruit.setTagCompound(((MagicLeafTileEntity) world.getTileEntity(pos)).getTag());
-			Fruit.getTagCompound().setBoolean("STUDEIED", false);
 			Fruit.clearCustomName();
 			if(!world.isRemote){
 				EntityItem itemS= new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), Fruit);

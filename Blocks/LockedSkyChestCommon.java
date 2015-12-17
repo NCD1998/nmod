@@ -15,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -32,8 +33,8 @@ public class LockedSkyChestCommon extends NBlock
 	private final int[] quantitymin = {16,5,1,1,1,1,1,1,5,1,5,1,1,5,3,1,1,5,2,10,2,1};
 	private final int[] quantitymax = {32,7,1,1,1,1,3,1,7,1,8,1,1,9,5,1,1,7,3,15,3,2};
 	//private final int[] rarity = {4,4,4,4,4,4,6,6,5,5,4,5,2,3,1,3,1,1,4,3,4};
-	private final int maxItems = 5;
-	private final int minItems = 3;
+	private final int maxItems = 2;
+	private final int minItems = 1;
 	private Random rand = new Random();
 	public LockedSkyChestCommon()
 	{
@@ -112,6 +113,12 @@ public class LockedSkyChestCommon extends NBlock
 						 worldIn.spawnEntityInWorld(currentItem);
 					 }
 					 
+				 }
+				 if(worldIn.isRemote){
+					 for(int i = 0; i< 50; i++){
+						 worldIn.spawnParticle(EnumParticleTypes.PORTAL, pos.getX() + .5, pos.getY() , pos.getZ() + .5, 0, 1, 0);
+				 
+					 }
 				 }
 				 worldIn.setBlockToAir(pos);
 				 return false;

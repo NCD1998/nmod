@@ -30,7 +30,7 @@ public class SkyTempleBaseFloor1 implements IRoom{
 	//All Possible Door Locations
 	private final int[][][] possibleDoorLocations = {{{8,0,1},{7,0,1},{8,0,2},{7,0,2}},{{15,7,2},{15,7,1},{15,8,1},{15,8,2}},{{7,15,1},{7,15,2},{8,15,1},{8,15,2}}};
 	//Door Locations (Actuall)
-	private int[][][] doorLocations;
+	private int[][][] doorLocations = new int[1][4][3];
 	//All Possible levels of loot to spawn in the chests in this room
 	private final ChestRarity[] lootLevels = {ChestRarity.COMMON, ChestRarity.UNCOMMON};
 	//Max random chests to generate
@@ -56,31 +56,11 @@ public class SkyTempleBaseFloor1 implements IRoom{
 		initiateDoors();
 	}
 	private void initiateDoors() {
-		int actuallNumOfDoors = 1;
-		if(actuallNumOfDoors != 0){
-		List doorList = new ArrayList();
-		List choosenDoorList = new ArrayList();
-		for(int i = 0; i <= actuallNumOfDoors; i++){
-			doorList.add(possibleDoorLocations[i]);
-		}
-		for(int i = 0; i <= actuallNumOfDoors; i++){
-				int choosenIndex = rand.nextInt(doorList.size());
-				int[][] choosenDoor =(int[][]) doorList.remove(choosenIndex);
-				choosenDoorList.add(choosenDoor);
-				//Make a door Opening
-				blocks[choosenDoor[0][0]][choosenDoor[0][1]][choosenDoor[0][2]] = Blocks.air.getDefaultState();
-				blocks[choosenDoor[1][0]][choosenDoor[1][1]][choosenDoor[1][2]] = Blocks.air.getDefaultState();
-				blocks[choosenDoor[2][0]][choosenDoor[2][1]][choosenDoor[2][2]] = Blocks.air.getDefaultState();
-				blocks[choosenDoor[3][0]][choosenDoor[3][1]][choosenDoor[3][2]] = Blocks.air.getDefaultState();
-		}
-			doorLocations = new int[choosenDoorList.size()][4][3];
-			for(int i = 0; i < choosenDoorList.size(); i++){
-				doorLocations[i] = (int[][]) choosenDoorList.get(i);
-			}
-		}else{
-			//HURRAY FOR EMPTY ARRAYS
-			doorLocations = new int[0][0][0];	
-		}
+		doorLocations[0] = possibleDoorLocations[rand.nextInt(possibleDoorLocations.length)];
+		blocks[doorLocations[0][0][0]][doorLocations[0][0][1]][doorLocations[0][0][2]] = Blocks.air.getDefaultState();
+		blocks[doorLocations[0][1][0]][doorLocations[0][1][1]][doorLocations[0][1][2]] = Blocks.air.getDefaultState();
+		blocks[doorLocations[0][2][0]][doorLocations[0][2][1]][doorLocations[0][2][2]] = Blocks.air.getDefaultState();
+		blocks[doorLocations[0][3][0]][doorLocations[0][3][1]][doorLocations[0][3][2]] = Blocks.air.getDefaultState();
 	}
 	private void addRandomChests() {
 		int actuallRandomChestNumber = rand.nextInt(maxChests - minChests + 1) + minChests;

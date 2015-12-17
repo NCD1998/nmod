@@ -15,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -36,8 +37,8 @@ public class LockedSkyChestSemirare extends NBlock
 	private final int[] quantitymin = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10,5,7,1,1,1,1,1,1,1,1,1,1,3,10,5,1};
 	private final int[] quantitymax = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,20,10,12,1,1,1,1,1,1,1,1,1,1,5,20,7,1};
 	//private final int[] rarity = {};
-	private final int maxItems = 5;
-	private final int minItems = 3;
+	private final int maxItems = 2;
+	private final int minItems = 1;
 	private Random rand = new Random();
 	public LockedSkyChestSemirare()
 	{
@@ -90,6 +91,12 @@ public class LockedSkyChestSemirare extends NBlock
 						 worldIn.spawnEntityInWorld(currentItem);
 					 }
 					 
+				 }
+				 if(worldIn.isRemote){
+					 for(int i = 0; i< 50; i++){
+						 worldIn.spawnParticle(EnumParticleTypes.PORTAL, pos.getX() + .5, pos.getY() , pos.getZ() + .5, 0, 1, 0);
+				 
+					 }
 				 }
 				 worldIn.setBlockToAir(pos);
 				 return false;

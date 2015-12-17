@@ -3,7 +3,6 @@ package com.ncd1998.nmod.World;
 import java.util.Random;
 
 import com.ncd1998.nmod.Init.NBlocks;
-import com.ncd1998.nmod.TileEntities.MagicLeafTileEntity;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockVine;
@@ -176,9 +175,6 @@ public class WorldGenMysticTree extends WorldGenAbstractTree{
                                     if (block.isAir(worldIn, blockpos1) || block.isLeaves(worldIn, blockpos1) || block.getMaterial() == Material.vine)
                                     {
                                         this.func_175905_a(worldIn, blockpos1, leaf, this.metaLeaves);
-                                        if(worldIn.getBlockState(blockpos1).equals(NBlocks.MagicFruitLeaves)){
-                                        	((MagicLeafTileEntity) worldIn.getTileEntity(blockpos1)).replaceTag((NBTTagCompound) tag.copy());;
-                                        }
                                     }
                                 }
                             }

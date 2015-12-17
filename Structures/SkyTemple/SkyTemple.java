@@ -29,17 +29,14 @@ public class SkyTemple implements IGeneratableStructure{
 		entry.build(world, startpos);
 		BlockPos builderPointer = startpos.add(16,0,0);
 		SkyTempleBaseFloor1 floor1 = new SkyTempleBaseFloor1();
-		
-		
-		
 		floor1.build(world, builderPointer);
-		builderPointer.add(0,16,0);
+		builderPointer = builderPointer.add(0,5,0);
 		SkyTempleBaseFloor2 floor2 = new SkyTempleBaseFloor2();
 		floor2.build(world, builderPointer);
-		builderPointer.add(0,16,0);
+		builderPointer = builderPointer.add(0,5,0);
 		SkyTempleBaseFloor3 floor3 = new SkyTempleBaseFloor3();
 		floor3.build(world, builderPointer);
-		builderPointer.add(0,16,0);
+		builderPointer = builderPointer.add(0,5,0);
 		SkyTempleBossRoof bossfloor = new SkyTempleBossRoof();
 		bossfloor.build(world, builderPointer);
 	}
